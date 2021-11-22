@@ -1,5 +1,5 @@
 ---
-title:  "[Jekyll] 블로그 포스팅하는 방법"
+title:  "[Jekyll] 블로그 포스팅 테스트"
 excerpt: "GitHub Blog 시작. 어렵다고 포기하지 말고 존버하자"
 
 categories:

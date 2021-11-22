@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-22T20:48:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Site Title</title><subtitle>An amazing website.</subtitle><author><name>Your Name</name></author><entry><title type="html">[Jekyll] 블로그 포스팅 테스트</title><link href="http://localhost:4000/blog/first-post/" rel="alternate" type="text/html" title="[Jekyll] 블로그 포스팅 테스트" /><published>2021-11-22T00:00:00+09:00</published><updated>2021-11-12T00:00:00+09:00</updated><id>http://localhost:4000/blog/first-post</id><content type="html" xml:base="http://localhost:4000/blog/first-post/">&lt;h3 id=&quot;첫-번째-포스트&quot;&gt;첫 번째 포스트&lt;/h3&gt;
+
+&lt;p&gt;기술 블로그를 위한 깃허브 블로그&lt;/p&gt;
+
+&lt;h4 id=&quot;한글-테스트&quot;&gt;한글 테스트&lt;/h4&gt;
+
+&lt;p&gt;모든 국민은 법률이 정하는 바에 의하여 국가기관에 문서로 청원할 권리를 가진다. 모든 국민은 근로의 의무를 진다. 국가는 근로의 의무의 내용과 조건을 민주주의원칙에 따라 법률로 정한다.&lt;/p&gt;
+
+&lt;p&gt;이 헌법에 의한 최초의 대통령의 임기는 이 헌법시행일로부터 개시한다. 모든 국민은 보건에 관하여 국가의 보호를 받는다. 국민의 모든 자유와 권리는 국가안전보장·질서유지 또는 공공복리를 위하여 필요한 경우에 한하여 법률로써 제한할 수 있으며, 제한하는 경우에도 자유와 권리의 본질적인 내용을 침해할 수 없다.&lt;/p&gt;
+
+&lt;h4 id=&quot;영어-테스트&quot;&gt;영어 테스트&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Lorem Ipsum&lt;/strong&gt; is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&lt;/p&gt;</content><author><name>Your Name</name></author><category term="Blog" /><category term="Blog" /><category term="jekyll" /><category term="Github" /><category term="Git" /><summary type="html">GitHub Blog 시작. 어렵다고 포기하지 말고 존버하자</summary></entry></feed>
