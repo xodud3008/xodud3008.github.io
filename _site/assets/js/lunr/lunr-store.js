@@ -4,4 +4,10 @@ var store = [{
         "tags": ["Blog","jekyll","Github","Git"],
         "url": "/blog/first-post/",
         "teaser": null
+      },{
+        "title": "[코딩테스트] Algorithm08",
+        "excerpt":"문제 정수를 요소로 갖는 배열을 입력받아 3개의 요소를 곱해 나올 수 있는 최대값을 리턴 입력 number 타입을 요소로 갖는 임의의 배열 출력 number 타입을 리턴 주의사항 입력으로 주어진 배열은 중첩되지 않은 1차원 배열 배열의 요소는 음수와 0을 포함하는 정수 배열의 길이는 3 이상 해결과정 입력된 배열을 내림차순으로 정렬 계산값을 저장할...","categories": ["CodingTest"],
+        "tags": ["Blog","jekyll","Github","Git","Codingtest","Algorithm","largestProductOfThree"],
+        "url": "/codingtest/Algorithm08/",
+        "teaser": null
       }]
