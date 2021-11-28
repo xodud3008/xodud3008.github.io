@@ -1,0 +1,57 @@
+I"V<h4 id="문제">문제</h4>
+
+<p>문자열을 입력받아 아이소그램인지 여부를 리턴해야 합니다. 아이소그램(isogram)은 각 알파벳을 한번씩만 이용해서 만든 단어나 문구를 말합니다.</p>
+
+<h4 id="입력">입력</h4>
+
+<p>인자1: str</p>
+
+<p>string 타입의 공백 없는 문자열</p>
+
+<h4 id="출력">출력</h4>
+
+<p>boolean 타입</p>
+
+<h4 id="주의사항">주의사항</h4>
+
+<ul>
+  <li>빈 문자열을 입력받은 경우, <code class="language-plaintext highlighter-rouge">true</code> 리턴</li>
+  <li>대소문자 구별하지 않음</li>
+</ul>
+
+<h4 id="입출력-예시">입출력 예시</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let output = isIsogram('aba');
+console.log(output); // false
+
+output = isIsogram('Dermatoglyphics');
+console.log(output); // true
+
+output = isIsogram('moOse');
+console.log(output); // false
+</code></pre></div></div>
+
+<h4 id="해결과정">해결과정</h4>
+
+<ol>
+  <li>빈 배열일 경우 <code class="language-plaintext highlighter-rouge">true</code> 반환</li>
+  <li>2중 for문으로 중복된 문자가 있는지 확인</li>
+  <li>대소문자 구별이 없으므로 모든 문자를 소문자로 변환해서 검사</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">isIsogram</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">str</span> <span class="o">===</span> <span class="dl">''</span><span class="p">){</span>
+    <span class="k">return</span> <span class="kc">true</span>
+  <span class="p">}</span>
+  <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="nx">j</span><span class="o">&lt;</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">){</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">===</span> <span class="nx">str</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">()){</span>
+        <span class="k">return</span> <span class="kc">false</span>
+      <span class="p">}</span>      
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+:ET

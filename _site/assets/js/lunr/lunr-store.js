@@ -5,9 +5,15 @@ var store = [{
         "url": "/blog/first-post/",
         "teaser": null
       },{
-        "title": "[코딩테스트] Algorithm08",
+        "title": "Toy problem 8 largestProductOfThree",
         "excerpt":"문제 정수를 요소로 갖는 배열을 입력받아 3개의 요소를 곱해 나올 수 있는 최대값을 리턴 입력 number 타입을 요소로 갖는 임의의 배열 출력 number 타입을 리턴 주의사항 입력으로 주어진 배열은 중첩되지 않은 1차원 배열 배열의 요소는 음수와 0을 포함하는 정수 배열의 길이는 3 이상 해결과정 입력된 배열을 내림차순으로 정렬 계산값을 저장할...","categories": ["CodingTest"],
         "tags": ["Blog","jekyll","Github","Git","Codingtest","Algorithm","largestProductOfThree"],
         "url": "/codingtest/Algorithm08/",
+        "teaser": null
+      },{
+        "title": "Basic Algorithm 16 Isogram",
+        "excerpt":"문제 문자열을 입력받아 아이소그램인지 여부를 리턴해야 합니다. 아이소그램(isogram)은 각 알파벳을 한번씩만 이용해서 만든 단어나 문구를 말합니다. 입력 인자1: str string 타입의 공백 없는 문자열 출력 boolean 타입 주의사항 빈 문자열을 입력받은 경우, true 리턴 대소문자 구별하지 않음 입출력 예시 let output = isIsogram('aba'); console.log(output); // false output = isIsogram('Dermatoglyphics'); console.log(output);...","categories": ["CodingTest"],
+        "tags": ["Blog","jekyll","Github","Git","CodingTest","Algorithm","isIsogram"],
+        "url": "/codingtest/AlgorithmBasic16-Isogram/",
         "teaser": null
       }]

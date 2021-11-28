@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Toy problem 8 largestProductOfThree - 개발자로 성장하자</title>
-<meta name="description" content="코딩테스트 준비. 세 수를 곱해서 가장 큰 수 찾기. largestProductOfThree.">
+<!-- begin _includes/seo.html --><title>Basic Algorithm 16 Isogram - 개발자로 성장하자</title>
+<meta name="description" content="문자열을 입력받아 아이소그램인지 여부를 리턴해야 합니다. 아이소그램은 각 알파벳을 한번씩만 이용해서 만든 단어나 문구를 말합니다.">
 
 
   <meta name="author" content="Taeyoung">
@@ -22,32 +22,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="개발자로 성장하자">
-<meta property="og:title" content="Toy problem 8 largestProductOfThree">
-<meta property="og:url" content="http://localhost:4000/codingtest/Algorithm08/">
+<meta property="og:title" content="Basic Algorithm 16 Isogram">
+<meta property="og:url" content="http://localhost:4000/codingtest/AlgorithmBasic16-Isogram/">
 
 
-  <meta property="og:description" content="코딩테스트 준비. 세 수를 곱해서 가장 큰 수 찾기. largestProductOfThree.">
-
-
-
+  <meta property="og:description" content="문자열을 입력받아 아이소그램인지 여부를 리턴해야 합니다. 아이소그램은 각 알파벳을 한번씩만 이용해서 만든 단어나 문구를 말합니다.">
 
 
 
 
-  <meta property="article:published_time" content="2021-11-23T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2021-11-23T00:00:00+09:00">
+  <meta property="article:published_time" content="2021-11-27T00:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2021-11-27T00:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/codingtest/Algorithm08/">
+
+<link rel="canonical" href="http://localhost:4000/codingtest/AlgorithmBasic16-Isogram/">
 
 
 
@@ -261,16 +261,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Toy problem 8 largestProductOfThree">
-    <meta itemprop="description" content="코딩테스트 준비. 세 수를 곱해서 가장 큰 수 찾기. largestProductOfThree.">
-    <meta itemprop="datePublished" content="2021-11-23T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2021-11-23T00:00:00+09:00">
+    <meta itemprop="headline" content="Basic Algorithm 16 Isogram">
+    <meta itemprop="description" content="문자열을 입력받아 아이소그램인지 여부를 리턴해야 합니다. 아이소그램은 각 알파벳을 한번씩만 이용해서 만든 단어나 문구를 말합니다.">
+    <meta itemprop="datePublished" content="2021-11-27T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-11-27T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/codingtest/Algorithm08/" class="u-url" itemprop="url">Toy problem 8 largestProductOfThree
+            <a href="http://localhost:4000/codingtest/AlgorithmBasic16-Isogram/" class="u-url" itemprop="url">Basic Algorithm 16 Isogram
 </a>
           </h1>
           
@@ -302,54 +302,65 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-              <ul class="toc__menu"><li><a href="#문제">문제</a></li><li><a href="#입력">입력</a></li><li><a href="#출력">출력</a></li><li><a href="#주의사항">주의사항</a></li><li><a href="#해결과정">해결과정</a></li></ul>
+              <ul class="toc__menu"><li><a href="#문제">문제</a></li><li><a href="#입력">입력</a></li><li><a href="#출력">출력</a></li><li><a href="#주의사항">주의사항</a></li><li><a href="#입출력-예시">입출력 예시</a></li><li><a href="#해결과정">해결과정</a></li></ul>
 
             </nav>
           </aside>
         
         <h4 id="문제">문제</h4>
 
-<p>정수를 요소로 갖는 배열을 입력받아 3개의 요소를 곱해 나올 수 있는 최대값을 리턴</p>
+<p>문자열을 입력받아 아이소그램인지 여부를 리턴해야 합니다. 아이소그램(isogram)은 각 알파벳을 한번씩만 이용해서 만든 단어나 문구를 말합니다.</p>
 
 <h4 id="입력">입력</h4>
 
-<p><code class="language-plaintext highlighter-rouge">number</code> 타입을 요소로 갖는 임의의 배열</p>
+<p>인자1: str</p>
+
+<p>string 타입의 공백 없는 문자열</p>
 
 <h4 id="출력">출력</h4>
 
-<p><code class="language-plaintext highlighter-rouge">number</code> 타입을 리턴</p>
+<p>boolean 타입</p>
 
 <h4 id="주의사항">주의사항</h4>
 
 <ul>
-  <li>입력으로 주어진 배열은 중첩되지 않은 1차원 배열</li>
-  <li>배열의 요소는 <strong>음수와 0을 포함하는</strong> 정수</li>
-  <li>배열의 길이는 3 이상</li>
+  <li>빈 문자열을 입력받은 경우, <code class="language-plaintext highlighter-rouge">true</code> 리턴</li>
+  <li>대소문자 구별하지 않음</li>
 </ul>
+
+<h4 id="입출력-예시">입출력 예시</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let output = isIsogram('aba');
+console.log(output); // false
+
+output = isIsogram('Dermatoglyphics');
+console.log(output); // true
+
+output = isIsogram('moOse');
+console.log(output); // false
+</code></pre></div></div>
 
 <h4 id="해결과정">해결과정</h4>
 
 <ol>
-  <li>입력된 배열을 내림차순으로 정렬</li>
-  <li>계산값을 저장할 변수 선언(<code class="language-plaintext highlighter-rouge">cal1</code>, <code class="language-plaintext highlighter-rouge">cal2</code>)</li>
-  <li>배열에 음수가 없으면 배열의 앞 수 3개 곱한 값 리턴(<code class="language-plaintext highlighter-rouge">cal1</code>)</li>
-  <li>배열의 끝 수 2개가 음수면 <code class="language-plaintext highlighter-rouge">cal1</code> 과 배열의 끝 수 2개와 맨 앞 수 곱한 값(<code class="language-plaintext highlighter-rouge">cal2</code>) 비교</li>
-  <li>가장 큰 값 리턴</li>
+  <li>빈 배열일 경우 <code class="language-plaintext highlighter-rouge">true</code> 반환</li>
+  <li>2중 for문으로 중복된 문자가 있는지 확인</li>
+  <li>대소문자 구별이 없으므로 모든 문자를 소문자로 변환해서 검사</li>
 </ol>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">largestProductOfThree</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// TODO: 여기에 코드를 작성합니다.</span>
-  <span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">)</span>
-  <span class="kd">let</span> <span class="nx">cal1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="kd">let</span> <span class="nx">cal2</span> <span class="o">=</span> <span class="mi">0</span>
-  <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
-      <span class="nx">cal1</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-    <span class="p">}</span>  
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">isIsogram</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">str</span> <span class="o">===</span> <span class="dl">''</span><span class="p">){</span>
+    <span class="k">return</span> <span class="kc">true</span>
   <span class="p">}</span>
-  <span class="nx">cal2</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-  <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">cal1</span><span class="p">,</span> <span class="nx">cal2</span><span class="p">)</span>
-<span class="p">};</span>
+  <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="nx">j</span><span class="o">&lt;</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">){</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">===</span> <span class="nx">str</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">()){</span>
+        <span class="k">return</span> <span class="kc">false</span>
+      <span class="p">}</span>      
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 
@@ -372,15 +383,15 @@
     
       <a href="/tags/#blog" class="page__taxonomy-item p-category" rel="tag">Blog</a><span class="sep">, </span>
     
-      <a href="/tags/#codingtest" class="page__taxonomy-item p-category" rel="tag">Codingtest</a><span class="sep">, </span>
+      <a href="/tags/#codingtest" class="page__taxonomy-item p-category" rel="tag">CodingTest</a><span class="sep">, </span>
     
       <a href="/tags/#git" class="page__taxonomy-item p-category" rel="tag">Git</a><span class="sep">, </span>
     
       <a href="/tags/#github" class="page__taxonomy-item p-category" rel="tag">Github</a><span class="sep">, </span>
     
-      <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">jekyll</a><span class="sep">, </span>
+      <a href="/tags/#isisogram" class="page__taxonomy-item p-category" rel="tag">isIsogram</a><span class="sep">, </span>
     
-      <a href="/tags/#largestproductofthree" class="page__taxonomy-item p-category" rel="tag">largestProductOfThree</a>
+      <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">jekyll</a>
     
     </span>
   </p>
@@ -405,7 +416,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-11-23">November 23, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-11-27">November 27, 2021</time></p>
 
       </footer>
 
@@ -414,23 +425,22 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=Toy+problem+8+largestProductOfThree%20http%3A%2F%2Flocalhost%3A4000%2Fcodingtest%2FAlgorithm08%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=Basic+Algorithm+16+Isogram%20http%3A%2F%2Flocalhost%3A4000%2Fcodingtest%2FAlgorithmBasic16-Isogram%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcodingtest%2FAlgorithm08%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcodingtest%2FAlgorithmBasic16-Isogram%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcodingtest%2FAlgorithm08%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcodingtest%2FAlgorithmBasic16-Isogram%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/blog/first-post/" class="pagination--pager" title="[Jekyll] 블로그 포스팅 테스트
+      <a href="/codingtest/Algorithm08/" class="pagination--pager" title="Toy problem 8 largestProductOfThree
 ">이전</a>
     
     
-      <a href="/codingtest/AlgorithmBasic16-Isogram/" class="pagination--pager" title="Basic Algorithm 16 Isogram
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -454,7 +464,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/codingtest/AlgorithmBasic16-Isogram/" rel="permalink">Basic Algorithm 16 Isogram
+        <a href="/codingtest/Algorithm08/" rel="permalink">Toy problem 8 largestProductOfThree
 </a>
       
     </h2>
@@ -479,7 +489,7 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">문자열을 입력받아 아이소그램인지 여부를 리턴해야 합니다. 아이소그램은 각 알파벳을 한번씩만 이용해서 만든 단어나 문구를 말합니다.
+    <p class="archive__item-excerpt" itemprop="description">코딩테스트 준비. 세 수를 곱해서 가장 큰 수 찾기. largestProductOfThree.
 </p>
   </article>
 </div>
