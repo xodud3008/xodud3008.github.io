@@ -6,6 +6,8 @@ main:
     url: https://xodud3008.github.io/
   - title: "About"
     url: /about/
+  - title: Category
+    url: /category/  
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
