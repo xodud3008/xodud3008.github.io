@@ -4,10 +4,12 @@ main:
   #  url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - title: "Home"
     url: https://xodud3008.github.io/
+  - title: "TIL"
+    url: /categories/TIL/  
+  - title: "Categories"
+    url: /categories/  
   - title: "About"
-    url: /about/
-  - title: Category
-    url: /category/  
+    url: /about/ 
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"

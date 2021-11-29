@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>개발자로 성장하자</title>
+<!-- begin _includes/seo.html --><title>Posts by Category - 개발자로 성장하자</title>
 <meta name="description" content="Javascript와 Node.js를 공부하는 블로그">
 
 
@@ -20,8 +20,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="개발자로 성장하자">
-<meta property="og:title" content="개발자로 성장하자">
-<meta property="og:url" content="http://localhost:4000/">
+<meta property="og:title" content="Posts by Category">
+<meta property="og:url" content="http://localhost:4000/categories/">
 
 
   <meta property="og:description" content="Javascript와 Node.js를 공부하는 블로그">
@@ -41,7 +41,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/">
+<link rel="canonical" href="http://localhost:4000/categories/">
 
 
 
@@ -92,7 +92,7 @@
 
   </head>
 
-  <body class="layout--home">
+  <body class="layout--categories">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -258,58 +258,63 @@
 
   <div class="archive">
     
-      <h1 id="page-title" class="page__title"></h1>
+      <h1 id="page-title" class="page__title">Posts by Category</h1>
     
     
 
-<h3 class="archive__subtitle">최근 포스트</h3>
 
 
 
 
-<div class="entries-list">
+<ul class="taxonomy__index">
   
     
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/til/TIL-day40/" rel="permalink">TIL 컴포넌트 단위로 개발하기
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
     
       
+        <li>
+          <a href="#codingtest">
+            <strong>CodingTest</strong> <span class="taxonomy__count">2</span>
+          </a>
+        </li>
       
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          4 분 소요
-        
-      </span>
     
-  </p>
+      
+    
+  
+    
+      
+        <li>
+          <a href="#blog">
+            <strong>Blog</strong> <span class="taxonomy__count">1</span>
+          </a>
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          <a href="#til">
+            <strong>TIL</strong> <span class="taxonomy__count">1</span>
+          </a>
+        </li>
+      
+    
+  
+</ul>
 
 
-    <p class="archive__item-excerpt" itemprop="description">코드스테이츠 Section2 컴포넌트 단위로 개발하기
-</p>
-  </article>
-</div>
 
   
     
+  
+    
+      <section id="codingtest" class="taxonomy__section">
+        <h2 class="archive__subtitle">CodingTest</h2>
+        <div class="entries-list">
+          
+            
 
 
 
@@ -348,8 +353,8 @@
   </article>
 </div>
 
-  
-    
+          
+            
 
 
 
@@ -388,8 +393,22 @@
   </article>
 </div>
 
+          
+        </div>
+        <a href="#page-title" class="back-to-top">맨 위로 이동 &uarr;</a>
+      </section>
+    
   
     
+  
+
+  
+    
+      <section id="blog" class="taxonomy__section">
+        <h2 class="archive__subtitle">Blog</h2>
+        <div class="entries-list">
+          
+            
 
 
 
@@ -428,10 +447,64 @@
   </article>
 </div>
 
+          
+        </div>
+        <a href="#page-title" class="back-to-top">맨 위로 이동 &uarr;</a>
+      </section>
+    
   
+    
+  
+    
+      <section id="til" class="taxonomy__section">
+        <h2 class="archive__subtitle">TIL</h2>
+        <div class="entries-list">
+          
+            
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL-day40/" rel="permalink">TIL 컴포넌트 단위로 개발하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">코드스테이츠 Section2 컴포넌트 단위로 개발하기
+</p>
+  </article>
 </div>
 
-
+          
+        </div>
+        <a href="#page-title" class="back-to-top">맨 위로 이동 &uarr;</a>
+      </section>
+    
+  
 
 
   </div>

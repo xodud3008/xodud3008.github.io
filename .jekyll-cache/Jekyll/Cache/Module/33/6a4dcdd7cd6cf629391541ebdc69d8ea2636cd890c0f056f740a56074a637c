@@ -1,4 +1,4 @@
-I"d
+I"Ë
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
@@ -12,9 +12,11 @@
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="https://xodud3008.github.io/">Home</a>
             </li><li class="masthead__menu-item">
-              <a href="/about/">About</a>
+              <a href="/categories/TIL/">TIL</a>
             </li><li class="masthead__menu-item">
-              <a href="/category/">Category</a>
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">

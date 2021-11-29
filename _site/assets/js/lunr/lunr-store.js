@@ -16,4 +16,10 @@ var store = [{
         "tags": ["Blog","jekyll","Github","Git","CodingTest","Algorithm","isIsogram"],
         "url": "/codingtest/AlgorithmBasic16-Isogram/",
         "teaser": null
+      },{
+        "title": "TIL 컴포넌트 단위로 개발하기",
+        "excerpt":"Component Driven Development(CDD) 컴포넌트 단위 개발 디자인과 개발 단계에서부터 재사용할 수 있는 UI 컴포넌트를 만들어 효율적으로 페이지를 구성하는 방법 Storybook CDD가 트렌드로 자리잡으면서 이를 지원하는 도구 중 하나인 Component Explorer(컴포넌트 탐색기) 등장. 많은 UI 개발도구 중 하나인 Storybook 특징 각각의 컴포넌트들을 따로 볼 수 있게 구성해주어 한번에 하나의 컴포넌트에서 작업...","categories": ["TIL"],
+        "tags": ["Blog","jekyll","Github","Git","TIL","Javascript","React","Styled-component","CSS","CDD"],
+        "url": "/til/TIL-day40/",
+        "teaser": null
       }]
