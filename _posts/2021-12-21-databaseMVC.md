@@ -1,5 +1,20 @@
-### 데이터베이스 MVC(Model-View-Controller)
+---
+title:  "데이터베이스 MVC & ORM"
+excerpt: "데이터베이스 MVC, ORM"
 
+categories:
+  - TIL
+tags:
+  - [Blog, jekyll, Github, Git, TIL, Javascript, Database, schema, relation, relation database, SQL, NoSQL, MVC, ORM]
+
+toc: true
+toc_sticky: true
+ 
+date: 2021-12-22
+last_modified_at: 2021-12-22
+---
+### 데이터베이스 MVC(Model-View-Controller) & ORM
+#### MVC
 사용자 인터페이스, 데이터 및 논리 제어를 구현하는데 사용되는 소프트웨어 디자인 패턴. 
 
 소프트웨어의 비지니스 로직과 화면을 구분하는데 중점을 둔다. 이러한 관심사 분리를 통해 효율적으로 코드를 관리 할 수 있다.
@@ -9,3 +24,4 @@
 * Controller: 모델과 뷰로 명령 라우팅. 앱의 사용자로부터 입력에 대한 응답으로 Model 또는 View를 업데이트하는 로직 포함
 
 <img src="/assets/images/datamvc.png" width="80%" height="50%" title="dbmvc" alt="사진"/>
+
