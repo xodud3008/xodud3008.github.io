@@ -3,7 +3,7 @@ title: "Authentication - Cookie, Session"
 excerpt: "인증 & 보안. 쿠키, 세션 인증. 쿠키, 세션 사용법"
 
 categories:
-  - CodingTest
+  - TIL
 tags:
   - [Blog, jekyll, Github, Git, TIL, Javascript, authentication, cookie, session, Node.js, 인증서, 보안, 쿠키, 세션]
 
