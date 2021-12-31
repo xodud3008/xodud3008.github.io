@@ -1,3 +1,18 @@
+---
+title: "Authentication - Token"
+excerpt: "인증 & 보안"
+
+categories:
+  - CodingTest
+tags:
+  - [Blog, jekyll, Github, Git, TIL, Javascript, authentication, cookie, session, Node.js, 인증서, 보안, 쿠키, 세션, token, 토큰]
+
+toc: true
+toc_sticky: true
+ 
+date: 2021-12-26
+last_modified_at: 2021-12-26
+---
 #### Token 기반 인증
 매 요청시 데이터베이스를 확인하는 세션 기반 인증의 불편함을 해결하기 위해 토큰 기반 인증 사용.
 
