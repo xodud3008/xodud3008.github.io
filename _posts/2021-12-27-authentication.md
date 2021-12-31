@@ -1,6 +1,6 @@
 ---
 title: "Authentication - Cookie, Session"
-excerpt: "인증 & 보안"
+excerpt: "인증 & 보안. 쿠키, 세션 인증. 쿠키, 세션 사용법"
 
 categories:
   - CodingTest

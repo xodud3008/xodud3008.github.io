@@ -1,6 +1,6 @@
 ---
 title: "Authentication - Token"
-excerpt: "인증 & 보안"
+excerpt: "인증 & 보안. 토큰 인증, 토큰 사용법"
 
 categories:
   - CodingTest
