@@ -10,8 +10,8 @@ tags:
 toc: true
 toc_sticky: true
  
-date: 2021-12-26
-last_modified_at: 2021-12-26
+date: 2021-12-27
+last_modified_at: 2021-12-27
 ---
 #### HTTPS
 http 요청을 SSL 또는 TLS 알고리즘을 이용해 HTTP 통신을 하는 과정에서 내용을 암호화하여 데이터를 전송하는 방법
