@@ -85,6 +85,24 @@ function permutation(arr, n, bucket){
 permutation([1,2,3], 3, []);
 ```
 
+forEach
+
+```javascript
+function permutation(sortFresh, choiceNum) {
+    let result = [];
+    if (choiceNum === 1) return sortFresh.map((v) => [v]);
+
+    sortFresh.forEach((v, idx, sortFresh) => {
+      const fixer = v;
+      const restArr = sortFresh.filter((_, index) => index !== idx);
+      const permuationArr = permutation(restArr, choiceNum - 1);
+      const combineFixer = permuationArr.map((v) => [fixer, ...v]);
+      result.push(...combineFixer);
+    });
+    return result;
+  }
+```
+
 #### 조합
 
 반복분 Version
