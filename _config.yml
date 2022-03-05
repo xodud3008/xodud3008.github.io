@@ -126,6 +126,9 @@ author:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
+    - label: "Discord"
+      icon: "fa-brands fa-discord"
+      url: https://discord.gg/kakaogg
 
 # Site Footer
 footer:
