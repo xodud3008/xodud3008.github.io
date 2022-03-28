@@ -1,0 +1,861 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>CSS 기초 - 개념 - 개발자로 성장하자</title>
+<meta name="description" content="코드스테이츠 CSS 기초 - 개념. CSS 사용방법">
+
+
+  <meta name="author" content="Taeyoung">
+  
+  <meta property="article:author" content="Taeyoung">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="개발자로 성장하자">
+<meta property="og:title" content="CSS 기초 - 개념">
+<meta property="og:url" content="http://localhost:4000/til/css/">
+
+
+  <meta property="og:description" content="코드스테이츠 CSS 기초 - 개념. CSS 사용방법">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-10-13T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-10-13T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/til/css/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Taeyoung",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개발자로 성장하자 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <style> 
+      ::-webkit-scrollbar{width: 10px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 10px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 10px;}
+      ::-webkit-scrollbar-thumb:hover {background: black;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:8px;height:8px;background:transparent;
+      }
+    </style>
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개발자로 성장하자
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://xodud3008.github.io/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/TIL/">TIL</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Taeyoung</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Keep going and going</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:xodud3008@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/xodud3008" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://discord.gg/kakaogg" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-discord" aria-hidden="true"></i><span class="label">Discord</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="CSS 기초 - 개념">
+    <meta itemprop="description" content="코드스테이츠 CSS 기초 - 개념. CSS 사용방법">
+    <meta itemprop="datePublished" content="2021-10-13T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-10-13T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/til/css/" class="u-url" itemprop="url">CSS 기초 - 개념
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#개념">개념</a></li><li><a href="#사용방법">사용방법</a><ul><li><a href="#셀렉터">셀렉터</a></li></ul></li><li><a href="#텍스트">텍스트</a></li><li><a href="#박스">박스</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h4 id="개념">개념</h4>
+<p>사용자에게 편의를 제공하기 위한 스타일링에 사용. 독릭적으로 사용되지 않고 반드시 HTML에서 동작한다.</p>
+<ul>
+  <li>시맨틱 태그: <code class="language-plaintext highlighter-rouge">&lt;divb&gt;</code>와 같은 역할이지만 이름에 의미를 붙여서 부르는 태그</li>
+</ul>
+
+<h4 id="사용방법">사용방법</h4>
+<p><code class="language-plaintext highlighter-rouge">body{ color: red, font-size: 30px }</code></p>
+
+<ul>
+  <li>background와 background-color의 차이점
+    <ul>
+      <li>background-color는 단순히 색 옵션만 가능</li>
+      <li>background는 다양한 옵션 추가 가능
+ex) background-color/image/repeat/attachment/position</li>
+    </ul>
+  </li>
+  <li>CSS 파일을 사용하기 위해 HTML 파일과 연결 필요
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;link rel="stylesheet" href="index.css" /&gt;</code></li>
+      <li>rel: 파일의 역할이나 특징</li>
+      <li>href: 파일의 위치</li>
+    </ul>
+  </li>
+  <li>CSS 스타일 적용 방법
+    <ul>
+      <li>인라인 스타일(같은 줄에 바로 스타일 적용)</li>
+      <li>내부 스타일 시트(style 태그에 작성)</li>
+      <li>외부 스타일 시트(CSS 파일 HTML에 연결)</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="셀렉터">셀렉터</h5>
+<p>HTML 문서에는 이름이 같은 태그들이 많다. 이때 id 또는 class를 지정해서 특정한 태그만 css를 적용할 수 있다.</p>
+
+<ul>
+  <li>id
+    <ul>
+      <li>#test-title{color: red;}</li>
+      <li>id는 하나의 태그에만 사용 가능(중복 불가)</li>
+      <li>id는 #으로 지정</li>
+    </ul>
+  </li>
+  <li>class
+    <ul>
+      <li>
+        <div class="menu-item">사과<div>
+</div></div>
+      </li>
+      <li>
+        <div class="menu-item">배<div>
+</div></div>
+      </li>
+      <li>
+        <div class="menu-item">포도<div>
+</div></div>
+      </li>
+      <li>class는 .으로 지정</li>
+      <li>.menu-item{text-decoration: underline}</li>
+      <li>클래스 명이 같은 모든 태그의 스타일이 바뀐다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="텍스트">텍스트</h4>
+<ul>
+  <li>색상
+    <ul>
+      <li>color를 사용해서 변경</li>
+      <li>HEX값 또는 색상의 이름으로 지정</li>
+      <li>.name{color: red} or .name{color: #ff0000}</li>
+      <li>글자색 이외에도 배경색, 테두리 색 등 다양한 색 변경에 사용</li>
+    </ul>
+  </li>
+  <li>글꼴
+    <ul>
+      <li>font-family 사용</li>
+      <li>.name{font-family: “Noto Sans KR”, “Gothic”, “Verdana”}</li>
+      <li>font-family에 여러개 지정하면 fallback 기능</li>
+      <li>글꼴이 없거나 사용할 수 없을 경우 앞에서 부터 차례대로 적용됨.</li>
+    </ul>
+  </li>
+  <li>크기
+    <ul>
+      <li>font-size</li>
+      <li>.name{font-size: 30px;}</li>
+      <li>단위
+        <ul>
+          <li>절대단위: px, pt =&gt; 기기나 브라우저 등 환경에 영향을 받지 않는 경우</li>
+          <li>상대단위: %, em, rem, ch, vw, vh =&gt; rem: 브라우저 기본 글자 크기 1rem 기준으로 조정</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>기타
+    <ul>
+      <li>font-weight: 굵기</li>
+      <li>text-decoration: 밑줄, 가로줄 등</li>
+      <li>letter-spacing: 자간</li>
+      <li>line-height: 행간</li>
+      <li>text-aligh: 정렬 =&gt; left, right, center, justify(양쪽 정렬)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="박스">박스</h4>
+<ul>
+  <li>block
+    <ul>
+      <li>줄바꿈 일어남</li>
+      <li>너비: 100%</li>
+      <li>width, height 사용 가능</li>
+    </ul>
+  </li>
+  <li>inline-block
+    <ul>
+      <li>줄바꿈 일어나지 않음</li>
+      <li>너비: 글자가 차지하는 만큼</li>
+      <li>width, height 사용 가능</li>
+    </ul>
+  </li>
+  <li>inline
+    <ul>
+      <li>줄바꿈 일어나지 않음</li>
+      <li>너비: 글자가 차지하는 만큼</li>
+      <li>width, height 사용 불가</li>
+    </ul>
+  </li>
+  <li>테두리
+    <ul>
+      <li>p{border: 1px soild gray;}</li>
+      <li>두께(border-width), 스타일(border-style), 색상(border-color) 추가 가능</li>
+    </ul>
+  </li>
+  <li>바깥 여백(margin)
+    <ul>
+      <li>p{margin: 10px 20px 30px 40px}
+        <ul>
+          <li>위(top), 오른쪽(right), 아래(botton), 왼쪽(left) 시계방향 순서</li>
+        </ul>
+      </li>
+      <li>개발자 도구에서 margin은 주황색으로 표시됨</li>
+      <li>필요한 위치에만 값 지정 가능
+        <ul>
+          <li>p{margin: 10px 20px} =&gt; 값을 두개만 넣으면 top, bottom 10px / rifht, left 20px</li>
+          <li>p{margin: 10px} =&gt; 모든 방향에 여백 적용</li>
+          <li>p{margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px;} =&gt; 각각의 값 지정 가능</li>
+        </ul>
+      </li>
+      <li>음수값 지정 가능 =&gt; 다른 엘리먼트와 간격이 줄어든다</li>
+    </ul>
+  </li>
+  <li>안쪽 여백(padding)
+    <ul>
+      <li>margin과 같은 규칙 적용</li>
+      <li>p{padding: 10px 20px 30px 40px; border: 1px soild red; background-color-lightyellow;} =&gt; 배경이나 border 적용 가능</li>
+    </ul>
+  </li>
+  <li>박스를 벗어나는 컨텐츠 처리
+    <ul>
+      <li>p{height: 40px; overflow: auto}
+        <ul>
+          <li>overflow를 사용하면 박스보다 큰 콘텐츠에 스크롤 표시</li>
+          <li>overflow: hidden =&gt; 넘치는 콘텐츠 숨기기</li>
+          <li>overflow-x, overflow-y로 x축, y축 값 지정 가능</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>박스 크기
+    <ul>
+      <li>박스의 크기는 크기 + 여백</li>
+      <li>#container{width: 300px; padding: 10px; border: 2px solid red;}</li>
+      <li>박스의 크기 : 콘텐츠 영역(300px) + 여백(10px + 10px + 2px + 2px)</li>
+      <li>{box-sizing: border-box}
+        <ul>
+          <li>모든 박스에서 여백과 테두리를 포함한 크기로 계산됨</li>
+          <li>box-sizing은 HTML 문서 전체에 적용</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#blog" class="page__taxonomy-item p-category" rel="tag">Blog</a><span class="sep">, </span>
+    
+      <a href="/tags/#codestates" class="page__taxonomy-item p-category" rel="tag">codestates</a><span class="sep">, </span>
+    
+      <a href="/tags/#css" class="page__taxonomy-item p-category" rel="tag">CSS</a><span class="sep">, </span>
+    
+      <a href="/tags/#css-%EC%82%AC%EC%9A%A9%EB%B2%95" class="page__taxonomy-item p-category" rel="tag">CSS 사용법</a><span class="sep">, </span>
+    
+      <a href="/tags/#function" class="page__taxonomy-item p-category" rel="tag">function</a><span class="sep">, </span>
+    
+      <a href="/tags/#git" class="page__taxonomy-item p-category" rel="tag">Git</a><span class="sep">, </span>
+    
+      <a href="/tags/#github" class="page__taxonomy-item p-category" rel="tag">Github</a><span class="sep">, </span>
+    
+      <a href="/tags/#html" class="page__taxonomy-item p-category" rel="tag">HTML</a><span class="sep">, </span>
+    
+      <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a><span class="sep">, </span>
+    
+      <a href="/tags/#javascript-basic" class="page__taxonomy-item p-category" rel="tag">javascript basic</a><span class="sep">, </span>
+    
+      <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">jekyll</a><span class="sep">, </span>
+    
+      <a href="/tags/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%AC%B8%EC%9E%90%EC%97%B4" class="page__taxonomy-item p-category" rel="tag">문자열</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%B0%98%EB%B3%B5%EB%AC%B8" class="page__taxonomy-item p-category" rel="tag">반복문</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90" class="page__taxonomy-item p-category" rel="tag">자바스크립트 기본개념</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%83%80%EC%9E%85" class="page__taxonomy-item p-category" rel="tag">타입</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-10-13">October 13, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=CSS+%EA%B8%B0%EC%B4%88+-+%EA%B0%9C%EB%85%90%20http%3A%2F%2Flocalhost%3A4000%2Ftil%2Fcss%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftil%2Fcss%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftil%2Fcss%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/til/html/" class="pagination--pager" title="HTML 기본 개념
+">이전</a>
+    
+    
+      <a href="/blog/first-post/" class="pagination--pager" title="[Jekyll] 블로그 포스팅 테스트
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2022-02-20-algorithm-boardgame/" rel="permalink">
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/codingtest/LIS/" rel="permalink">Algorithm LIS
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">코딩테스트 준비. 배열의 연속되지 않는 부분 배열 중 모든 요소가 엄격하게 오름차순으로 정렬된 가장 긴 부분 배열. Longest Increasing Subsequence(LIS).
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/ha3/" rel="permalink">코드스테이츠 섹션3 회고
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">코드스테이츠 섹션3 HA3 회고, 느낀점, 나아갈 방향
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/algorithm-greedy/" rel="permalink">[Greedy] 짐 나르기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">알고리즘 문제. [Greedy] 짐 나르기
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+     crossorigin="anonymous"></script>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+     crossorigin="anonymous"></script>
+<!-- end custom footer snippets -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+            crossorigin="anonymous">
+        </script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-5216384132518164"
+            data-ad-slot="1582682122"
+            data-ad-format="auto"
+            data-full-width-responsive="true">
+        </ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/xodud3008" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Taeyoung. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

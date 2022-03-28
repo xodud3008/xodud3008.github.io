@@ -1,0 +1,108 @@
+I"<h3 id="데이터베이스-정규화">데이터베이스 정규화</h3>
+<p>데이터베이스의 논리적 설계 단계에서 중복을 최소화하게 데이터를 구조화하는 프로세스.</p>
+
+<h4 id="database-rdeundancy데이터-중복">Database Rdeundancy(데이터 중복)</h4>
+<ul>
+  <li>일관된 자료 처리 어려움</li>
+  <li>저장 공간 낭비</li>
+  <li>데이터 효율성 감소</li>
+</ul>
+
+<h4 id="data-integrity데이터-무결성">Data Integrity(데이터 무결성)</h4>
+<ul>
+  <li>입력된 데이터가 오염되지 않고, 입력된 그대로 데이터를 사용할 수 있다.</li>
+</ul>
+
+<h4 id="anomaly이상현상">Anomaly(이상현상)</h4>
+<ul>
+  <li>갱신 이상(update anomaly)
+    <ul>
+      <li>여러 행에 걸쳐 동일한 데이터가 있을 때, 어떤 행을 갱신해야 하는지 논리적인 일관성이 없는 경우에 발생.</li>
+    </ul>
+  </li>
+  <li>삽입 이상(insertion anomaly)
+    <ul>
+      <li>데이터를 삽입하지 못하는 경우.</li>
+    </ul>
+  </li>
+  <li>삭제 이상(deletion anomaly)
+    <ul>
+      <li>데이터의 특정 부분을 지울 때 의도치 않게 다른 부분도 함께 지우는 현상.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="정규화-단계">정규화 단계</h4>
+<ul>
+  <li>제1 정규화(1NF)
+    <ul>
+      <li>릴레이션에 속한 모든 도메인이 <strong>원자값</strong>만으로 구성.</li>
+      <li>도메인: 릴레이션에 포함된 각각의 속성들이 가질 수 있는 값들의 집합</li>
+    </ul>
+  </li>
+  <li>제2 정규화(2NF)
+    <ul>
+      <li>기본키가 아닌 모든 속성이 기본키에 대하여 <strong>완전 함수적 종속</strong>을 만족</li>
+      <li>완전 함수적 종속: 어떤 속성이 기본키에 대해 완전히 종속적일 때</li>
+    </ul>
+  </li>
+  <li>제3 정규화(3NF)
+    <ul>
+      <li>기본키가 아닌 모든 속성이 기본키에 대해 <strong>이행적 종속</strong>을 만족하지 않을 때</li>
+      <li>이행적 종속: A -&gt; B, B -&gt; C가 성립할 때 A -&gt; C가 성립되는 것</li>
+    </ul>
+  </li>
+  <li>BCNF 정규화
+    <ul>
+      <li>모든 결정자가 후보키가 되도록 하는 것.</li>
+    </ul>
+  </li>
+  <li>제4 정규화(4NF)
+    <ul>
+      <li><strong>다치 종속</strong> A -» B가 성립하는 경우</li>
+      <li>다치 종속: 릴레이션 R에 A, B, C 세 개의 속성이 속해 있을 때 속성(A, C)의 도메인 값에 대응되는 B의 도메인 값의 집합이 A 값에만 종속되고 C 값에 독립이면, B는 A에 다중치 종속이라 하고 A -»B로 표기</li>
+    </ul>
+  </li>
+  <li>제5 정규화(5NF)
+    <ul>
+      <li>릴레이션 R의 모든 <strong>조인 종속</strong>이 R의 후보키를 통해서만 성립되는 경우</li>
+      <li>조인 종속: 릴레이션 R의 모든 프로젝션을 조인한 결과 릴레이션 R과 동일한 경우 릴레이션 R은 조인 종속을 만족한다.</li>
+      <li>프로젝션: 릴레이션 R의 속성 리스트에 제시된 속성 값만을 추출하여 새로운 릴레이션을 만드는 연산.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="sql-종류">SQL 종류</h4>
+<ul>
+  <li>Data Definition Language(DDL)
+    <ul>
+      <li>데이터 정의어. 데이터를 정의할 때 사용하는 언어.</li>
+      <li><code class="language-plaintext highlighter-rouge">CREATE</code>, <code class="language-plaintext highlighter-rouge">DROP</code></li>
+    </ul>
+  </li>
+  <li>Data Manipulation Language(DML)
+    <ul>
+      <li>데이터 조작어. 데이터를 저장할 때 사용하는 언어.</li>
+      <li><code class="language-plaintext highlighter-rouge">INSERT INTO</code>, <code class="language-plaintext highlighter-rouge">DELETE</code></li>
+    </ul>
+  </li>
+  <li>Data Control Language(DCL)
+    <ul>
+      <li>데이터 제어어. 데이터베이스에 대한 접근 권한과 관련된 문법.</li>
+      <li><code class="language-plaintext highlighter-rouge">GRANT</code>, <code class="language-plaintext highlighter-rouge">REVOKE</code></li>
+    </ul>
+  </li>
+  <li>Data Query Language(DQL)
+    <ul>
+      <li>정해진 스키마 내에서 쿼리할 수 있는 언어. DML의 일부분으로 취급하기도 한다.</li>
+      <li><code class="language-plaintext highlighter-rouge">SELECT</code>,</li>
+    </ul>
+  </li>
+  <li>Transaction Control Language(TCL)
+    <ul>
+      <li>DML을 거친 데이터의 변경사항을 수정할 수 있다.</li>
+      <li><code class="language-plaintext highlighter-rouge">COMMIT</code>, <code class="language-plaintext highlighter-rouge">ROLLBACK</code></li>
+    </ul>
+  </li>
+</ul>
+:ET

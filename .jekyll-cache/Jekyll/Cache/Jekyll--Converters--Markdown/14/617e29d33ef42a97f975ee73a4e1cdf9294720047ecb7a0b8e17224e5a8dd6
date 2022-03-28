@@ -1,0 +1,31 @@
+I"~<h4 id="문제">문제</h4>
+<p>N개의 수가 주어졌을 때, 이를 오름차순으로 정렬하는 프로그램을 작성하시오.</p>
+
+<h4 id="입력">입력</h4>
+<p>첫째 줄에 수의 개수 N(1 ≤ N ≤ 1,000,000)이 주어진다. 둘째 줄부터 N개의 줄에는 수가 주어진다. 이 수는 절댓값이 1,000,000보다 작거나 같은 정수이다. 수는 중복되지 않는다.</p>
+
+<h4 id="출력">출력</h4>
+<p>첫째 줄부터 N개의 줄에 오름차순으로 정렬한 결과를 한 줄에 하나씩 출력한다.</p>
+
+<p><img src="/assets/images/2751.png" alt="1427" /></p>
+
+<h4 id="해결과정">해결과정</h4>
+<ol>
+  <li>2750번과 같은 문제, 숫자 범위만 달라져서 당황</li>
+  <li>같은 코드를 제출했는데 메모리 초과, 시간 초과</li>
+  <li>console.log 문제인 것을 확인하고 최대한 줄임</li>
+  <li>통과는 했지만 여전히 채점이 오래걸린다…</li>
+  <li>병합정렬이라는 것이 있으니 공부하자</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">).</span><span class="nx">readFileSync</span><span class="p">(</span><span class="dl">'</span><span class="s1">/dev/stdin</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">).</span><span class="nx">toString</span><span class="p">().</span><span class="nx">trim</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="se">\n</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="nx">input</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+
+<span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">);</span>
+
+<span class="c1">// 메모리 초과, 시간 초과를 위해 최대한 console.log를 줄였지만</span>
+<span class="c1">// 이것도 시간이 엄청 오래 걸림...</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">answer</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="se">\n</span><span class="dl">'</span><span class="p">));</span>
+</code></pre></div></div>
+:ET

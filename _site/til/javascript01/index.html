@@ -1,0 +1,713 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>자바스크립트 기본개념1 - 개발자로 성장하자</title>
+<meta name="description" content="코드스테이츠 자바스크립트 기본 개념, 변수, 함수, 타입">
+
+
+  <meta name="author" content="Taeyoung">
+  
+  <meta property="article:author" content="Taeyoung">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="개발자로 성장하자">
+<meta property="og:title" content="자바스크립트 기본개념1">
+<meta property="og:url" content="http://localhost:4000/til/javascript01/">
+
+
+  <meta property="og:description" content="코드스테이츠 자바스크립트 기본 개념, 변수, 함수, 타입">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-10-06T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-10-06T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/til/javascript01/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Taeyoung",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개발자로 성장하자 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <style> 
+      ::-webkit-scrollbar{width: 10px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 10px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 10px;}
+      ::-webkit-scrollbar-thumb:hover {background: black;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:8px;height:8px;background:transparent;
+      }
+    </style>
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개발자로 성장하자
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://xodud3008.github.io/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/TIL/">TIL</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Taeyoung</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Keep going and going</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:xodud3008@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/xodud3008" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://discord.gg/kakaogg" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-discord" aria-hidden="true"></i><span class="label">Discord</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="자바스크립트 기본개념1">
+    <meta itemprop="description" content="코드스테이츠 자바스크립트 기본 개념, 변수, 함수, 타입">
+    <meta itemprop="datePublished" content="2021-10-06T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-10-06T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/til/javascript01/" class="u-url" itemprop="url">자바스크립트 기본개념1
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#변수">변수</a><ul><li><a href="#개념">개념</a></li><li><a href="#활용">활용</a></li></ul></li><li><a href="#타입">타입</a><ul><li><a href="#개념-1">개념</a></li></ul></li><li><a href="#함수">함수</a><ul><li><a href="#개념-2">개념</a></li><li><a href="#선언방법">선언방법</a></li></ul></li><li><a href="#조건문">조건문</a><ul><li><a href="#개념-3">개념</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h4 id="변수">변수</h4>
+<h5 id="개념">개념</h5>
+<ul>
+  <li>상황에 따라 변할 수 있는 값</li>
+  <li>선언은 let을 사용</li>
+  <li>할당을 위해 ‘=’ 사용
+ex) let i = apple</li>
+  <li>할당이 없다면 undefined(정의되지 않음)</li>
+</ul>
+
+<h5 id="활용">활용</h5>
+<ul>
+  <li>변수를 활용하여 반복적인 작업 편리하게 할 수 있다.
+ex) 구구단을 출력할 때, 단수를 변수로 설정해서 변수만 바꿔가며 출력 가능</li>
+  <li>변수명에 공백 사용 불가, Camel Case로 작성.</li>
+</ul>
+
+<h4 id="타입">타입</h4>
+<h5 id="개념-1">개념</h5>
+<ul>
+  <li>숫자, 문자열, 불리언 등 변수의 타입을 나타낸다.</li>
+  <li>타입이 섞인 배열, 객체 등이 있다.(자료형)</li>
+  <li>이 외에 undefined, 함수가 있다.</li>
+</ul>
+
+<h4 id="함수">함수</h4>
+<h5 id="개념-2">개념</h5>
+<ul>
+  <li>논리적인 일련의 작업을 하는 하나의 단위, 작은 기능의 단위</li>
+  <li>반복적으로 실행되는 작업을 효율적으로 관리할 수 있다.</li>
+  <li>입력값을 넣으면 항상 출력값을 반환한다.
+    <h5 id="선언방법">선언방법</h5>
+  </li>
+  <li>선언식, 표현식, 화살표 함수</li>
+</ul>
+
+<h4 id="조건문">조건문</h4>
+<h5 id="개념-3">개념</h5>
+<ul>
+  <li>비교 연산자를 사용하여 조건을 판별하는 기준을 설정</li>
+  <li>비교는 항상 true or false
+ex) 비교연산자 <code class="language-plaintext highlighter-rouge">&lt;</code>, <code class="language-plaintext highlighter-rouge">&gt;</code>, <code class="language-plaintext highlighter-rouge">&gt;=</code>, <code class="language-plaintext highlighter-rouge">&lt;=</code>, <code class="language-plaintext highlighter-rouge">===</code>, <code class="language-plaintext highlighter-rouge">!==</code>, <code class="language-plaintext highlighter-rouge">&amp;&amp;</code>, <code class="language-plaintext highlighter-rouge">||</code>, <code class="language-plaintext highlighter-rouge">!</code>…
+※ ==, != 는 사용하지 않는 것이 좋다.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#blog" class="page__taxonomy-item p-category" rel="tag">Blog</a><span class="sep">, </span>
+    
+      <a href="/tags/#function" class="page__taxonomy-item p-category" rel="tag">function</a><span class="sep">, </span>
+    
+      <a href="/tags/#git" class="page__taxonomy-item p-category" rel="tag">Git</a><span class="sep">, </span>
+    
+      <a href="/tags/#github" class="page__taxonomy-item p-category" rel="tag">Github</a><span class="sep">, </span>
+    
+      <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a><span class="sep">, </span>
+    
+      <a href="/tags/#javascript-basic" class="page__taxonomy-item p-category" rel="tag">javascript basic</a><span class="sep">, </span>
+    
+      <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">jekyll</a><span class="sep">, </span>
+    
+      <a href="/tags/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%B3%80%EC%88%98" class="page__taxonomy-item p-category" rel="tag">변수</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90" class="page__taxonomy-item p-category" rel="tag">자바스크립트 기본개념</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%A1%B0%EA%B1%B4%EB%AC%B8-codestates" class="page__taxonomy-item p-category" rel="tag">조건문 codestates</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%83%80%EC%9E%85" class="page__taxonomy-item p-category" rel="tag">타입</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%95%A8%EC%88%98" class="page__taxonomy-item p-category" rel="tag">함수</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-10-06">October 6, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8+%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%901%20http%3A%2F%2Flocalhost%3A4000%2Ftil%2Fjavascript01%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftil%2Fjavascript01%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftil%2Fjavascript01%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">이전</a>
+    
+    
+      <a href="/til/javascript02/" class="pagination--pager" title="자바스크립트 기본개념2
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2022-02-20-algorithm-boardgame/" rel="permalink">
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/codingtest/LIS/" rel="permalink">Algorithm LIS
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">코딩테스트 준비. 배열의 연속되지 않는 부분 배열 중 모든 요소가 엄격하게 오름차순으로 정렬된 가장 긴 부분 배열. Longest Increasing Subsequence(LIS).
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/ha3/" rel="permalink">코드스테이츠 섹션3 회고
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">코드스테이츠 섹션3 HA3 회고, 느낀점, 나아갈 방향
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/algorithm-greedy/" rel="permalink">[Greedy] 짐 나르기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">알고리즘 문제. [Greedy] 짐 나르기
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+     crossorigin="anonymous"></script>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+     crossorigin="anonymous"></script>
+<!-- end custom footer snippets -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+            crossorigin="anonymous">
+        </script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-5216384132518164"
+            data-ad-slot="1582682122"
+            data-ad-format="auto"
+            data-full-width-responsive="true">
+        </ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/xodud3008" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Taeyoung. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

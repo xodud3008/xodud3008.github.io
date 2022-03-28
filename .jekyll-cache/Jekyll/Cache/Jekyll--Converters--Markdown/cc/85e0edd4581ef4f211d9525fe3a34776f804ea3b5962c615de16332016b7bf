@@ -1,0 +1,84 @@
+I"�<h3 id="docker">Docker</h3>
+<p>리눅스 컨테이너에서 애플리케이션을 쉽게 포장하고, 컨테이너 방식으로 실행할 수 있게 하는 것. 실행 환경에 구애받지 않고 애플리케이션을 실행할 수 있다.</p>
+
+<h4 id="컨테이너-방식의-장점">컨테이너 방식의 장점</h4>
+<ul>
+  <li>의존성 충돌 문제를 해결해준다.
+    <ul>
+      <li>프로세스, 네트워크, 파일 시스템을 격리하고, 독립적으로 소유</li>
+    </ul>
+  </li>
+  <li>개발과 배포 환경을 일치시킨다.</li>
+  <li>수평 확장을 쉽게 해준다.</li>
+  <li>각 서버에 새로운 내용을 배포하기 쉽게 만들어준다.</li>
+</ul>
+
+<h4 id="핵심-키워드">핵심 키워드</h4>
+<ul>
+  <li>컨테이너: 애플리케이션이 의존성, 네트워크 환경, 파일 시스템에 구애받지 않고, 도커라는 기술 위에 실행될 수 있도록 만든 애플리케이션 상자</li>
+  <li>이미지: 애플리케이션 및 애플리케이션 구성을 함께 담아놓은 템플릿. 이미지를 이용해 여러 개의 컨테이너를 생성할 수 있고, 변경 사항을 추가/커밋해서 또 다른 이미지를 만들 수 있다.</li>
+  <li>레지스트리: 이미지를 저장하고 배포, 공유하는데 사용하는 장소.</li>
+</ul>
+
+<p>참고자료: <a href="https://docs.docker.com/engine/reference/commandline/container_run/">Docker docs</a></p>
+
+<ul>
+  <li>사용법: Docker CLI, Docker-Compose CLI, API Reference</li>
+  <li>환경 및 빌드 파일 구성: DockerFile, Docker-Compose File</li>
+</ul>
+
+<h4 id="도커-구성">도커 구성</h4>
+<p><strong>레지스트리 계졍/레포지토리 이름:태그</strong>
+<img src="/assets/images/docker.png" alt="docker" /></p>
+<ul>
+  <li>레포지토리
+    <ul>
+      <li>도커 이미지를 관리하는 공간</li>
+      <li>특별히 다른 것을 지정하지 않는다면, 도커 허브(Docker Hub)를 기본 레지스트리로 설정한다.</li>
+      <li>레지스트리는 Docker Hub, Private Docker Hub, 회사 내부용 레지스트리 등으로 나뉠 수 있다.</li>
+    </ul>
+  </li>
+  <li>레포지토리
+    <ul>
+      <li>레지스트리 내에 도커 이미지가 저장되는 공간</li>
+      <li>이미지 이름이 사용되기도 한다.</li>
+      <li>GitHub의 레포지토리와 유사</li>
+    </ul>
+  </li>
+  <li>태그
+    <ul>
+      <li>같은 이미지라고 할지라도 버전 별로 안의 내용이 조금은 다를 수 있다.</li>
+      <li>해당 이미지를 설명하는 버전 정보를 주로 입력한다.</li>
+      <li>특별히 다른 것을 지정하지 않는다면 <code class="language-plaintext highlighter-rouge">latest</code> 태그를 붙인 이미지를 가져온다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="docker-명령어">Docker 명령어</h4>
+<p>ex) docker/whalesay:latest</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">docker image pull docker/whalesay:latest</code> : 해당 도커의 최신 이미지 받아온다</li>
+  <li><code class="language-plaintext highlighter-rouge">docker image ls</code> : 이미지 리스트 출력</li>
+  <li><code class="language-plaintext highlighter-rouge">docker comtainer run --name whalesay docker/whalesay:latest cowsay boo</code> : 해댱 컨테이너 실행
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">--name</code>: 컨테이너 이름 할당</li>
+      <li><code class="language-plaintext highlighter-rouge">cowsay</code>: command로 초기 컨테이너 실행 시 수행되는 명령어 중 하나</li>
+      <li><code class="language-plaintext highlighter-rouge">boo</code>: command cowsay에 넘겨질 파라미터</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">docker container ps</code> : 현재 실행중인 컨테이너 리스트 출력</li>
+  <li><code class="language-plaintext highlighter-rouge">docker container ps -a</code> : 모든 컨테이너 리스트 출력</li>
+  <li><code class="language-plaintext highlighter-rouge">docker container rm [컨테이너 이름]</code> : 해당 컨테이너 삭제</li>
+  <li><code class="language-plaintext highlighter-rouge">docker rm [컨테이너1] [컨테이너2]..</code> : 컨테이너 여러개 삭제</li>
+  <li><code class="language-plaintext highlighter-rouge">docker rm -f [컨테이너]</code> : 실행중인 컨테이너 강제 종료 &amp; 삭제</li>
+  <li><code class="language-plaintext highlighter-rouge">docker iamge rm docker/whalesay</code> : 해당 이미지 삭제</li>
+  <li><code class="language-plaintext highlighter-rouge">docker rm `docker ps -a -q`</code>: 컨테이너 모두 삭제</li>
+</ul>
+
+<h4 id="컨테이너--가상머신vm">컨테이너 &amp; 가상머신(VM)</h4>
+<p>둘 다 프로세스, 네트워크, 파일 시스템을 격리할 수 있다. 하지만 작동원리는 많이 다르다.</p>
+<ul>
+  <li>VM은 많은 컴퓨팅 자원을 필요로 하는 반면, 도커는 한 호스트 컴퓨터에 여려개의 컨테이너를 띄워도 컴퓨터에 무리가 가지 않는다.</li>
+  <li>도커 이미지는 보통 애플리케이션 단위로 만들어져 있다. 반면 VM을 사용하기 위해서는 VM 위에 운영체제를 설치해야 한다.</li>
+</ul>
+:ET

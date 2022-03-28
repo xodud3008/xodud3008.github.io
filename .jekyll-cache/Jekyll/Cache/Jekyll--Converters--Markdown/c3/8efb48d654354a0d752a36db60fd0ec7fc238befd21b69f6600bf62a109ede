@@ -1,0 +1,124 @@
+I"�<h3 id="git">Git</h3>
+<h4 id="브랜치">브랜치</h4>
+<p>독립적으로 어떤 작업을 진행하기 위한 개념. 브랜치를 통해 코드를 통째로 복사한 후 원래 코드가 변형될 우려 없이 독립적으로 개발할 수 있다. 따라서 여러 작업을 동시에 진행할 수 있다.</p>
+
+<h5 id="장점">장점</h5>
+<ul>
+  <li>한 소스코드에서 동시에 다양한 작업을 할 수 있게 해준다.</li>
+  <li>소스코드의 한 시점과 동일한 상태를 만들고, 브랜치를 넘나들며 작업을 수행할 수 있다.</li>
+  <li>각각의 브랜치에서 생긴 변화가 다른 브랜치에 영향을 주지 않고 독립적으로 코딩을 진행할 수 있다.</li>
+</ul>
+
+<h5 id="종류">종류</h5>
+<ul>
+  <li>통합 브랜치: 배포될 소스가 기록되는 브랜치</li>
+  <li>피처 브랜치: 기능 추가, 버그 수정과 같이 단위 작업을 위한 브랜치</li>
+</ul>
+
+<h5 id="깃-명령어">깃 명령어</h5>
+<ul>
+  <li>새로운 브랜치 생성: <code class="language-plaintext highlighter-rouge">git branch 새로운 브랜치 이름</code></li>
+  <li>새로운 브랜치 생성 후 해당 브랜치로 전환: <code class="language-plaintext highlighter-rouge">git switch -c 브랜치 이름</code> or <code class="language-plaintext highlighter-rouge">git checkout -b 브랜치 이름</code></li>
+  <li>브랜치 목록 확인: <code class="language-plaintext highlighter-rouge">git branch</code></li>
+  <li>브랜치 목록과 각 브랜치의 최근 커밋 확인: <code class="language-plaintext highlighter-rouge">git branch -v</code></li>
+  <li>브랜치 삭제: <code class="language-plaintext highlighter-rouge">git brahcn -d 브랜치 이름</code></li>
+  <li>병합하지 않은 브랜치 강제 삭제: <code class="language-plaintext highlighter-rouge">gir branch -D</code></li>
+  <li>브랜치 전환: <code class="language-plaintext highlighter-rouge">git switch 브랜치 이름</code> or <code class="language-plaintext highlighter-rouge">git checkout 브랜치 이름</code></li>
+  <li>브랜치 병합(main 브랜치로 dev 브랜치 병합): <code class="language-plaintext highlighter-rouge">git checkout master</code> -&gt; <code class="language-plaintext highlighter-rouge">git merge dev</code></li>
+  <li>로그에 보든 브랜치를 그래프로 표현: <code class="language-plaintext highlighter-rouge">git log --branches --graph --decorate</code></li>
+  <li>아직 커밋하지 않은 작업 스택에 임시 저장: <code class="language-plaintext highlighter-rouge">git stash</code></li>
+  <li>병합을 취소하고 이전 커밋으로 되돌리기: <code class="language-plaintext highlighter-rouge">git reset --hard 커밋 넘버</code></li>
+  <li>특정 시점으로 돌아가기:
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reflog
+<span class="gh"># git의 기록을 확인 &gt; 각각 HEAD@{index} 형태로 index 갖고 있다.</span>
+git reset HEAD@{index}
+<span class="gh"># 해당 index로 돌아간다</span>
+</code></pre></div>    </div>
+  </li>
+  <li>커밋에 파일 추가(push 하기 전에만 하기)
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># 바뀐 파일 추가</span>
+git add . 
+<span class="gh"># 마지막 커밋에 바뀐 파일 추가됨</span>
+git commit --amend --no-edit
+</code></pre></div>    </div>
+    <p><strong>공개 브랜치에 push된 커밋은 절대 수정하면 안됨!!</strong></p>
+  </li>
+  <li>커밋 메세지 수정: <code class="language-plaintext highlighter-rouge">git commit --amend</code></li>
+  <li>다른 브랜치에 커밋해야 하는데 실수로 main에 커밋한 경우(push 하기 전에만 하기)
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># 현재 main의 상태로 새로운 브랜치 생성</span>
+git branch 브랜치 이름
+<span class="gh"># main 브랜치의 마지막 커밋 제거</span>
+git reset HEAD~ --hard
+git checkout 브랜치 이름
+<span class="gh"># 새로운 브랜치에는 커밋이 남아있다.</span>
+</code></pre></div>    </div>
+  </li>
+  <li>실수로 다른 브랜치에 커밋한 경우
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># 마지막 커밋 취소하고 변경사항 남기기</span>
+git reset HEAD~ --soft
+git stash
+<span class="gh"># 올바른 브랜치로 이동</span>
+git checkout 브랜치 이름
+git stash pop
+git add .
+git commit -m "커밋 메세지"
+</code></pre></div>    </div>
+    <p>또는</p>
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checouht 브랜치 이름
+<span class="gh"># main의 마지막 커밋 선택</span>
+git cherry-pick main
+<span class="gh"># main에서 해당 커밋 제거</span>
+git checkout main
+git reset HEAD~ --hard
+</code></pre></div>    </div>
+  </li>
+  <li>diff 실행시 아무것도 안보이는 경우: <code class="language-plaintext highlighter-rouge">git diff --staged</code></li>
+  <li>커밋 되돌리기
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># 되돌려야할 커밋의 hash 찾기</span>
+git log
+<span class="gh"># 에디터 창에서 새로 커밋 메세지 입력하거나 그냥 저장하고 종료해도 됨</span>
+git revert [hash]
+</code></pre></div>    </div>
+  </li>
+  <li>수정한 파일 되돌리기
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># 수정되기 전 커밋 hash 찾기</span>
+git log
+git checkout [hash] -- 파일 경로
+</code></pre></div>    </div>
+  </li>
+  <li>원격 레포지토리 버전으로 초기화
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># origin에서 최신 상태 받아오기</span>
+git fetch origin
+git checkout main
+git reset --hadr origin/main
+<span class="gh"># 추적되고 있지 않은 파일/폴더 모두 삭제</span>
+git clean -d --force
+<span class="gh"># 초기화하고 싶은 각 branch에 대해서 ckecout/reset/clean 반복</span>
+</code></pre></div>    </div>
+    <p><strong>되돌릴 수 없는 명령!!</strong></p>
+  </li>
+  <li>커밋 메세지를 합쳐서 머지하는 방법
+    <ul>
+      <li>커밋 히스토리를 깔끔하게 정리하는데 사용</li>
+      <li>여러 커밋 메세지를 하나로 합쳐서 머지
+        <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout main
+<span class="gh"># merge 하는 동시에 squash 사용해서 커밋 합치기</span>
+git merge --squash 브랜치 이름
+git commit -m "커밋 메세지"
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>참조 : <a href="https://dangitgit.com/ko">Dangit, git</a></p>
+
+<h5 id="merge--rebase">merge &amp; rebase</h5>
+<ul>
+  <li>merge: 변경 내용의 이력이 모두 남아 이력이 복잡해진다.</li>
+  <li>rebase: fast-forward 방식. branch base를 이동시킨다. merge처럼 브랜치 통합을 목적으로 하지만 특정 시점으로 브랜치가 가리키는 곳을 변경하는 기능</li>
+</ul>
+
+<h5 id="git을-활용하는-프로젝트-전체-workflow">Git을 활용하는 프로젝트 전체 workflow</h5>
+<center><img src="/assets/images/workflow.png" width="100%" height="70%" title="dbmvc" alt="사진" /></center>
+:ET

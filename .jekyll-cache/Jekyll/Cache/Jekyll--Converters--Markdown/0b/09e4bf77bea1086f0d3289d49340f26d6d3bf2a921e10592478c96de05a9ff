@@ -1,0 +1,242 @@
+I"U&<h3 id="linux">Linux</h3>
+
+<h4 id="사용-권한">사용 권한</h4>
+
+<h5 id="사용-권환-확인-방법mac-os-터미널에서-ls--l">사용 권환 확인 방법(Mac OS): 터미널에서 <code class="language-plaintext highlighter-rouge">ls -l</code></h5>
+
+<p><img src="/assets/images/12131.png" width="100%" height="50%" title="store" alt="사진" /></p>
+
+<ul>
+  <li>맨 앞에 d가 있으면 폴더, -면 파일</li>
+  <li>두번째 자리부터 세자리씩 <code class="language-plaintext highlighter-rouge">user</code>/<code class="language-plaintext highlighter-rouge">group</code>/<code class="language-plaintext highlighter-rouge">other</code> 의 권환 나타냄</li>
+  <li>user
+    <ul>
+      <li>파일의 소유자. 기본적으로 파일을 만든 사람</li>
+    </ul>
+  </li>
+  <li>group
+    <ul>
+      <li>여러 user가 포함될 수 있다. 그룹에 속한 모든 user는 파일에 대한 동일한 group 엑세스 권한 가짐</li>
+    </ul>
+  </li>
+  <li>other
+    <ul>
+      <li>파일에 대한 접근 권한이 있는 다른 user. Other 권한을 설정하면, global 권한 설정으로 볼 수 있음</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="권한-변경-방법">권한 변경 방법</h5>
+
+<p><code class="language-plaintext highlighter-rouge">chmod</code> 명령어로 파일, 폴더의 읽기 / 쓰기 / 실행 권한 변경. OS에 로그인한 사용자와, 폴더나 파일의 소유자가 다를 경우에는 관리자 권한을 획득하는 명령어 <code class="language-plaintext highlighter-rouge">sudo</code> 를 이용해 폴더나 파일의 권한을 변경할 수 있음</p>
+
+<h6 id="symbolic-method">Symbolic method</h6>
+
+<p>더하기(+), 빼기(-), 할당(=)과 엑세스 유형을 표기해서 변경</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Access class</th>
+      <th style="text-align: center">Operator</th>
+      <th style="text-align: center">Access type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">u (user)</td>
+      <td style="text-align: center">+ (add access)</td>
+      <td style="text-align: center">r (read)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">g (group)</td>
+      <td style="text-align: center">- (remove access)</td>
+      <td style="text-align: center">w (write)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">o (other)</td>
+      <td style="text-align: center">= (set exact access)</td>
+      <td style="text-align: center">x (execute)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">a (all)</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Symbolic method 사용 예시</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod g-r filename # removes read permission from group
+chmod g+r filename # adds read permission to group
+chmod g-w filename # removes write permission from group
+chmod g+w filename # adds write permission to group
+chmod g-x filename # removes execute permission from group
+chmod g+x filename # adds execute permission to group
+chmod o-r filename # removes read permission from other
+chmod o+r filename # adds read permission to other
+chmod o-w filename # removes write permission from other
+chmod o+w filename # adds write permission to other
+chmod o-x filename # removes execute permission from other
+chmod o+x filename # adds execute permission to other
+chmod u+x filename # adds execute permission to user
+
+chmod a=rw helloworld.js # -rw-rw-rw-
+chmod u= helloworld.js # ----rw-rw-
+chmod a+rx helloworld.js # -r-xrwxrwx
+chmod go-wx helloworld.js # -r-xr--r--
+chmod a= helloworld.js # ----------
+chmod u+rwx helloworld.js # -rwx------
+</code></pre></div></div>
+
+<h6 id="absolute-form">Absolute form</h6>
+
+<p>rwx를 3 bit로 해석하여, 숫자 3자리로 권한을 표기해서 변경</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Permission</th>
+      <th>Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Read (r)</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Write (w)</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Execute (x)</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Absolute form 사용 예시</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th style="text-align: center">Sum</th>
+      <th style="text-align: center">rwx</th>
+      <th>Permission</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>7</td>
+      <td style="text-align: center">4(r) + 2(w) + 1(x)</td>
+      <td style="text-align: center">rwx</td>
+      <td>read, write, execute</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td style="text-align: center">4(r) + 2(w) + 0(-)</td>
+      <td style="text-align: center">rw-</td>
+      <td>read, write</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td style="text-align: center">4(r) + 0(-) + 1(x)</td>
+      <td style="text-align: center">r-x</td>
+      <td>read, execute</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td style="text-align: center">4(r) + 0(-) + 0(-)</td>
+      <td style="text-align: center">r–</td>
+      <td>read only</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td style="text-align: center">0(-) + 2(w) + 1(x)</td>
+      <td style="text-align: center">-wx</td>
+      <td>write, execute</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td style="text-align: center">0(-) + 2(w) + 0(-)</td>
+      <td style="text-align: center">-w-</td>
+      <td>write only</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td style="text-align: center">0(-) + 0(-) + 1(x)</td>
+      <td style="text-align: center">–x</td>
+      <td>execute only</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td style="text-align: center">0(-) + 0(-) + 0(-)</td>
+      <td style="text-align: center">—</td>
+      <td>none</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>user는 <code class="language-plaintext highlighter-rouge">rwx</code> group과 other은 <code class="language-plaintext highlighter-rouge">r--</code>로 권한 변경</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># u=rwx (4 + 2 + 1 = 7), go=r (4 + 0 + 0 = 4)</span>
+chmod 744 helloworld.js # -rwxr--r--
+</code></pre></div></div>
+
+<h4 id="환경변수">환경변수</h4>
+
+<p>Linux 기반의 운영체제의 PC에는 시스템 자체에 전역변수를 설정할 수 있다. 그리고 시스템에 설정한 전역변수를 환경변수라고 한다. <code class="language-plaintext highlighter-rouge">export</code> 를 이용해 환경변수를 설정할 수 있다.</p>
+
+<p>환경변수를 이용해 민감한 정보를 관리할 수 있다. 또한 서로 다른 PC 또는 여러 .env 파일에서 같은 변수 이름에 다른 값 할당할 수 있다.</p>
+
+<h5 id="환경변수-추가">환경변수 추가</h5>
+
+<p><code class="language-plaintext highlighter-rouge">export</code> 명령어로 새로운 환경변수 추가.</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># 새로운 환경변수 urclass="is good" 설정. 이때 등호 표시 앞뒤는 반드시 공백이 없어야 함</span>
+export urclass="is good"
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">echo</code> 명령어로 환경변수 값 확인. $를 입력하여 변수라는 뜻을 터미널에 전달</p>
+
+<p><img src="/assets/images/12132.png" width="100%" height="30%" title="store" alt="사진" /></p>
+
+<h5 id="dotenv">dotenv</h5>
+
+<ul>
+  <li>npm module <code class="language-plaintext highlighter-rouge">dotenv</code>로 자바스크립트에서 환경변수 사용. (npm i dotenv)</li>
+  <li>Node.js의 내장객체 <code class="language-plaintext highlighter-rouge">process.env</code>로 <code class="language-plaintext highlighter-rouge">export</code> 와 동일한 내용 확인할 수 있다.</li>
+</ul>
+
+<h5 id="nodejs에-환경변수-영구-적용">Node.js에 환경변수 영구 적용</h5>
+
+<p><code class="language-plaintext highlighter-rouge">export</code> 명령어로 적용한 환경변수는 현재 터미널에서만 임시로 사용 가능. Linux 운영체제에 적용하기 위해 Node.js는 <code class="language-plaintext highlighter-rouge">.env</code> 파일을 만들어 저장하는 방법 사용</p>
+
+<ol>
+  <li>
+    <p>.env 파일 생성하고, 환경변수 입력 뒤 저장</p>
+
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># 파일 생성</span>
+nono .env
+<span class="gh"># 환경변수 입력, 저장</span>
+myname=hello
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>해당 파일 수정</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">dotenv</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">dotenv</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">dotenv</span><span class="p">.</span><span class="nx">config</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">myname</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>파일 실행하여 확인</p>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">node</span> <span class="nx">파일명</span><span class="p">.</span><span class="nx">js</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+:ET

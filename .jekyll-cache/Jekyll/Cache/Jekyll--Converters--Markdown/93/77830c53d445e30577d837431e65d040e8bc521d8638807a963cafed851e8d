@@ -1,0 +1,38 @@
+I"�<h4 id="문자열">문자열</h4>
+<ul>
+  <li>str.index[0] : 첫번째 index는 0부터 1X</li>
+  <li>+연산자 사용 가능
+    <ul>
+      <li>문자열 + 문자열 = 문자열이 합쳐진다.</li>
+      <li>숫자 + 문자열 = 문자열로 변환됨</li>
+    </ul>
+  </li>
+  <li>str.indexOf : 찾고자 하는 문자열
+    <ul>
+      <li>처음으로 일치하는 index 반환, 없을 땐 -1</li>
+    </ul>
+  </li>
+  <li>str.includes() : index를 포함하고 있는지 판별만 가능(true / false)</li>
+  <li>str.split(‘ ‘) : ‘ ‘를 기준으로 배열 만든다.</li>
+  <li>str.substring(시작, 끝) : 시작과 끝 사이의 문자열 반환</li>
+  <li>str.toUpperCase() / str.toLowerCase() : 대문자, 소문자로 변환
+    <ul>
+      <li>원본이 바뀌진 않는다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="반복문">반복문</h4>
+<h5 id="개념">개념</h5>
+<p>같거나 비슷한 코드를 여러번 실행시켜야 할 때 사용</p>
+
+<h5 id="사용">사용</h5>
+<ul>
+  <li>for(초기화; 조건문; 증감식){}</li>
+  <li>초기화 while(조건문){증감식}
+    <ul>
+      <li>초기화나 증감식이 필요 없을 때 사용하면 좋다.</li>
+    </ul>
+  </li>
+</ul>
+:ET

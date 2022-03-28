@@ -1,0 +1,31 @@
+I"9<h3 id="redux">Redux</h3>
+<p>자바스크립트 앱에서 예측가능한 상태관리를 해주는 Container</p>
+<h4 id="redux-세가지-원칙">Redux 세가지 원칙</h4>
+<ul>
+  <li>Single source of truth: 동일한 데이터는 항상 같은 곳에서 가져온다.(Store)</li>
+  <li>state is read-only: action 객체를 통해 state 변경</li>
+  <li>Change are made with pure functions: 순수 함수를 사용해서 변경
+    <h4 id="redux-기본개념">Redux 기본개념</h4>
+    <h5 id="store">Store</h5>
+    <p>상태가 관리되는 오직 하나의 공간
+<img src="/assets/images/store_img.png" width="90%" height="90%" title="store" alt="사진" /></p>
+    <h5 id="action">Action</h5>
+    <p>Simple Javascript Object
+<img src="/assets/images/action_img.png" width="90%" height="90%" title="action" alt="사진" />
+Action 객체에는 다양한 데이터(payload)가 담기고, store에 애플리케이션의 데이터를 운반하는 역할을 한다. 타입을 꼭 지정해야 함.</p>
+    <h5 id="reducer">Reducer</h5>
+    <p>현재 상태와 Action을 이용해 다음 상태를 만들어 냄
+<img src="/assets/images/reducer_img.png" width="90%" height="90%" title="reducer" alt="사진" /></p>
+  </li>
+  <li>데이터가 한 방향으로만 흘러야 한다</li>
+  <li>Redux의 state 업데이트는 불변성을 지켜야 한다
+    <h5 id="redux-기본-개념">Redux 기본 개념</h5>
+    <p><img src="/assets/images/redux_img.png" width="90%" height="90%" title="redux" alt="사진" /></p>
+    <h5 id="redux-장점">Redux 장점</h5>
+  </li>
+  <li>상태를 예측 가능하게 만든다: reducer는 순수함수이기 때문</li>
+  <li>유지보수 용이: action과 state log 기록시</li>
+  <li>디버깅에 유리: action과 state log 기록시</li>
+  <li>테스트 용이: 순수함수 사용하기 때문</li>
+</ul>
+:ET

@@ -1,0 +1,35 @@
+I"�<h4 id="문제">문제</h4>
+<p>0보다 크거나 같은 정수 N이 주어진다. 이때, N!을 출력하는 프로그램을 작성하시오.</p>
+
+<h4 id="입력">입력</h4>
+<p>첫째 줄에 정수 N(0 ≤ N ≤ 12)이 주어진다.</p>
+
+<h4 id="출력">출력</h4>
+<p>첫째 줄에 N!을 출력한다.</p>
+
+<p><img src="/assets/images/10872.png" alt="1427" /></p>
+
+<h4 id="해결과정">해결과정</h4>
+<ol>
+  <li>입력받는 숫자 N 선언</li>
+  <li>답이 나올 변수 answer를 1로 선언 =&gt; 첫번째 팩토리얼은 1이기 때문</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">).</span><span class="nx">readFileSync</span><span class="p">(</span><span class="dl">'</span><span class="s1">/dev/stdin</span><span class="dl">'</span><span class="p">).</span><span class="nx">toString</span><span class="p">().</span><span class="nx">trim</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="se">\n</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">N</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">// 0팩토리얼은 1</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">N</span> <span class="o">===</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">answer</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// 0이 아닐 때는 해당 숫자까지 늘어나면서 곱하기</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;=</span><span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="nx">answer</span> <span class="o">=</span> <span class="nx">answer</span> <span class="o">*</span> <span class="nx">i</span>
+    <span class="p">}</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">answer</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nx">profile</span>
+</code></pre></div></div>
+:ET

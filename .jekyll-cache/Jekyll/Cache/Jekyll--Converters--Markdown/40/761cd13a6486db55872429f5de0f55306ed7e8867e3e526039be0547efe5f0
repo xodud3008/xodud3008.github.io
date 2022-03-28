@@ -1,0 +1,53 @@
+I"�<h3 id="1차원-배열1546번">1차원 배열(1546번)</h3>
+<p>입력한 숫자를 주어진 공식으로 변형하여 그 수의 평균을 구하는 문제
+문제 푸는건 그렇게 어렵진 않았지만 백준에서 자꾸 틀렸다고 나와서 멘붕…</p>
+
+<p>백준에서는 console.log()에 식을 쓰지 않고, 최대한 함수를 사용해야 맞다고 나오는 것 같다.</p>
+
+<p>for문을 사용해서 합을 구한뒤 평균을 구한 코드는 틀렸지만, 배열의 합을 구하는 함수를 사용해서 답을 구하니 바로 맞았다.</p>
+
+<h4 id="사용한-함수">사용한 함수</h4>
+<p>오름차순으로 정렬하는 함수 : Array.sort((a,b) =&gt; a - b)</p>
+
+<p>배열의 합 구하는 함수 : let avg = arr.reduce((a, b) =&gt; a + b)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdin
+});
+
+let input = [];
+
+rl.on('line', function (line){
+    input.push(line);
+
+}).on('close',function (){
+
+    let N = Number(input[0]);
+    let A = input[1].split(' ').map(Number);
+
+    // 오름차순으로 정렬하는 함수 : Array.sort((a,b) =&gt; a - b)
+    A.sort((a, b) =&gt; a - b);
+
+    M = A[A.length-1];
+    let arr = []
+
+    for (let i = 0; i&lt;A.length; i++){
+        arr.push(A[i]/M*100)
+    }
+    console.log(arr)
+
+    // for문을 사용하여 합 구하기 =&gt; 틀림
+    // let sum = 0.0;
+    // for (let i = 0; i&lt;arr.length; i++){
+    //     sum = sum + arr[i];
+    // }
+
+    // 배열의 합 구하는 함수 사용 =&gt; 맞음
+    let avg = arr.reduce((a, b) =&gt; a + b) / N;
+    console.log(avg)
+
+    process.exit();
+});
+</code></pre></div></div>
+:ET

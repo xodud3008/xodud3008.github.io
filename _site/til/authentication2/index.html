@@ -1,0 +1,742 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Authentication - Token - 개발자로 성장하자</title>
+<meta name="description" content="인증 &amp; 보안. 토큰 인증, 토큰 사용법">
+
+
+  <meta name="author" content="Taeyoung">
+  
+  <meta property="article:author" content="Taeyoung">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="개발자로 성장하자">
+<meta property="og:title" content="Authentication - Token">
+<meta property="og:url" content="http://localhost:4000/til/authentication2/">
+
+
+  <meta property="og:description" content="인증 &amp; 보안. 토큰 인증, 토큰 사용법">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-28T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-12-28T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/til/authentication2/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Taeyoung",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개발자로 성장하자 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <style> 
+      ::-webkit-scrollbar{width: 10px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 10px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 10px;}
+      ::-webkit-scrollbar-thumb:hover {background: black;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:8px;height:8px;background:transparent;
+      }
+    </style>
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개발자로 성장하자
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://xodud3008.github.io/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/TIL/">TIL</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Taeyoung</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Keep going and going</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:xodud3008@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/xodud3008" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://discord.gg/kakaogg" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-discord" aria-hidden="true"></i><span class="label">Discord</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Authentication - Token">
+    <meta itemprop="description" content="인증 &amp; 보안. 토큰 인증, 토큰 사용법">
+    <meta itemprop="datePublished" content="2021-12-28T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-12-28T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/til/authentication2/" class="u-url" itemprop="url">Authentication - Token
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#token-기반-인증">Token 기반 인증</a><ul><li><a href="#jwtjson-wdb-token">JWT(JSON Wdb Token)</a></li><li><a href="#jwt-구조">JWT 구조</a></li><li><a href="#토큰기반-인증-절차">토큰기반 인증 절차</a></li><li><a href="#토큰기반-인증의-장점">토큰기반 인증의 장점</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h4 id="token-기반-인증">Token 기반 인증</h4>
+<p>매 요청시 데이터베이스를 확인하는 세션 기반 인증의 불편함을 해결하기 위해 토큰 기반 인증 사용.</p>
+
+<p><strong>토큰은 유저 정보를 암호화한 상태로 담을 수 있고, 암호화했기 때문에 클라이언트에 담을 수 있다.</strong></p>
+
+<h5 id="jwtjson-wdb-token">JWT(JSON Wdb Token)</h5>
+<ul>
+  <li>Access Token : 보호된 정보들에 접근할 수 있는 권한부여에 사용.</li>
+  <li>Refresh Token : 새로운 Access Token을 발급받는데 사용. 다시 로그인할 필요가 없다.</li>
+</ul>
+
+<h5 id="jwt-구조">JWT 구조</h5>
+<p>.으로 나우어진 3 부분이 존재</p>
+
+<p><img src="/assets/images/jwt.png" width="100%" height="50%" title="store" alt="사진" /></p>
+
+<ol>
+  <li>Header : 어떤 종류의 토큰인지, 어떤 알고리즘으로 sign 할지 적혀 있다. 이 제이슨 객체를 base64 방식으로 인코딩하면 첫번째 부분 완성
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+ "alg": "HS256",
+ "typ": "JWT
+}
+</code></pre></div>    </div>
+  </li>
+  <li>Payload : 정보가 담겨있는 곳. 어떤 정보에 접근 가능한지에 대한 권한을 담을 수 있고, 사용자의 유저 이름 등 필요한 데이터는 이곳에 담아 Sign 시킨다. 민감한 정보는 되도록 담지 않는 것이 좋다. base64로 인코딩하면 두번째 블록 완성
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+ "sub": "someInformation",
+ "name": "phillip",
+ "iat": 151623391
+}
+</code></pre></div>    </div>
+  </li>
+  <li>Signature : Header, Payload 부분이 완성되면, 원하는 비밀 키를 사용하여 암호화. 만약 HMAC SHA256 알고리즘을 사용하면 아래와 같은 방식으로 signature 생성.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HMACSHA256(base64UrlEncode(header) + '.' + base64UrlEncode(payload). secret);
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h5 id="토큰기반-인증-절차">토큰기반 인증 절차</h5>
+<p><img src="/assets/images/jwt2.png" width="100%" height="50%" title="store" alt="사진" /></p>
+
+<h5 id="토큰기반-인증의-장점">토큰기반 인증의 장점</h5>
+<ul>
+  <li>Statelessness &amp; Scalability(무상태성 &amp; 확장성)
+    <ul>
+      <li>서버는 클라이언트에 대한 정보를 저장할 필요 없다.(토큰 해독이 되는지만 판단)</li>
+      <li>클라이언트는 새로운 요청을 보낼 때마다 토큰을 헤더에 포함시키면 된다.(같은 토큰으로 여러 서버에서 인증 가능)</li>
+    </ul>
+  </li>
+  <li>안전하다
+    <ul>
+      <li>signature를 받은 토큰을 사용하고, 암호화 키를 노출할 필요 없음.</li>
+    </ul>
+  </li>
+  <li>어디서나 생성 가능
+    <ul>
+      <li>토큰을 확인하는 서버가 토큰을 만들어야 하는 법이 없다.</li>
+      <li>토큰 생성용 서버를 만들거나, 다른 회사에서 토큰 관련 작업을 맡기는 것 등 다양한 활용 가능.</li>
+    </ul>
+  </li>
+  <li>권한 부여에 용이
+    <ul>
+      <li>토큰의 payload 안에 어떤 정보에 접근 가능한지 정할 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#authentication" class="page__taxonomy-item p-category" rel="tag">authentication</a><span class="sep">, </span>
+    
+      <a href="/tags/#blog" class="page__taxonomy-item p-category" rel="tag">Blog</a><span class="sep">, </span>
+    
+      <a href="/tags/#cookie" class="page__taxonomy-item p-category" rel="tag">cookie</a><span class="sep">, </span>
+    
+      <a href="/tags/#git" class="page__taxonomy-item p-category" rel="tag">Git</a><span class="sep">, </span>
+    
+      <a href="/tags/#github" class="page__taxonomy-item p-category" rel="tag">Github</a><span class="sep">, </span>
+    
+      <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a><span class="sep">, </span>
+    
+      <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">jekyll</a><span class="sep">, </span>
+    
+      <a href="/tags/#node-js" class="page__taxonomy-item p-category" rel="tag">Node.js</a><span class="sep">, </span>
+    
+      <a href="/tags/#session" class="page__taxonomy-item p-category" rel="tag">session</a><span class="sep">, </span>
+    
+      <a href="/tags/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a><span class="sep">, </span>
+    
+      <a href="/tags/#token" class="page__taxonomy-item p-category" rel="tag">token</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%B3%B4%EC%95%88" class="page__taxonomy-item p-category" rel="tag">보안</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%84%B8%EC%85%98" class="page__taxonomy-item p-category" rel="tag">세션</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%9D%B8%EC%A6%9D%EC%84%9C" class="page__taxonomy-item p-category" rel="tag">인증서</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%BF%A0%ED%82%A4" class="page__taxonomy-item p-category" rel="tag">쿠키</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%86%A0%ED%81%B0" class="page__taxonomy-item p-category" rel="tag">토큰</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-12-28">December 28, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Authentication+-+Token%20http%3A%2F%2Flocalhost%3A4000%2Ftil%2Fauthentication2%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftil%2Fauthentication2%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftil%2Fauthentication2%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/til/authentication/" class="pagination--pager" title="Authentication - Cookie, Session
+">이전</a>
+    
+    
+      <a href="/til/authentication3/" class="pagination--pager" title="Authentication - oauth
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2022-02-20-algorithm-boardgame/" rel="permalink">
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/codingtest/LIS/" rel="permalink">Algorithm LIS
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">코딩테스트 준비. 배열의 연속되지 않는 부분 배열 중 모든 요소가 엄격하게 오름차순으로 정렬된 가장 긴 부분 배열. Longest Increasing Subsequence(LIS).
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/ha3/" rel="permalink">코드스테이츠 섹션3 회고
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">코드스테이츠 섹션3 HA3 회고, 느낀점, 나아갈 방향
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/algorithm-greedy/" rel="permalink">[Greedy] 짐 나르기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">알고리즘 문제. [Greedy] 짐 나르기
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+     crossorigin="anonymous"></script>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+     crossorigin="anonymous"></script>
+<!-- end custom footer snippets -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+            crossorigin="anonymous">
+        </script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-5216384132518164"
+            data-ad-slot="1582682122"
+            data-ad-format="auto"
+            data-full-width-responsive="true">
+        </ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/xodud3008" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Taeyoung. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

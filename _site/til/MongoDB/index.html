@@ -1,0 +1,847 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>MongoDB - 개발자로 성장하자</title>
+<meta name="description" content="MongoDB 사용법. 문법. 연산자 종류">
+
+
+  <meta name="author" content="Taeyoung">
+  
+  <meta property="article:author" content="Taeyoung">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="개발자로 성장하자">
+<meta property="og:title" content="MongoDB">
+<meta property="og:url" content="http://localhost:4000/til/MongoDB/">
+
+
+  <meta property="og:description" content="MongoDB 사용법. 문법. 연산자 종류">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-23T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-12-23T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/til/MongoDB/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Taeyoung",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개발자로 성장하자 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <style> 
+      ::-webkit-scrollbar{width: 10px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 10px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 10px;}
+      ::-webkit-scrollbar-thumb:hover {background: black;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:8px;height:8px;background:transparent;
+      }
+    </style>
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개발자로 성장하자
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://xodud3008.github.io/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/TIL/">TIL</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Taeyoung</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Keep going and going</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:xodud3008@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/xodud3008" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://discord.gg/kakaogg" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-discord" aria-hidden="true"></i><span class="label">Discord</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="MongoDB">
+    <meta itemprop="description" content="MongoDB 사용법. 문법. 연산자 종류">
+    <meta itemprop="datePublished" content="2021-12-23T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-12-23T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/til/MongoDB/" class="u-url" itemprop="url">MongoDB
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#mongodb-연산자">MongoDB 연산자</a><ul><li><a href="#비교-연산자">비교 연산자</a><ul><li><a href="#fieldoperatorvalueeq는-연산자가-지정되어-있지-않은-경우-기본-연산자로-사용됨">**{field:{operator:value}}**$eq는 연산자가 지정되어 있지 않은 경우 기본 연산자로 사용됨</a></li></ul></li><li><a href="#논리-연산자">논리 연산자</a><ul><li><a href="#operator-statement1-statement2-">**{operator:[{ statement1}, {statement2}, ...]}**</a></li><li><a href="#notstatement">**{$not:{statement}}**</a></li></ul></li><li><a href="#표현-연산자">표현 연산자</a><ul><li><a href="#operatorfieldvalue">**{operator:{field,value}**</a></li></ul></li><li><a href="#배열-연산자">배열 연산자</a></li><li><a href="#베열-연산자와-projection">베열 연산자와 Projection</a></li><li><a href="#배열과-서브-도큐먼트-쿼리">배열과 서브 도큐먼트 쿼리</a></li><li><a href="#aggregation-framework">Aggregation Framework</a></li><li><a href="#index">Index</a><ul><li><a href="#createindex">createIndex()</a></li><li><a href="#getindexes-dropindex">getIndexes, dropIndex</a></li></ul></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h3 id="mongodb-연산자">MongoDB 연산자</h3>
+<h4 id="비교-연산자">비교 연산자</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">$eq </code> : EQual to (=)</li>
+  <li><code class="language-plaintext highlighter-rouge">$ne</code> : Not Equal to (!=)</li>
+  <li><code class="language-plaintext highlighter-rouge">$gt</code> : Greater Than (&gt;)</li>
+  <li><code class="language-plaintext highlighter-rouge">$lt</code> : Les Than (&lt;)</li>
+  <li><code class="language-plaintext highlighter-rouge">$gte</code> : Greater Than or Equal to (&gt;=)</li>
+  <li><code class="language-plaintext highlighter-rouge">$lte</code> : Less Than or Equal to (&lt;=)</li>
+</ul>
+
+<h5 id="fieldoperatorvalueeq는-연산자가-지정되어-있지-않은-경우-기본-연산자로-사용됨"><center>**{field:{operator:value}}**<br />$eq는 연산자가 지정되어 있지 않은 경우 기본 연산자로 사용됨</center></h5>
+
+<h4 id="논리-연산자">논리 연산자</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">$and</code> : 주어진 모든 쿼리절과 일치. 연산자가 지정되지 않았을 때 기본 연산자로 사용됨. 동일한 연산자를 두번 이상 포함히야 할 때는 <code class="language-plaintext highlighter-rouge">$and</code> 명시</li>
+  <li><code class="language-plaintext highlighter-rouge">$or</code> : 주어진 쿼리절 하나라도 일치</li>
+  <li><code class="language-plaintext highlighter-rouge">$nor</code> : 주어진 모든 쿼리절과 일치하지 않음
+    <h5 id="operator-statement1-statement2-"><center>**{operator:[{ statement1}, {statement2}, ...]}**</center></h5>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">$not</code> : 주어진 쿼리와 일치하지 않음
+    <h5 id="notstatement"><center>**{$not:{statement}}**</center></h5>
+  </li>
+</ul>
+
+<h4 id="표현-연산자">표현 연산자</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">$expr</code>
+    <ul>
+      <li>쿼리 내에서 집계 표현식 사용 <code class="language-plaintext highlighter-rouge">{$expr:{&lt;expression&gt;}}</code></li>
+      <li>변수와 조건문 사용 가능</li>
+      <li>같은 도큐먼트 내의 필드들을 서로 비교</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">$</code>
+    <ul>
+      <li>연산자를 사용할 때를 나타냄</li>
+      <li>필드 이름 자체가 아니라 해당 필드의 값을 향하고 있음을 나타냄
+        <h5 id="operatorfieldvalue"><center>**{operator:{field,value}**</center></h5>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="배열-연산자">배열 연산자</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">$push</code> : 배열의 마지막 위치에 엘리먼트 삽입. 배열이 아닌 필드에 사용했을 경우, 필드의 타입을 배열로 바꿈. 배열 필드를 쿼리할 때, 배열 요소의 순서가 영향을 미친다.</li>
+  <li><code class="language-plaintext highlighter-rouge">$all</code> : 배열 필드에 지정한 요소가 있는 모든 도큐먼트 반환. 배열 요소의 순서와 상관없이 지정된 요소가 포함된 모든 도큐먼트 찾을 수 있다.</li>
+  <li><code class="language-plaintext highlighter-rouge">$size</code> : 반환하는 결과값 지정.</li>
+</ul>
+
+<p>지정된 배열 필드가 주어진 길이와 정확히 일치하는 모든 도큐먼트들이 있는 커서 반환 : <code class="language-plaintext highlighter-rouge">{array field:{"$size":number}</code></p>
+
+<p>지정된 배열 필드의 배열 순서와 관계없이 지정된 모든 요소가 포함된 모든 도큐먼트들이 있는 커서를 반환 : <code class="language-plaintext highlighter-rouge">{array field:{"$all":array}</code></p>
+
+<p><strong>배열 필드를 배열 연산자를 쓰지 않고 쿼리할 때</strong></p>
+
+<p>지정된 배열 필드에 요소와 순서가 정확히 일치하는 배열을 가진 도큐먼트 찾기 : <code class="language-plaintext highlighter-rouge">{array field:array}</code></p>
+
+<p>지정된 배열 필드에 문자열로 주어진 요소가 포함된 모든 도큐먼트 찾기 : <code class="language-plaintext highlighter-rouge">{array field:string}</code></p>
+
+<h4 id="베열-연산자와-projection">베열 연산자와 Projection</h4>
+<ul>
+  <li>Projection
+    <ul>
+      <li>db.collection.find({query},{projection})</li>
+      <li>projection에서 0과 1을 사용하여 특정 필드를 포함 또는 제외할지 여부를 지정할 수 있다. 혼용은 불가</li>
+      <li>예외적으로 디폴트로 포함되는 _id 필드를 명시적으로 제외하는 경우 혼용 가능 <code class="language-plaintext highlighter-rouge">{"_id:0",field:1}</code></li>
+    </ul>
+  </li>
+  <li>$elemMatch
+    <ul>
+      <li>{field:{“$elemMatch”:{field:value}}}</li>
+      <li>첫번째 인자에 쓰일 경우, 배열 필드의 서브 도큐먼트 필드가 쿼리와 일치하는 문서 검색</li>
+      <li>두번째 인자에 쓰일 경우, 지정된 기준과 일치하는 요소가 하나 이상 있는 배열 요소만 프로젝션</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="배열과-서브-도큐먼트-쿼리">배열과 서브 도큐먼트 쿼리</h4>
+<ul>
+  <li>MQL에서 Dot notation을 사용하여 서브 도큐먼트의 요소 참조 가능</li>
+  <li>배열에서 Dot notation을 사용하려면 요소의 위치를 지정해야 함</li>
+  <li>db.collection.find({“field 1.other field.also a field”:”value”})</li>
+</ul>
+
+<h4 id="aggregation-framework">Aggregation Framework</h4>
+<ul>
+  <li>MQL보다 다양한 쿼리 작성 가능</li>
+  <li>파이프라인의 각 단계 순서대로 데이터 처리. 이 안의 데이터는 원본데이터를 수정하거나 변경하지 않는다.</li>
+  <li>각 단계의 이름 앞에는 $가 있고, 그 뒤에는 실행할 작업에 대한 설명이 나온다.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">aggregate([{$stage1:{field:value}},{$stage2:{field:value}},...])</code></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">$match</code> : 지정된 조건과 일치하는 문서만 다음 파이프라인 단계로 전달하도록 문서를 필터링한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">$group</code> : 지정된 _id표현식에 따라 입력 문서를 그룹화하고 개별 그룹화에 대해 문서를 출력한다. _id각 출력 문서 의 필드에는 값별로 고유한 그룹이 포함된다.</li>
+  <li><code class="language-plaintext highlighter-rouge">$project</code> : 요청된 필드가 있는 문서를 파이프라인의 다음 단계로 전달한다. 지정된 필드는 입력 문서의 기존 필드 또는 새로 계산된 필드일 수 있다.</li>
+</ul>
+
+<h4 id="index">Index</h4>
+<p>몽고DB의 인덱스는 데이터를 탐색하기 쉬운 형태로 인덱스를 저장해야 하기 때문에 가나다순이 아닌 특수한 자료 구조로 나열되어 있다.</p>
+
+<p>예를 들어 영유아의 정보를 저장하는 infantsInfo 콜렉션에서 키가 80cm인 영유아의 몸무게 정보를 오름차순으로 받아오고 싶다면</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db</span><span class="p">.</span><span class="n">infantsInfo</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="err">{</span><span class="nv">"height"</span><span class="mi">80</span><span class="err">}</span><span class="p">).</span><span class="n">sort</span><span class="p">(</span><span class="nv">"weight"</span><span class="p">:</span><span class="mi">1</span><span class="p">).</span><span class="n">pretty</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h5 id="createindex">createIndex()</h5>
+<p>인덱스를 만들기 위해서 createIndex() 메소드 사용한다. 파라미터로 인덱스를 적용할 필드를 전달하고, 오름차순은 1, 내림차순은 -1로 지정한다. 필드명을 1개 지정하면 단일 필드 인덱스, 2개 이상이면 다중 인덱스.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db</span><span class="p">.</span><span class="n">collection_name</span><span class="p">.</span><span class="n">createIndex</span><span class="p">(</span><span class="err">{</span><span class="o">&lt;</span><span class="err">필드명</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="o">&lt;</span><span class="err">필드명</span><span class="o">&gt;</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="err">}</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>createIndex()의 두번째 파라미터로 속성을 추가할 수 있다.</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db</span><span class="p">.</span><span class="n">collection_name</span><span class="p">.</span><span class="n">createIndex</span><span class="p">(</span><span class="err">{</span><span class="o">&lt;</span><span class="err">필드명</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">1</span><span class="err">}</span><span class="p">,</span> <span class="err">{</span><span class="o">&lt;</span><span class="err">속성</span> <span class="n">property</span><span class="o">&gt;</span><span class="p">:</span><span class="k">true</span><span class="err">}</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Unique(유일함 속성): <code class="language-plaintext highlighter-rouge">_id</code> 필드와 같이 컬렉션에 단 한개의 값만 존재할 수 있는 속성.
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db</span><span class="p">.</span><span class="n">members</span><span class="p">.</span><span class="n">createIndex</span><span class="p">(</span> <span class="err">{</span> <span class="nv">"user_id"</span><span class="p">:</span> <span class="mi">1</span> <span class="err">}</span><span class="p">,</span> <span class="err">{</span> <span class="k">unique</span><span class="p">:</span> <span class="k">true</span> <span class="err">}</span> <span class="p">)</span>
+<span class="c1">-- members라는 컬렉션의 각 도큐먼트에 존재하는 user_id 필드의 인덱스를 중복값 없는 유일한 필드로 생성</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Partial(부분적 속성): 조건을 정해 일부 도큐먼트에만 인덱스 적용. 이를 위해 <code class="language-plaintext highlighter-rouge">partialFilterExpression</code> 옵션 사용.
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db</span><span class="p">.</span><span class="n">restauratns</span><span class="p">.</span><span class="n">createIndex</span><span class="p">(</span><span class="err">{</span><span class="nv">"cuisine"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="nv">"name"</span><span class="p">:</span><span class="mi">1</span><span class="err">}</span><span class="p">,</span>  <span class="err">{</span><span class="n">partialFilterExpression</span><span class="p">:</span><span class="err">{</span> <span class="n">rating</span><span class="p">:</span> <span class="err">{$</span><span class="n">gt</span><span class="p">:</span><span class="mi">4</span><span class="err">}}}</span><span class="p">)</span>
+<span class="c1">-- restaurants 라는 컬렉션에 cuisine, name 이라는 두 개의 필드를 사용하여 다중 인덱스 생성</span>
+</code></pre></div>    </div>
+  </li>
+  <li>TTL(Time-To-Live): Date 타입 혹은 Date 배열 타입의 필드에 적용 가능. 특정 시간이 지난 후, 도큐먼트를 컬렉션에서 삭제한다.
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db</span><span class="p">.</span><span class="n">eventlog</span><span class="p">.</span><span class="n">createIndex</span><span class="p">(</span> <span class="err">{</span> <span class="nv">"lastModifiedDate"</span><span class="p">:</span> <span class="mi">1</span> <span class="err">}</span><span class="p">,</span> <span class="err">{</span> <span class="n">expireAfterSeconds</span><span class="p">:</span> <span class="mi">3600</span> <span class="err">}</span> <span class="p">)</span>
+<span class="c1">-- lastModifiedDate와 3600초 이상 차이가 나면 도큐먼트를 컬렉션에서 제거</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h5 id="getindexes-dropindex">getIndexes, dropIndex</h5>
+<ul>
+  <li>인덱스 확인
+```sql
+db.collection_name.getIndexes()
+/*
+    <ul>
+      <li>인덱스를 생성하지 않았을 때는 _id값만 인덱스로 생성되어 있음
+*[{</li>
+      <li>“v” : 2,</li>
+      <li>“key” : {</li>
+      <li>“_id” : 1</li>
+      <li>},</li>
+      <li>“name” : “<em>id</em>”
+*}]
+*/
+```</li>
+    </ul>
+  </li>
+  <li>인덱스 삭제
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db</span><span class="p">.</span><span class="n">collection_name</span><span class="p">.</span><span class="n">dropIndex</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="o">//</span> <span class="k">or</span>
+<span class="n">db</span><span class="p">.</span><span class="n">collection_name</span><span class="p">.</span><span class="n">dropIndex</span><span class="p">(</span><span class="err">{</span><span class="o">&lt;</span><span class="n">field</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">1</span><span class="err">}</span><span class="p">)</span>
+
+<span class="o">//</span> <span class="err">모든</span> <span class="err">인덱스</span> <span class="err">삭제</span>
+<span class="n">db</span><span class="p">.</span><span class="n">collection_name</span><span class="p">.</span><span class="n">dropIndexes</span><span class="p">()</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#blog" class="page__taxonomy-item p-category" rel="tag">Blog</a><span class="sep">, </span>
+    
+      <a href="/tags/#chmod" class="page__taxonomy-item p-category" rel="tag">chmod</a><span class="sep">, </span>
+    
+      <a href="/tags/#database" class="page__taxonomy-item p-category" rel="tag">database</a><span class="sep">, </span>
+    
+      <a href="/tags/#git" class="page__taxonomy-item p-category" rel="tag">Git</a><span class="sep">, </span>
+    
+      <a href="/tags/#github" class="page__taxonomy-item p-category" rel="tag">Github</a><span class="sep">, </span>
+    
+      <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a><span class="sep">, </span>
+    
+      <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">jekyll</a><span class="sep">, </span>
+    
+      <a href="/tags/#linux" class="page__taxonomy-item p-category" rel="tag">linux</a><span class="sep">, </span>
+    
+      <a href="/tags/#mongodb" class="page__taxonomy-item p-category" rel="tag">MongoDB</a><span class="sep">, </span>
+    
+      <a href="/tags/#node-js" class="page__taxonomy-item p-category" rel="tag">node.js</a><span class="sep">, </span>
+    
+      <a href="/tags/#permission" class="page__taxonomy-item p-category" rel="tag">permission</a><span class="sep">, </span>
+    
+      <a href="/tags/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%85%B8%EB%93%9Cjs" class="page__taxonomy-item p-category" rel="tag">노드js</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4" class="page__taxonomy-item p-category" rel="tag">데이터베이스</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%AA%BD%EA%B3%A0db-%EC%97%B0%EC%82%B0%EC%9E%90" class="page__taxonomy-item p-category" rel="tag">몽고DB 연산자</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%AA%BD%EA%B3%A0%EB%94%94%EB%B9%84" class="page__taxonomy-item p-category" rel="tag">몽고디비</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%AA%BD%EA%B3%A0%EB%94%94%EB%B9%84-%EC%82%AC%EC%9A%A9" class="page__taxonomy-item p-category" rel="tag">몽고디비 사용</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%B0%B1%EC%97%94%EB%93%9C" class="page__taxonomy-item p-category" rel="tag">백엔드</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8" class="page__taxonomy-item p-category" rel="tag">자바스크립트</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-12-23">December 23, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=MongoDB%20http%3A%2F%2Flocalhost%3A4000%2Ftil%2FMongoDB%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FMongoDB%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FMongoDB%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/til/databaseMVC/" class="pagination--pager" title="데이터베이스 MVC &amp; ORM
+">이전</a>
+    
+    
+      <a href="/til/NoSQL/" class="pagination--pager" title="NoSQL
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2022-02-20-algorithm-boardgame/" rel="permalink">
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/codingtest/LIS/" rel="permalink">Algorithm LIS
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">코딩테스트 준비. 배열의 연속되지 않는 부분 배열 중 모든 요소가 엄격하게 오름차순으로 정렬된 가장 긴 부분 배열. Longest Increasing Subsequence(LIS).
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/ha3/" rel="permalink">코드스테이츠 섹션3 회고
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">코드스테이츠 섹션3 HA3 회고, 느낀점, 나아갈 방향
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/algorithm-greedy/" rel="permalink">[Greedy] 짐 나르기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">알고리즘 문제. [Greedy] 짐 나르기
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+     crossorigin="anonymous"></script>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+     crossorigin="anonymous"></script>
+<!-- end custom footer snippets -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+            crossorigin="anonymous">
+        </script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-5216384132518164"
+            data-ad-slot="1582682122"
+            data-ad-format="auto"
+            data-full-width-responsive="true">
+        </ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/xodud3008" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Taeyoung. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

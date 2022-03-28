@@ -1,0 +1,75 @@
+I"Q<h3 id="sql-내장함수">SQL 내장함수</h3>
+<h4 id="group-by">GROUP BY</h4>
+<p>데이터를 조회할 때 그룹으로 묶어서 조회한다.</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- customers의 모든 레코드르 State에 따라 그룹화</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">customers</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="k">State</span>
+</code></pre></div></div>
+
+<h4 id="having">HAVING</h4>
+<p>GROUP BY로 조회된 결과에 조건을 설정 할 떄 사용한다.</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- invoices 테이블을 CustomerId로 그룹화하고 그 평균이 6을 초과한 결과를 조회</span>
+<span class="k">SELECT</span> <span class="n">CustomerId</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">Total</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">invoices</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">CustomerId</span>
+<span class="k">HAVING</span> <span class="k">AVG</span><span class="p">(</span><span class="n">Total</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">.</span><span class="mi">00</span>
+</code></pre></div></div>
+
+<h4 id="count">COUNT()</h4>
+<p>레코드의 갯수를 구하는 함수</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 각 State 에 해당하는 레코드의 개수를 확인</span>
+<span class="k">SELECT</span> <span class="k">State</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">customers</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="k">State</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="sum">SUM()</h4>
+<p>레코드의 합을 구하는 함수</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- invoice_items라는 테이블에서 InvoiceId 필드를 기준으로 그룹하고, UnitPrice 필드 값의 합을 구함</span>
+<span class="k">SELECT</span> <span class="n">InvoiceId</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">UnitPrice</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">invoice_items</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">InvoiceId</span>
+</code></pre></div></div>
+
+<h4 id="avg">AVG()</h4>
+<p>레코드의 평균값을 구하는 함수</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">TrackId</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">UnitPrice</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">invoice_items</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">TrackId</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="max-min">MAX(), MIN()</h4>
+<p>레코드의 최대값, 최소값을 구하는 함수</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 각 고객이 지불한 최소 금액</span>
+<span class="k">SELECT</span> <span class="n">CustomerId</span><span class="p">,</span> <span class="k">MIN</span><span class="p">(</span><span class="n">Total</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">invoices</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">CustomerId</span>
+</code></pre></div></div>
+
+<h4 id="select-문의-실행-순서">SELECT 문의 실행 순서</h4>
+<ol>
+  <li>FROM</li>
+  <li>WHERE</li>
+  <li>GROUP BY</li>
+  <li>HAVING</li>
+  <li>SELECT</li>
+  <li>ORDER BY</li>
+</ol>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">CustomerId</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">Total</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">invoices</span>
+<span class="k">WHERE</span> <span class="n">CustomerId</span> <span class="o">&gt;=</span> <span class="mi">10</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">CustomerId</span>
+<span class="k">HAVING</span> <span class="k">SUM</span><span class="p">(</span><span class="n">Total</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">30</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="mi">2</span>
+</code></pre></div></div>
+
+<p>위 쿼리문의 실행 순서는 다음과 같다.</p>
+<ol>
+  <li>FROM invoices: invoices 테이블에 접근을 합니다.</li>
+  <li>WHERE CustomerId &gt;= 10: CustomerId 필드가 10 이상인 레코드들을 조회합니다.</li>
+  <li>GROUP BY CustomerId: CustomerId를 기준으로 그룹화합니다.</li>
+  <li>HAVING SUM(Total) &gt;= 30: Total 필드의 총합이 30 이상인 결과들만 필터링합니다.</li>
+  <li>SELECT CustomerId, AVG(Total): 조회된 결과에서 CustomerId 필드와 Total 필드의 평균값을 구합니다.</li>
+  <li>ORDER BY 2: AVG(Total) 필드를 기준으로 오름차순 정렬한 결과를 리턴합니다.</li>
+</ol>
+:ET

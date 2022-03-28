@@ -1,0 +1,35 @@
+I"m<h3 id="html">HTML</h3>
+<p>웹 페이지의 구조를 만드는 마크업 언어. 태그들을 활용해 구성.</p>
+
+<ul>
+  <li>태그를 열고 닫는 구조 ex) <code class="language-plaintext highlighter-rouge">&lt;div&gt;&lt;/div&gt;</code></li>
+  <li>태그 내부에 내용이 없다면 <code class="language-plaintext highlighter-rouge">&lt;div /&gt;</code>로 표현</li>
+</ul>
+
+<h4 id="태그-종류">태그 종류</h4>
+<ul>
+  <li>html : html 문서 전체를 감싸는 태그</li>
+  <li>head : 머리말. CSS, JavaScript 연결.</li>
+  <li>meta : 문서의 다양한 정보 제공</li>
+  <li>title : 타이틀바에 입력될 내용</li>
+  <li>script : 외부 js 파일 연결, JavaScript 코드 입력</li>
+  <li>body : 본문. 웹페이지에 보여지는 부분</li>
+  <li>p : 단락 구분. <strong>html에서는 엔터로 줄바꿈 못함</strong></li>
+  <li>br : 줄바꿈</li>
+  <li>b : 굵은 글씨</li>
+  <li>i : 기울어진 글씨</li>
+  <li>h : 1 ~ 6까지 있음 <code class="language-plaintext highlighter-rouge">h1, h2...</code> 숫자가 낮을수록 글씨가 크다</li>
+  <li>hr : 선을 긋는다.</li>
+  <li>div : 웹페이지 레이아웃을 만들 때 사용. 블록 생성.</li>
+  <li>span : 인라인 요소. 스타일을 부여하거나, 값을 지정할 때 사용.
+<code class="language-plaintext highlighter-rouge">div는 한 줄을 모두 차지하지만 span은 해당 요소만큼만 공간 차지</code></li>
+  <li>img : 이미지를 가져온다. <code class="language-plaintext highlighter-rouge">src: 이미지 주소</code> <code class="language-plaintext highlighter-rouge">alt: 이미지에 해당하는 문자열</code></li>
+  <li>input : 입력창 생성</li>
+  <li>button : 버튼 생성</li>
+  <li>form : 데이터 전송. <code class="language-plaintext highlighter-rouge">action: 데이터 전송할 url</code> <code class="language-plaintext highlighter-rouge">method: 데이터 전달방식 선택</code></li>
+  <li>a : 다른 주소로 이동.</li>
+  <li>ul : 번호 없는 리스트</li>
+  <li>ol : 번호 있는 리스트</li>
+  <li>li : ul 또는 ol 안에서 사용되는 리스트</li>
+</ul>
+:ET

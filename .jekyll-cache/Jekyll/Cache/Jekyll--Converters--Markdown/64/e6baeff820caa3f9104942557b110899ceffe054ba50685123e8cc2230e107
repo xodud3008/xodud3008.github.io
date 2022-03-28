@@ -1,0 +1,30 @@
+I"�<h4 id="문제">문제</h4>
+<p>땅 위에 달팽이가 있다. 이 달팽이는 높이가 V미터인 나무 막대를 올라갈 것이다.</p>
+
+<p>달팽이는 낮에 A미터 올라갈 수 있다. 하지만, 밤에 잠을 자는 동안 B미터 미끄러진다. 또, 정상에 올라간 후에는 미끄러지지 않는다.</p>
+
+<p>달팽이가 나무 막대를 모두 올라가려면, 며칠이 걸리는지 구하는 프로그램을 작성하시오.</p>
+
+<h4 id="입력">입력</h4>
+<p>첫째 줄에 세 정수 A, B, V가 공백으로 구분되어서 주어진다. (1 ≤ B &lt; A ≤ V ≤ 1,000,000,000)</p>
+
+<h4 id="출력">출력</h4>
+<p>첫째 줄에 달팽이가 나무 막대를 모두 올라가는데 며칠이 걸리는지 출력한다.
+<img src="/assets/images/1712.png" alt="2869" /></p>
+
+<h4 id="해결과정">해결과정</h4>
+<ol>
+  <li>낮에 A미터 올라가고 밤에 B미터 미끄러짐. V = A-B</li>
+  <li>꼭대기에 올라가면 미끄러지지 않기 때문에 A-B만 하면 미끄러지는게 초과 계산됨</li>
+  <li>마지막에 미끄러지지 않는 B만큼 빼고 계산</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">).</span><span class="nx">readFileSync</span><span class="p">(</span><span class="dl">'</span><span class="s1">/dev/stdin</span><span class="dl">'</span><span class="p">).</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">A</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="kd">let</span> <span class="nx">B</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="kd">let</span> <span class="nx">V</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">((</span><span class="nx">V</span><span class="o">-</span><span class="nx">B</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nx">A</span><span class="o">-</span><span class="nx">B</span><span class="p">)))</span>
+</code></pre></div></div>
+:ET

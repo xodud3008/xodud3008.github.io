@@ -1,0 +1,14 @@
+I"�<h4 id="aws-ubuntu-npm-install-중-에러-발생">AWS Ubuntu npm install 중 에러 발생</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error: Missing required argument #1
+</code></pre></div></div>
+
+<p>npm 버전이 낮아서 생기는 오류이다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># npm cache clean --force
+# npm install -g n
+# n stable
+</code></pre></div></div>
+
+<p>npm을 최신 버전으로 설치하면 해결된다.
+최신 버전 설치 후에도 안된다면 서버를 껐다 다시 켜보자.</p>
+:ET

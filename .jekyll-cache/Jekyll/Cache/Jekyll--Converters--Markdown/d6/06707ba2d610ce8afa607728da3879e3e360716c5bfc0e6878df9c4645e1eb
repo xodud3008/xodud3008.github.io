@@ -1,0 +1,435 @@
+I"�I<h2 id="네트워크-심화">네트워크 심화</h2>
+<h3 id="인터넷-프로토콜">인터넷 프로토콜</h3>
+<h4 id="ip-와-ip-packet">IP 와 IP Packet</h4>
+<p>복잡한 인터넷 망 속에서 통신할 수 있도록 하는 규칙. IP 주소를 컴퓨터에 부여하고 지정한 주소에 패킷이라는 통신 단위로 데이터 전달.</p>
+<h5 id="ip-프로토콜의-한계">IP 프로토콜의 한계</h5>
+<ul>
+  <li>비연결성 : 패킷을 받을 대상이 없거나 서비스 불능 상태여도 패킷 전송</li>
+  <li>비신뢰성 : 중간에 패킷이 사라질 수 있음. 패킷의 순서를 보장할 수 없다.
+    <ul>
+      <li>패킷의 용량이 크면 패킷을 나눠서 전송하는데 이때 의도하지 않은 순서로 도착할 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="tcp--udp">TCP &amp; UDP</h4>
+<h5 id="네트워크-프로토콜-계층">네트워크 프로토콜 계층</h5>
+<center><img src="/assets/images/osi7.png" width="80%" height="100%" title="dbmvc" alt="사진" /></center>
+
+<ul>
+  <li>IP 프로토콜 보다 더 높은 계층에 TCP 프로토콜이 존재하기 때문에 IP 프로토콜의 한계를 보완할 수 있다.</li>
+</ul>
+
+<h5 id="채팅-메세지를-보낼-때-어떤-일이-일어날까">채팅 메세지를 보낼 때 어떤 일이 일어날까?</h5>
+<p>HTTP 메세지가 생성되면 Socket 라이브러리를 통해 전달 -&gt; TCP 세그먼트 생성 -&gt; IP 패킷 생성 -&gt; TCP/IP 패킷이 물리적 계층을 지나기 위해 이더넷 프레임워크에 포함되어 서버로 전송</p>
+
+<h5 id="tcpip-구성">TCP/IP 구성</h5>
+<p><img src="/assets/images/tcpip.png" width="50%" height="50%" title="dbmvc" alt="사진" /></p>
+
+<h5 id="tcp--전송-제어-프로토콜">TCP : 전송 제어 프로토콜</h5>
+<p>같은 계층에 속한 UDP에 비해 상대적으로 신뢰할 수 있는 프로토콜</p>
+<ul>
+  <li>연결 지향 - TCP 3way handshake(가상 연결)
+    <ul>
+      <li>연결 방식
+        <ol>
+          <li>클라이언트가 서버에 접속을 요청하는 SYN 패킷 전송</li>
+          <li>SYN 패킷을 받은 서버가 요청을 수락하는 ACK와 SYN이 설정된 패킷 발송</li>
+          <li>클라이언트가 ACK 서버에 전송 =&gt; 연결 성립
+            <ul>
+              <li>만약 서버가 꺼져있다면 클라이언트가 SYN을 보내고 서버에 응답이 없기 때문에 데이터를 보내지 않는다.</li>
+              <li>현재는 최적화가 이루어져 3번 실행 시 데이터를 함께 보내기도 한다.</li>
+            </ul>
+          </li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>데이터 전달 보증 : 데이터 전송이 성공적으로 이루어지면 이에 대환 응답을 돌려주기 때문에 <strong>비연결성</strong> 보완</li>
+  <li>순서 보장 : 패킷이 순서대로 도착하지 않으면 TCP 세그먼트에 있는 정보를 토대로 다시 패킷 전송 요청하기 때문에 <strong>비신뢰성</strong> 보완</li>
+  <li>신뢰할 수 있는 프로토콜</li>
+</ul>
+
+<h5 id="udp--사용자-데이터그램-프로토콜">UDP : 사용자 데이터그램 프로토콜</h5>
+<p>IP 프로토콜에 PORT, 체크섬 필드 정보만 추가된 단순한 프로토콜</p>
+<ul>
+  <li>하얀 도화지(기능이 거의 없다) : 커스터마이징 가능</li>
+  <li>데이터 전달 및 순서가 보장되지 않지만, 단순하고 빠름</li>
+  <li>신뢰성보다는 연속성이 중요한 서비스(e.g. 실시간 스트리밍)에 자주 사용</li>
+</ul>
+
+<h5 id="tup-vs-udp">TUP vs UDP</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">TCP</th>
+      <th style="text-align: center">UDP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">연결지향형 프로토콜</td>
+      <td style="text-align: center">비 연결지향형 프로토콜</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">전송 순서 보장</td>
+      <td style="text-align: center">전송 순서 보장 X</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">데이터 수신 여부 확인함</td>
+      <td style="text-align: center">데이터 수신 여부 확인하지 않음</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">신뢰성 높음, 속도 느림</td>
+      <td style="text-align: center">신뢰성 낮음, 속도 빠름</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="http">HTTP</h4>
+<p>HTTP/1.1, HTTP/2는 TCP 기반, HTTP/3은 UDP 기반 프로토콜</p>
+
+<h5 id="특징">특징</h5>
+<ul>
+  <li>클라이언트 서버 구조
+    <ul>
+      <li>Request Response 구조</li>
+      <li>클라이언트는 서버에 요청을 보내고, 응답 대기</li>
+      <li>서버가 요청에 대한 결과를 만들어 응답</li>
+    </ul>
+  </li>
+  <li>무상태 프로토콜(stateless), 비연결성(Connectionless)</li>
+  <li>HTTP 메세지</li>
+  <li>단순함, 확장 가능</li>
+</ul>
+
+<h5 id="무상태">무상태</h5>
+<ul>
+  <li>클라이언트가 상태 유지(클라이언트가 더 많은 데이터를 전송해야 함). 서버는 상태를 보관하지 않는다.</li>
+  <li>중간에 서버가 변경되도 문제 없음 =&gt; 수평 확장 유리</li>
+  <li>실무 한계
+    <ul>
+      <li>모든 것을 무상태로 설계할 수 있는 경우도 있고, 없는 경우도 있다.</li>
+      <li>로그인이 필요없는 단순한 서비스 소개 화면(로그인 : 상태유지)</li>
+      <li>로그인한 사용자의 경우 로그인했다는 상태를 서버에 유지(브라우저 쿠키, 서버 세션)</li>
+      <li>상태 유지는 최소한만 사용</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="비-연결성">비 연결성</h5>
+<ul>
+  <li>HTTP는 기본이 연결을 유지하지 않는 모델</li>
+  <li>일반적으로 초 단위 이하의 빠른 속도로 응답</li>
+  <li>1시간 동안 수천명이 서비스 사용해도 실제 서버에서 동시에 처리하는 요청은 수십개 이하로 매우 작음</li>
+  <li>한계
+    <ul>
+      <li>TCP/IP 연결을 새로 맺어야 함 - 3way handshake 시간 추가</li>
+      <li>웹 브라우저로 사이트 요청하면 HTML, 자바스크립트, css, 추가 이미지 등 수많은 자원이 같이 다운됨</li>
+    </ul>
+  </li>
+  <li>해결
+    <ul>
+      <li>HTTP 지속 연결로 문제 해결</li>
+      <li>HTTP/2, HTTP/3에서 더 많은 최적화 이루어짐</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="http-헤더">HTTP 헤더</h3>
+<h4 id="표현-헤더">표현 헤더</h4>
+<ul>
+  <li>메세지 본문(message body)을 통해 표현 데이터 전달</li>
+  <li>메세지 본문 = 페이로드(payload)</li>
+  <li>표현 : 요청이나 응답에서 전달할 실제 데이터</li>
+  <li>표현 헤더 : 표현 데이터를 해석할 수 있는 정보 제공(데이터 유형, 데이터 길이, 압축 정보 등)</li>
+</ul>
+
+<h5 id="형식">형식</h5>
+<p>field-name : field-value
+대소문자 구분 없음</p>
+
+<h5 id="용도">용도</h5>
+<ul>
+  <li>HTTP 전송에 필요한 모든 부가정보
+    <ul>
+      <li>메세지 바디 내용, 메세지 바디 크기, 압축, 인증, 요청 클라이언트, 서버 정보, 캐시 관리 정보 등…</li>
+    </ul>
+  </li>
+  <li>표준 헤더가 너무 많음</li>
+  <li>필요 시 임의의 헤더 추가 가능</li>
+</ul>
+
+<h5 id="표현-헤더-구분">표현 헤더 구분</h5>
+<ul>
+  <li>Content-Type : 표현 데이터 형식
+    <ul>
+      <li>미디어 타입, 문자 인코딩</li>
+    </ul>
+  </li>
+  <li>Content-Encoding : 표현 데이터의 압축 방식
+    <ul>
+      <li>표현 데이터 압축하기 위해 사용</li>
+      <li>데이터를 전달하는 곳에서 압축 후 인코딩 헤더 추가</li>
+      <li>데이터를 읽는 쪽에서 인코딩 헤더의 정보로 압축 해제</li>
+    </ul>
+  </li>
+  <li>Content-Language : 표현 데이터의 자연 언어
+    <ul>
+      <li>표현 데이터의 자연 언어 표현(ko, en, en-US…)</li>
+    </ul>
+  </li>
+  <li>Content-Length : 표현 데이터 길이
+    <ul>
+      <li>바이트 단위</li>
+      <li>현재는 Content-Encoding 사용</li>
+      <li>Transfer-Encoding(전송 코딩)을 사용하면 Content-Length를 사용하면 안됨</li>
+      <li>Transfer-Encoding은 chuncked 방식 사용.
+chuncked 방식은 많은 양의 데이터를 분할하여 보내기 때문에 전체 데이터의 크기를 알 수 없어 표현 데이터의 길이를 명시할 수 없다.(Content-Length와 함께 사용 불가)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>표현 헤더는 요청, 응답 둘 다 사용</strong></p>
+
+<h4 id="http-주요-헤더">HTTP 주요 헤더</h4>
+<h5 id="요청에-사용되는-헤더">요청에 사용되는 헤더</h5>
+<ul>
+  <li>From : 유저 에이전트의 이메일 정보
+    <ul>
+      <li>일반적으로 잘 사용하지 않음</li>
+      <li>검색 엔진에서 주로 사용</li>
+      <li>요청에서 사용</li>
+    </ul>
+  </li>
+  <li>Referer : 이전 웹 페이지 주소
+    <ul>
+      <li>현재 요청된 페이지의 이전 웹 페이지 주소</li>
+      <li>A -&gt; B로 이동하는 경우 B를 요청할 때 <code class="language-plaintext highlighter-rouge">referer: A</code>를 포함해서 요청</li>
+      <li><code class="language-plaintext highlighter-rouge">Referer</code>를 사용하면 유입경로 수집 가능</li>
+      <li>요청에서 사용</li>
+    </ul>
+  </li>
+  <li>User-Agent : 유저 에이전트 애플리케이션 정보
+    <ul>
+      <li>클라이언트의 애플리케이션 정보(웹 브라우저 정보, 등등)</li>
+      <li>통계 정보</li>
+      <li>어떤 종류의 브라우저에서 장애가 발생하는지 파악 가능</li>
+      <li>요청에서 사용</li>
+    </ul>
+  </li>
+  <li>Host : 요청한 호스트 정보
+    <ul>
+      <li>요청에서 사용</li>
+      <li>필수 헤더</li>
+      <li>하나의 서버가 여러 도메인을 처리해야 할 때 호스트 정보를 명시하기 위해 사용</li>
+      <li>하나의 IP 주소에 여러 도메인이 적용되어 있을 때 호스트 정보를 명시하기 위해 사용</li>
+    </ul>
+  </li>
+  <li>Origin : 서버로 POST 요청을 보낼 때, 요청을 시작한 주소
+    <ul>
+      <li>여기서 요청을 보낸 주소와 받는 주소가 다르면 CORS 에러 발생</li>
+      <li>응답 헤더의 Access-Control-Allow-Origin과 관련</li>
+    </ul>
+  </li>
+  <li>Authorization : 인증 토큰을 서버로 보낼 때 사용
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">토큰의 종류 + 실제 토큰 문자</code> 전송</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="응답에서-사용되는-헤더">응답에서 사용되는 헤더</h5>
+<ul>
+  <li>Server : 요청을 처리하는 ORIGIN 서버의 소프트웨어 정보</li>
+  <li>Date : 메세지가 발생한 날짜와 시간</li>
+  <li>Location : 페이지 리디렉션
+    <ul>
+      <li>웹 브라우저는 3xx 응답의 결과에 <code class="language-plaintext highlighter-rouge">Location</code> 헤더가 있으면 <code class="language-plaintext highlighter-rouge">Location</code> 위치로 리다이렉트(자동 이동)</li>
+      <li>201(Created) : <code class="language-plaintext highlighter-rouge">Location</code> 값은 요청에 의해 생성된 리소스 URI</li>
+      <li>3xx(Redirection) : <code class="language-plaintext highlighter-rouge">Location</code>값은 요청을 자동으로 리디렉션 하기 위한 대상 리소스를 가리킴</li>
+    </ul>
+  </li>
+  <li>Allow : 허용 가능한 HTTP 메서드
+    <ul>
+      <li>405(Method Not Allowed)에서 응답에 포함</li>
+    </ul>
+  </li>
+  <li>Retry-After : 유저 에이전트가 다음 요청을 하기까지 기다려야 하는 시간
+    <ul>
+      <li>503(Service Unavailable) : 서비스가 언제까지 불능인지 알려줄 수 있음</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="콘텐츠-협상-헤더">콘텐츠 협상 헤더</h4>
+<h5 id="콘텐츠-협상">콘텐츠 협상</h5>
+<p>클라이언트가 선호하는 표현 요청</p>
+<ul>
+  <li>Accept : 클라이언트가 선호하는 미디어 타입 전달</li>
+  <li>Accept-Charset : 클라이언트가 선호하는 문자 인코딩</li>
+  <li>Accept-Encoding : 클라이언트가 선호하는 압축 인코딩</li>
+  <li>Accept-Language : 클라이언트가 선호하는 자연 언어</li>
+  <li>협상 헤더는 요청시에만 사용</li>
+</ul>
+
+<h5 id="협상-우선순위">협상 우선순위</h5>
+<p>헤더에서 원하는 컨텐츠에 대한 우선순위를 지정할 수 있다.</p>
+<ul>
+  <li>Quality Values(q)값 사용</li>
+  <li>0 ~ 1, <strong>클수록 높은 우선순위</strong></li>
+  <li>생략하는 경우 = 1
+ex) <code class="language-plaintext highlighter-rouge">Accept-Language: ko-KR,ko;q=0.9;en-US;q=0.8,en;q=0.7</code></li>
+</ul>
+
+<h3 id="웹-캐시">웹 캐시</h3>
+<h4 id="캐시-기본-원리">캐시 기본 원리</h4>
+<h5 id="캐시가-없을-때">캐시가 없을 때</h5>
+<ul>
+  <li>데이터가 변경되지 않아도 계속 네트워크를 통해 데이터를 다운받아야 함</li>
+  <li>인터넷 네트워크는 매우 느리고 비쌈</li>
+  <li>브라우저 로딩 속도 느림</li>
+  <li>느린 사용자 경험 제공</li>
+</ul>
+
+<h5 id="캐시-적용">캐시 적용</h5>
+<p>데이터나 값을 미리 복사해서 캐시에 저장. 헤더에 cache-control 속성을 통해 캐시 유효 기간 설정할 수 있다.</p>
+<ul>
+  <li>캐시 가능 시간동안 네트워크를 사용하지 않아도 된다.</li>
+  <li>비싼 네트워크 사용량 줄일 수 있다.</li>
+  <li>브라우저 로딩 속도가 매우 빠름</li>
+  <li>빠른 사용자 경험 제공</li>
+</ul>
+
+<p>캐시 유효 시간이 초과하면, 서버를 통해 데이터를 다시 조회하고, 캐시 갱신. 이때 다시 네트워크 다운로드 발생.</p>
+
+<h4 id="캐시-검증-헤더와-조건부-요청">캐시 검증 헤더와 조건부 요청</h4>
+<p>캐시의 유효시간이 초과하더라도 변경 사항이 없어 그대로 캐시를 사용하고 싶다면?</p>
+<ul>
+  <li>응답 헤더의 Last-Modified에 데이터 최종 수정일 정보가 담김</li>
+  <li>캐시 유효시간이 초과되더라도 If-Modified-Since 헤더를 이용해 조건부 요청 할 수 있다.</li>
+</ul>
+
+<h5 id="작동-방식">작동 방식</h5>
+<ul>
+  <li>캐시 유효기간이 초과해도 서버의 데이터가 갱신되지 않을 때 사용
+    <ul>
+      <li>304 Not Modified + 헤더의 메타데이터만 응답(바디에 내용 없음)</li>
+    </ul>
+  </li>
+  <li>클라이언트는 서버가 보낸 응답 헤더 정보로 캐시의 메타데이터 갱신</li>
+  <li>클라이언트는 캐시에 저장되어 있는 데이터 재활용</li>
+  <li>결과적으로 네트워크 다운로드가 발생하지만 용량이 적은 헤더 정보만 다운로드</li>
+  <li>매우 실용적인 해결책</li>
+</ul>
+
+<h5 id="단점">단점</h5>
+<ul>
+  <li>1초 미만 단위로 캐시 조정 불가능</li>
+  <li>날짜 기반의 로직 사용</li>
+  <li>데이터를 수정해서 날짜가 다르지만, 같은 데이터를 수정해서 데이터 결과가 똑같은 경우</li>
+  <li>서버에서 별도의 캐시 로직을 관리하고 싶은 경우</li>
+</ul>
+
+<h5 id="etag--if-none-match">ETag &amp; If-None-Match</h5>
+<p>서버에서 완전히 캐시를 컨트롤하고 싶은 경우 ETag 사용</p>
+<ul>
+  <li>캐시용 데이터에 임의의 고유한 이름 설정</li>
+  <li>데이터가 변경되면 이 이름을 바꾸어서 변경함(Hash 다시 생성)</li>
+  <li>단순하게 ETag만 보내서 같으면 유지, 다르면 다시 받는 방식</li>
+  <li>캐시 제어 로직을 서버에서 완전히 관리</li>
+</ul>
+
+<p>보통 ETag와 Last-Modified는 같이 쓰인다.</p>
+
+<h5 id="cache-control">Cache-Control</h5>
+<ul>
+  <li>Cache-Control: max-age
+    <ul>
+      <li>캐시 유효 시간. 초 단위</li>
+    </ul>
+  </li>
+  <li>Cache-Control: no-cache
+    <ul>
+      <li>데이터는 캐시해도 되지만, 항상 원 서버에 검증하고 사용</li>
+    </ul>
+  </li>
+  <li>Cache-Control: no-store
+    <ul>
+      <li>데이터에 민감한 정보가 있으므로 저장하면 안됨(메모리에서 사용하고 최대한 빨리 삭제)</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="expires">Expires</h5>
+<ul>
+  <li>캐시 만료일을 정확한 날짜로 지정
+ex) <code class="language-plaintext highlighter-rouge">Expires: Mon, 03 Jan 2022 00:00:00 GMT</code></li>
+  <li>HTTP 1.0부터 사용</li>
+  <li>지금은 더 유연한 Cache-Control: max-age 사용</li>
+  <li>Cache-Control: max-age와 함께 사용하면 Expires는 무시됨</li>
+</ul>
+
+<h4 id="프록시-캐시">프록시 캐시</h4>
+<p>클라이언트와 서버 사이에 대리로 통신을 수행하는 것을 <strong><span style="color:red">프록시</span></strong>, 중계 기능을 하는 서버를 <strong><span style="color:blue">프록시 서버</span></strong> 라고 한다.</p>
+
+<p>클라이언트에서 사용하고 저장하는 캐시를 private 캐시, 프록시 캐시 서버의 캐시를 public 캐시라고 한다.</p>
+
+<h5 id="cache-control-1">Cache-Control</h5>
+<ul>
+  <li>Cache-Control: public
+    <ul>
+      <li>응답이 캐시에 저장되어도 됨</li>
+    </ul>
+  </li>
+  <li>Cache-Control: private
+    <ul>
+      <li>응답이 해당 사용자만을 위한 것. private 캐시에 저장</li>
+    </ul>
+  </li>
+  <li>Cache-Control: s-maxage
+    <ul>
+      <li>프록시 캐시에만 적용되는 max-age</li>
+    </ul>
+  </li>
+  <li>Age: 60(HTTP 헤더)
+    <ul>
+      <li>오리진 서버에서 응답 후 프록시 캐시 내 머문 시간(초)</li>
+    </ul>
+  </li>
+</ul>
+
+<h6 id="캐시-무효화-헤더">캐시 무효화 헤더</h6>
+
+<ul>
+  <li>Cache-Control: no-cache
+    <ul>
+      <li>데이터는 캐시해도 되지만, 항상 <strong>원 서버에서 검증</strong>하고 사용(이름에 주의)</li>
+    </ul>
+  </li>
+  <li>Cache-Control: no-store
+    <ul>
+      <li>데이터에 민감한 정보가 있으므로 저장하면 안됨(메모리에서 사용하고 최대한 빨리 삭제)</li>
+    </ul>
+  </li>
+  <li>Cache-Control: must-revalidate
+    <ul>
+      <li>캐시 만료 후 최초 조회 시 <strong>원 서버에서 검증</strong>해야함</li>
+      <li>원 서버 접근 실패 시 반드시 오류가 발생해야 함 - 504(Gateway Timeout)</li>
+      <li>must-revalidate는 캐시 유효 시간이라면 캐시 사용</li>
+    </ul>
+  </li>
+  <li>Pragma: no-cache
+    <ul>
+      <li>HTTP 1.0 하위 호환</li>
+    </ul>
+  </li>
+</ul>
+
+<p>확실한 캐시 무효화 응답을 하고 싶으면</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cache-Control: no-cache, no-store, must-revalidate
+Pragma: no-cache
+</code></pre></div></div>
+<p>모두 사용</p>
+:ET

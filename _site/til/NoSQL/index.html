@@ -1,0 +1,834 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>NoSQL - 개발자로 성장하자</title>
+<meta name="description" content="NoSQL과 MongoDB">
+
+
+  <meta name="author" content="Taeyoung">
+  
+  <meta property="article:author" content="Taeyoung">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="개발자로 성장하자">
+<meta property="og:title" content="NoSQL">
+<meta property="og:url" content="http://localhost:4000/til/NoSQL/">
+
+
+  <meta property="og:description" content="NoSQL과 MongoDB">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-23T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-12-23T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/til/NoSQL/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Taeyoung",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개발자로 성장하자 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <style> 
+      ::-webkit-scrollbar{width: 10px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 10px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 10px;}
+      ::-webkit-scrollbar-thumb:hover {background: black;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:8px;height:8px;background:transparent;
+      }
+    </style>
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개발자로 성장하자
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://xodud3008.github.io/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/TIL/">TIL</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Taeyoung</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Keep going and going</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:xodud3008@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/xodud3008" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://discord.gg/kakaogg" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-discord" aria-hidden="true"></i><span class="label">Discord</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="NoSQL">
+    <meta itemprop="description" content="NoSQL과 MongoDB">
+    <meta itemprop="datePublished" content="2021-12-23T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-12-23T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/til/NoSQL/" class="u-url" itemprop="url">NoSQL
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#nosql">NoSQL</a><ul><li><a href="#nosql-데이터베이스를-사용하는-경우">NoSQL 데이터베이스를 사용하는 경우</a><ul><li><a href="#1-비구조적인-대용량의-데이터를-저장">1. 비구조적인 대용량의 데이터를 저장</a></li><li><a href="#2-클라우드-컴퓨팅-및-저장-공간을-최대한-활용">2. 클라우드 컴퓨팅 및 저장 공간을 최대한 활용</a></li><li><a href="#3-빠르게-서비스를-구축하고-데이터-구조를-자주-업데이트">3. 빠르게 서비스를 구축하고 데이터 구조를 자주 업데이트</a></li></ul></li><li><a href="#mongodb">MongoDB</a><ul><li><a href="#용어">용어</a></li><li><a href="#atlas-cloud">Atlas Cloud</a></li></ul></li><li><a href="#json-vs-bson">JSON vs BSON</a><ul><li><a href="#json">JSON</a><ul><li><a href="#작성방법">작성방법</a></li><li><a href="#json-단점">JSON 단점</a></li></ul></li><li><a href="#bson">BSON</a><ul><li><a href="#장점">장점</a></li></ul></li><li><a href="#mongodb-데이터-가져오기--내보내기">MongoDB 데이터 가져오기 / 내보내기</a></li></ul></li><li><a href="#mongodb-crud">MongoDB CRUD</a><ul><li><a href="#create">CREATE</a></li><li><a href="#read">READ</a></li><li><a href="#update">UPDATE</a></li><li><a href="#delete">DELETE</a></li></ul></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h3 id="nosql">NoSQL</h3>
+<p>관계형 테이블의 레거시한 방법을 사용하지 않는 데이터 저장소.</p>
+<h4 id="nosql-데이터베이스를-사용하는-경우">NoSQL 데이터베이스를 사용하는 경우</h4>
+
+<h5 id="1-비구조적인-대용량의-데이터를-저장">1. 비구조적인 대용량의 데이터를 저장</h5>
+<p>자유로운 형태의 데이터 저장이 가능. 정형화되지 않은 대용량 데이터가 필요한 경우 NoSQL이 효과적</p>
+
+<h5 id="2-클라우드-컴퓨팅-및-저장-공간을-최대한-활용">2. 클라우드 컴퓨팅 및 저장 공간을 최대한 활용</h5>
+<p>저장 공간 효율적으로 사용. 수평적 확장으로 증설해서 이론상 무한대로 서버를 분산시켜 DB를 증설할 수 있다.</p>
+
+<h5 id="3-빠르게-서비스를-구축하고-데이터-구조를-자주-업데이트">3. 빠르게 서비스를 구축하고 데이터 구조를 자주 업데이트</h5>
+<p>스키마를 미리 준비할 필요가 없어 개발을 빠르게 해야 하는 경우 적합하다.</p>
+
+<h4 id="mongodb">MongoDB</h4>
+
+<h5 id="용어">용어</h5>
+<ul>
+  <li>도큐먼트 
+<code class="language-plaintext highlighter-rouge">필드 - 값</code> 으로 저장된 데이터</li>
+  <li>필드
+데이터 포인트를 위한 교유한 식별자</li>
+  <li>컬렉션
+도큐먼트로 구성된 저장소. 일반적으로 도큐먼트 간의 공통 필드가 있다. 데이터베이스 당 많은 컬렉션이 있고, 컬렉션 당 많은 도큐먼트가 있을 수 있다.</li>
+  <li>레플리카 세트
+동일한 데이터를 저장하는 소수의 연결된 머신. 하나에 문제가 발생해도 데이터를 그대로 유지할 수 있다.</li>
+  <li>인스턴스
+로컬 또는 클라우드에서 특정 소프트웨어를 실행하는 단일 머신. MongoDB에서는 데이터베이스</li>
+  <li>클러스터
+데이터를 저장하는 서버 그룹. 여러 대의 컴퓨터를 네트워크를 통해 연결하여 하나의 단일 컴퓨터처럼 동작하도록 제작한 컴퓨터</li>
+</ul>
+
+<h5 id="atlas-cloud">Atlas Cloud</h5>
+
+<p>MongoDB에서 클라우드에 데이터베이스를 설정할 떄 사용한다. 데이터를 시각화, 분석, 내보내기, 빌드하는 데 사용. 아틀라스 사용자는 클러스터를 배포할 수 있으며, 클러스터는 그룹화된 서버에 데이터 저장</p>
+
+<p><img src="/assets/images/cluster.png" width="80%" height="50%" title="dbmvc" alt="사진" /></p>
+
+<p>인스턴스들의 모임(클러스터)이 하나의 시스템처럼 작동. 단일 클러스터에서 각각의 인스턴스는 동일한 복제본(레플리카 세트)을 가지고 있다. 클러스터를 이용하여 배포할 경우 자동으로 레플리카 세트 생성.</p>
+
+<h4 id="json-vs-bson">JSON vs BSON</h4>
+<h5 id="json">JSON</h5>
+<h6 id="작성방법">작성방법</h6>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">{}</code> 중괄호로 도큐먼트가 시작하고 끝나야 한다.</li>
+  <li>필드와 값이 <code class="language-plaintext highlighter-rouge">:</code>으로 분리, 필드와 값을 포함하는 쌍은 <code class="language-plaintext highlighter-rouge">,</code>로 구분</li>
+  <li>문자열인 필드 <code class="language-plaintext highlighter-rouge">""</code>로 감싸기</li>
+  <li>위 조건 어느 하나라도 충족되지 않으면 유효한 도큐먼트가 아니다.</li>
+  <li>작성 예시
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"20220128"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"date"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">ISODate(</span><span class="s2">"2022-01-28-T05:00:00Z"</span><span class="err">)</span><span class="p">,</span><span class="w">
+</span><span class="nl">"listing_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1038163"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"reviewer_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"777888"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"reviewer_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Kim"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"comments"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"It is So Easssssy(?)."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h6 id="json-단점">JSON 단점</h6>
+<ul>
+  <li>텍스트 형식이기 때문에 읽기 쉽지만 파싱이 느리고 메모리 사용이 비효율적</li>
+  <li>기본 데이터 타입만 지원하기 때문에 사용할 수 있는 데이터 타입에 제약</li>
+</ul>
+
+<p>이를 해결하기 위해 <code class="language-plaintext highlighter-rouge">BSON(Binary JSON)</code> 형식 도입</p>
+<h5 id="bson">BSON</h5>
+<p>컴퓨터 언어에 가까운 이진법에 기반을 둔 표현법.</p>
+
+<h6 id="장점">장점</h6>
+<ul>
+  <li>JSON보다 메모리 사용 효율적</li>
+  <li>빠르고, 가볍고, 유연하다.</li>
+  <li>더 많은 데이터 타입 사용 가능</li>
+</ul>
+
+<p>MongoDB는 JSON 형식의 데이터를 데이터베이스에 추가할 수 있고 쉽게 조회할 수 있다. 하지만 내부에서는 속도, 효율성, 유연성의 장점이 있는 BSON으로 데이터를 저장, 사용한다.</p>
+
+<h5 id="mongodb-데이터-가져오기--내보내기">MongoDB 데이터 가져오기 / 내보내기</h5>
+<ul>
+  <li>
+    <p>내보내기(Export)</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// BSON Export
+mongodump --uri "&lt;Atlas Cluster URI&gt;"
+
+// JSON Export
+mongoexport --uri "&lt;Atlas Cluster URI&gt;"
+            --collection=&lt;collection name&gt;
+            --out=&lt;filename&gt;.json
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>가져오기(Import)</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// BSON Import
+mongostore --uri "&lt;Atlas Cluster URI&gt;"
+           --drop dump
+
+// JSON Import
+mongoimport --uri "&lt;Atlas Cluster URI&gt;"
+            --drop=&lt;fimename&gt;.json
+
+// 기존에 있는 데이터를 삭제하기 위한 옵션인 drop 쿼리문은 선택적으로 사용할 수 있다.
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="mongodb-crud">MongoDB CRUD</h4>
+<h5 id="create">CREATE</h5>
+<ul>
+  <li>insert(): db.collection_name.insert(json_type_data)
+    <ul>
+      <li>Insert 명령어 사용시 주어진 도큐먼트 배열의 인덱스 순으로 작업 실행. <code class="language-plaintext highlighter-rouge">ordered</code>를 추가하면 순서에 상관없이 고유한 _id를 가진 도큐먼트는 모두 컬렉션에 삽입</li>
+    </ul>
+  </li>
+  <li>find(): db.collection_name.find(query, projdction)</li>
+</ul>
+
+<h5 id="read">READ</h5>
+<ul>
+  <li>show dbs: 데이터베이스 조회</li>
+  <li>use database_name: 사용할 데이터베이스로 이동</li>
+  <li>show collections: collection 조회</li>
+  <li>find: db.collection_name.find({조건})
+    <ul>
+      <li>db.zips.find({“state”:’NY}): zips 컬렉션에서 state가 NY인 데이터 랜덤으로 20개 조회</li>
+      <li>db.zips.find(): zips 컬렉션의 모든 데이터 조회</li>
+      <li>db.zips.findOne({조건}): zips 컬렉션의 데이터 중 하나만 조회</li>
+      <li>db.zips.findOne(): zips 컬렉션의 데이터 중 무작위로 하나 조회</li>
+    </ul>
+  </li>
+  <li>count: db.collection_name.find().count(): 선택한 컬렉션에 데이터 갯수 출력</li>
+</ul>
+
+<p>※ pretty(): 쿼리문 맨 뒤에 붙여서 조금 더 보기 편하게 출력한다.</p>
+
+<h5 id="update">UPDATE</h5>
+<ul>
+  <li>db.zips.updateMany({“city”:”ALPINE},{“$inc”:{“pop”:10}}): city가 ALPINE인 값 중 pop을 10만큼 증가
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">$inc</code> : 특정한 필드의 값을 주어진 값만큼 증가. 다양한 필드의 값을 동시에 업데이트 할 수도 있다.</li>
+    </ul>
+  </li>
+  <li>db.zips.updateOne({“zip”:”12534”},{“$set”:{“pop”:6253}}): zip이 12534인 값 중 pop을 6253으로 업데이트. 필드가 없으면 에러가 나지 않고 필드와 값이 입력된다.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">$set</code> : 주어진 필드에 지정된 값 업데이트</li>
+    </ul>
+  </li>
+  <li>db.grades.updateOne({“student_id”:250,”class_id”:339},{“$push”:{“scores”:{“type”:”extra credit”,”score”:100}}}): 배열로 이루어진 필드의 값에 해당 서브 도큐먼트를 추가 =&gt; {“type”:”extra credit”,”score”:100} 형태의 서브 도큐먼트를 scores 필드의 값인 배열에 추가</li>
+</ul>
+
+<h5 id="delete">DELETE</h5>
+<ul>
+  <li>deleteOne: 주어진 기준에 맞는 도큐먼트들 중 첫번째 도큐먼트 삭제</li>
+  <li>deleteMany: 쿼리문과 일치하는 모든 도큐먼트 삭제</li>
+  <li>db.collection_name.drop(): 컬렉션 삭제</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#backend" class="page__taxonomy-item p-category" rel="tag">backend</a><span class="sep">, </span>
+    
+      <a href="/tags/#blog" class="page__taxonomy-item p-category" rel="tag">Blog</a><span class="sep">, </span>
+    
+      <a href="/tags/#bson" class="page__taxonomy-item p-category" rel="tag">BSON</a><span class="sep">, </span>
+    
+      <a href="/tags/#crud" class="page__taxonomy-item p-category" rel="tag">CRUD</a><span class="sep">, </span>
+    
+      <a href="/tags/#database" class="page__taxonomy-item p-category" rel="tag">Database</a><span class="sep">, </span>
+    
+      <a href="/tags/#git" class="page__taxonomy-item p-category" rel="tag">Git</a><span class="sep">, </span>
+    
+      <a href="/tags/#github" class="page__taxonomy-item p-category" rel="tag">Github</a><span class="sep">, </span>
+    
+      <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a><span class="sep">, </span>
+    
+      <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">jekyll</a><span class="sep">, </span>
+    
+      <a href="/tags/#json" class="page__taxonomy-item p-category" rel="tag">JSON</a><span class="sep">, </span>
+    
+      <a href="/tags/#mongodb" class="page__taxonomy-item p-category" rel="tag">MongoDB</a><span class="sep">, </span>
+    
+      <a href="/tags/#mongodb-crud" class="page__taxonomy-item p-category" rel="tag">MongoDB CRUD</a><span class="sep">, </span>
+    
+      <a href="/tags/#mongodb-exporting" class="page__taxonomy-item p-category" rel="tag">MongoDB exporting</a><span class="sep">, </span>
+    
+      <a href="/tags/#mongodb-importing" class="page__taxonomy-item p-category" rel="tag">MongoDB importing</a><span class="sep">, </span>
+    
+      <a href="/tags/#nosql" class="page__taxonomy-item p-category" rel="tag">NoSQL</a><span class="sep">, </span>
+    
+      <a href="/tags/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-12-23">December 23, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=NoSQL%20http%3A%2F%2Flocalhost%3A4000%2Ftil%2FNoSQL%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FNoSQL%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FNoSQL%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/til/MongoDB/" class="pagination--pager" title="MongoDB
+">이전</a>
+    
+    
+      <a href="/codingtest/baekjoon-11654/" class="pagination--pager" title="백준 11654 자바스크립트(문자열)
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2022-02-20-algorithm-boardgame/" rel="permalink">
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/codingtest/LIS/" rel="permalink">Algorithm LIS
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">코딩테스트 준비. 배열의 연속되지 않는 부분 배열 중 모든 요소가 엄격하게 오름차순으로 정렬된 가장 긴 부분 배열. Longest Increasing Subsequence(LIS).
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/ha3/" rel="permalink">코드스테이츠 섹션3 회고
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">코드스테이츠 섹션3 HA3 회고, 느낀점, 나아갈 방향
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/algorithm-greedy/" rel="permalink">[Greedy] 짐 나르기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">알고리즘 문제. [Greedy] 짐 나르기
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+     crossorigin="anonymous"></script>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+     crossorigin="anonymous"></script>
+<!-- end custom footer snippets -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+            crossorigin="anonymous">
+        </script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-5216384132518164"
+            data-ad-slot="1582682122"
+            data-ad-format="auto"
+            data-full-width-responsive="true">
+        </ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/xodud3008" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Taeyoung. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

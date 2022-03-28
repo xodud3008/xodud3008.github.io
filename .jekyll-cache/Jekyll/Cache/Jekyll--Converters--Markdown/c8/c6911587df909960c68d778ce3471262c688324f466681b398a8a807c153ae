@@ -1,0 +1,52 @@
+I"<h4 id="문제">문제</h4>
+<p>상근이의 동생 상수는 수학을 정말 못한다. 상수는 숫자를 읽는데 문제가 있다. 이렇게 수학을 못하는 상수를 위해서 상근이는 수의 크기를 비교하는 문제를 내주었다. 상근이는 세 자리 수 두 개를 칠판에 써주었다. 그 다음에 크기가 큰 수를 말해보라고 했다.</p>
+
+<p>상수는 수를 다른 사람과 다르게 거꾸로 읽는다. 예를 들어, 734와 893을 칠판에 적었다면, 상수는 이 수를 437과 398로 읽는다. 따라서, 상수는 두 수중 큰 수인 437을 큰 수라고 말할 것이다.</p>
+
+<p>두 수가 주어졌을 때, 상수의 대답을 출력하는 프로그램을 작성하시오.</p>
+
+<h4 id="입력">입력</h4>
+<p>첫째 줄에 상근이가 칠판에 적은 두 수 A와 B가 주어진다. 두 수는 같지 않은 세 자리 수이며, 0이 포함되어 있지 않다.</p>
+
+<h4 id="출력">출력</h4>
+<p>첫째 줄에 상수의 대답을 출력한다.</p>
+
+<p><img src="/assets/images/2908.png" alt="1157" /></p>
+
+<h4 id="해결과정">해결과정</h4>
+<ul>
+  <li>세자리 숫자 두 개를 한 줄에 입력(중요! 한줄에 안하면 오답으로 나옴)</li>
+  <li>숫자의 순서 변환(세자리 숫자만 입력하고 0은 포함되지 않기 때문에 간단히 순서만 바꾸면 됨)</li>
+  <li>숫자 비교, 출력</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">readline</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">readline</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">rl</span> <span class="o">=</span> <span class="nx">readline</span><span class="p">.</span><span class="nx">createInterface</span><span class="p">({</span>
+    <span class="na">input</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">stdin</span><span class="p">,</span>
+    <span class="na">output</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">stdin</span>
+<span class="p">});</span>
+
+<span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="nx">rl</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">line</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">line</span><span class="p">){</span>
+    <span class="nx">input</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">line</span><span class="p">);</span>
+
+<span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">close</span><span class="dl">'</span><span class="p">,</span><span class="kd">function</span> <span class="p">(){</span>
+
+    <span class="c1">// 두 수를 한 줄에 입력</span>
+    <span class="kd">let</span> <span class="nx">A</span> <span class="o">=</span> <span class="nx">input</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="kd">let</span> <span class="nx">B</span> <span class="o">=</span> <span class="nx">input</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1">// 각 숫자의 순서를 반대로(세자리 수만 입력하고 0이 없기 때문에)</span>
+    <span class="kd">let</span> <span class="nx">Aa</span> <span class="o">=</span> <span class="nx">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="nx">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="kd">let</span> <span class="nx">Bb</span> <span class="o">=</span> <span class="nx">B</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="nx">B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1">// 숫자 비교</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nx">Aa</span> <span class="o">&gt;</span> <span class="nx">Bb</span><span class="p">){</span>
+       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Aa</span><span class="p">)</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Bb</span><span class="p">)</span>
+   <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+:ET

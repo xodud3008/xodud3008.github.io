@@ -1,0 +1,55 @@
+I"�<h4 id="문제">문제</h4>
+<p>월드전자는 노트북을 제조하고 판매하는 회사이다. 노트북 판매 대수에 상관없이 매년 임대료, 재산세, 보험료, 급여 등 A만원의 고정 비용이 들며, 한 대의 노트북을 생산하는 데에는 재료비와 인건비 등 총 B만원의 가변 비용이 든다고 한다.</p>
+
+<p>예를 들어 A=1,000, B=70이라고 하자. 이 경우 노트북을 한 대 생산하는 데는 총 1,070만원이 들며, 열 대 생산하는 데는 총 1,700만원이 든다.</p>
+
+<p>노트북 가격이 C만원으로 책정되었다고 한다. 일반적으로 생산 대수를 늘려 가다 보면 어느 순간 총 수입(판매비용)이 총 비용(=고정비용+가변비용)보다 많아지게 된다. 최초로 총 수입이 총 비용보다 많아져 이익이 발생하는 지점을 손익분기점(BREAK-EVEN POINT)이라고 한다.</p>
+
+<p>A, B, C가 주어졌을 때, 손익분기점을 구하는 프로그램을 작성하시오.</p>
+
+<h4 id="입력">입력</h4>
+<p>첫째 줄에 A, B, C가 빈 칸을 사이에 두고 순서대로 주어진다. A, B, C는 21억 이하의 자연수이다.</p>
+
+<h4 id="출력">출력</h4>
+<p>첫 번째 줄에 손익분기점 즉 최초로 이익이 발생하는 판매량을 출력한다. 손익분기점이 존재하지 않으면 -1을 출력한다.</p>
+
+<p><img src="/assets/images/1712.png" alt="1712" /></p>
+
+<ul>
+  <li>기본적인 수학 지식이 있어야 풀 수 있는 문제</li>
+  <li>코드의 가독성을 위해 이제부터 fs를 사용하기로 함</li>
+</ul>
+
+<h4 id="해결과정">해결과정</h4>
+<ol>
+  <li>A: 고정비용, B: 가변비용, C: 판매비용</li>
+  <li>손익분기점 구하는 공식: A + Bi = Ci =&gt; 이 공식을 활용(i는 판매 개수)</li>
+  <li>가변비용이 판매비용보다 크면 영원히 손익분기점이 없다.
+    <ul>
+      <li>C - B가 0보다 작거나 같으면 손익분기점 X</li>
+    </ul>
+  </li>
+  <li>손익분기점은 A / (C - B)로 구할 수 있다.
+    <ul>
+      <li>값이 실수가 될 수 있으므로 소수 이하는 버림.(Math.floor)</li>
+    </ul>
+  </li>
+  <li>총 수입이 총 비용보다 많아지는 값이기 때문에 +1을 해준다.</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">).</span><span class="nx">readFileSync</span><span class="p">(</span><span class="dl">'</span><span class="s1">/dev/stdin</span><span class="dl">'</span><span class="p">).</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">A</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="kd">let</span> <span class="nx">B</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="kd">let</span> <span class="nx">C</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+
+<span class="kd">let</span> <span class="nx">X</span> <span class="o">=</span> <span class="nx">C</span> <span class="o">-</span> <span class="nx">B</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">X</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">A</span><span class="o">/</span><span class="nx">X</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nx">profile</span>
+</code></pre></div></div>
+:ET

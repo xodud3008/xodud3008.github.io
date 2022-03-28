@@ -1,0 +1,782 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>관계형 데이터베이스 vs 비관계형 데이터베이스 - 개발자로 성장하자</title>
+<meta name="description" content="관계형 데이터베이스와 비관계형 데이터베이스의 개념과 사용">
+
+
+  <meta name="author" content="Taeyoung">
+  
+  <meta property="article:author" content="Taeyoung">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="개발자로 성장하자">
+<meta property="og:title" content="관계형 데이터베이스 vs 비관계형 데이터베이스">
+<meta property="og:url" content="http://localhost:4000/til/database1/">
+
+
+  <meta property="og:description" content="관계형 데이터베이스와 비관계형 데이터베이스의 개념과 사용">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-20T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2021-12-20T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/til/database1/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Taeyoung",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개발자로 성장하자 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <style> 
+      ::-webkit-scrollbar{width: 10px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 10px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 10px;}
+      ::-webkit-scrollbar-thumb:hover {background: black;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:8px;height:8px;background:transparent;
+      }
+    </style>
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개발자로 성장하자
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://xodud3008.github.io/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/TIL/">TIL</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Taeyoung</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Keep going and going</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:xodud3008@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/xodud3008" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://discord.gg/kakaogg" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-discord" aria-hidden="true"></i><span class="label">Discord</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="관계형 데이터베이스 vs 비관계형 데이터베이스">
+    <meta itemprop="description" content="관계형 데이터베이스와 비관계형 데이터베이스의 개념과 사용">
+    <meta itemprop="datePublished" content="2021-12-20T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-12-20T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/til/database1/" class="u-url" itemprop="url">관계형 데이터베이스 vs 비관계형 데이터베이스
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#데이터베이스">데이터베이스</a><ul><li><a href="#필요성">필요성</a><ul><li><a href="#in-memory">In-Memory</a></li><li><a href="#file-io">File I/O</a></li></ul></li><li><a href="#sql">SQL</a><ul><li><a href="#쿼리">쿼리</a></li><li><a href="#트랜잭션">트랜잭션</a></li><li><a href="#acid">ACID</a></li></ul></li><li><a href="#sql구조화-쿼리-언어-vs-nosql비구조화-쿼리-언어">SQL(구조화 쿼리 언어) vs NoSql(비구조화 쿼리 언어)</a><ul><li><a href="#관계형-데이터베이스">관계형 데이터베이스</a></li><li><a href="#nosql">NoSQL</a></li><li><a href="#sql-기반-데이터베이스와-nosql-데이터베이스의-차이점">SQL 기반 데이터베이스와 NoSQL 데이터베이스의 차이점</a></li><li><a href="#관계형-데이터베이스를-사용하는-케이스">관계형 데이터베이스를 사용하는 케이스</a></li><li><a href="#비관계형-데이터베이스를-사용하는-케이스">비관계형 데이터베이스를 사용하는 케이스</a></li></ul></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h3 id="데이터베이스">데이터베이스</h3>
+
+<h4 id="필요성">필요성</h4>
+
+<h5 id="in-memory">In-Memory</h5>
+
+<p>JavaScript에서 변수를 만들어 저장한 경우, 프로그램이 종료될 때 해당 프로그램이 사용하던 데이터도 사라진다. 이 말은 변수 등에 저장한 데이터가 프로그램의 실행에 의존한다는 것이다. 예기치 못한 상황으로부터 데이터를 보호할 수 없고, 프로그램이 종료된 상태라면 데이터를 원하는 시간에 받아올 수 없으며, 데이터의 수명이 프로그램의 수명에 의존하게 된다.</p>
+
+<h5 id="file-io">File I/O</h5>
+
+<p>파일을 읽는 방식으로 작동하는 형태. 엑셀 시트나 CSV 같은 파일의 형태는 In-Memory에 비해 데이터를 저장하는 방식으로 적절해 보이지만 한계가 존재</p>
+
+<ul>
+  <li>데이터가 필요할 때마다 전체 파일을 매번 읽어야 함. 파일의 크기가 커질수록 이 작업은 버겁고, 비효율적이어서 File I/O 방식의 큰 단점</li>
+  <li>파일이 손상되거나 여러 개의 파일들을 동시에 다뤄야 하거나 하는 등 복잡하고 데이터량이 많아질수록 데이터를 불러들이는 작업이 점점 힘들어진다.</li>
+</ul>
+
+<h4 id="sql">SQL</h4>
+
+<p>하나의 언어인 <strong>Structured Query Language</strong> (SQL)은 데이터베이스 언어로, 주로 관계형 데이터베이스에서 사용한다. 예를 들어 MySQL, Oracle, SQLite, PostgreSQL 등 다양한 데이터베이스에서 SQL 구문을 사용할 수 있다.</p>
+
+<p>SQL이란 <strong>데이터베이스 용 프로그래밍 언어</strong>. <strong>데이터베이스에 쿼리를 보내 원하는 데이터를 가져오거나 삽입할 수 있다</strong>. 그리고 SQL은 (relation 이라고도 불리는) 데이터가 구조화된(structured) 테이블을 사용하는 데이터베이스에서 활용할 수 있다.</p>
+
+<p>SQL을 사용할 수 있는 데이터베이스와 달리, 데이터의 구조가 고정되어 있지 않은 데이터베이스를 NoSQL이라고 한다. 관계형 데이터베이스와는 달리, 테이블을 사용하지 않고 데이터를 다른 형태로 저장한다. NoSQL의 대표적인 예시는 MongoDB 와 같은 문서 지향 데이터베이스.</p>
+
+<h5 id="쿼리">쿼리</h5>
+
+<p>질의문. 데이터를 필터하기 위한 질의문. 데이터베이스에서 검색할때 사용.</p>
+
+<h5 id="트랜잭션">트랜잭션</h5>
+
+<p>여러 개의 작업을 하나로 묶은 실행 유닛. 묶여 있는 모든 작업을 다 완료해야 정상적으로 종료되며, 하나라도 작업이 실패하면 모든 작업을 실패한 것으로 판단.</p>
+
+<h5 id="acid">ACID</h5>
+
+<p>트랜잭션의 안전성을 보장하기 위해 필요한 성질</p>
+
+<ul>
+  <li>Atomicity(원자성): 하나의 트랜잭션에 속해있는 모든 작업이 전부 성공하거나 전부 실패해서 결과를 예측할 수 있어야 한다.</li>
+  <li>Consistency(일관성): 트랜잭션 이전과 이후, 데이터베이스의 상태는 이전과 같이 유효해야 한다.</li>
+  <li>Isolation(격리성, 고립성): 모든 트랜잭션은 다른 트랜잭션으로부터 독립되어야 한다.</li>
+  <li>Durability(지속성): 트랜잭션이 성공적으로 수행되었다면 로그가 남아야 한다. 런타임 오류나 시스템 오류가 발생하더라도, 해당 기록은 영구적이어야 한다.</li>
+</ul>
+
+<h4 id="sql구조화-쿼리-언어-vs-nosql비구조화-쿼리-언어">SQL(구조화 쿼리 언어) vs NoSql(비구조화 쿼리 언어)</h4>
+
+<h5 id="관계형-데이터베이스">관계형 데이터베이스</h5>
+
+<p>SQL을 기반으로 데이터를 다룬다. 테이블의 구조와 데이터 타입 등을 사전에 정의하고, 테이블에 정의된 내용에 알맞은 형태의 데이터만 삽입할 수 있다. 행(row)과 열(column)로 구성된 테이블에 저장.</p>
+
+<ul>
+  <li>행: 각 열의 데이터 형식에 맞는 데이터 저장</li>
+  <li>열: 하나의 속성에 대한 정보 저장</li>
+</ul>
+
+<p>관계형 데이터베이스는 SQL을 활용해 원하는 정보를 찾을 수 있고, 테이블 간의 관계를 직관적으로 파악하기 쉽다.</p>
+
+<h5 id="nosql">NoSQL</h5>
+
+<p>비관계형 데이터베이스의 구성</p>
+
+<ul>
+  <li>Key-Value 타입: 속성을 <code class="language-plaintext highlighter-rouge">Key-Value</code>의 쌍으로 나타내는 데이터를 배열의 형태로 저장. Key는 속성, Value는 속성에 연결된 데이터 값. ex) Redis, Dynamo</li>
+  <li>문서형(Document) 데이터베이스: 데이터를 테이블이 아닌 문서처럼 저장하는 데이터베이스. JSON과 유사한 형식의 데이터를 문서화하여 저장. 각 문서는 하나의 속성에 대한 데이터를 가지고 있고, 컬렉션이라고 하는 그룹으로 묶어서 관리. ex) MongoDB</li>
+  <li>Wide-column 데이터베이스: 데이터베이스의 열(column)에 대한 데이터를 집중적으로 관리. 각 열에는 Key-Value 형식으로 데이터가 저장되고, 컬럼 패밀리(column families)라고 하는 열의 집합체 단위로 데이터 처리. 하나의 행에 많은 열을 포함할 수 있어 유연성이 높다. 데이터 처리에 필요한 열을 유연하게 선택할 수 있어 규모가 큰 데이터 분석에 주로 사용됨. ex) Cassandra, HBase</li>
+  <li>그래프(Graph) 데이터베이스: 자료구조의 그래프와 비슷한 형식으로 데이터 간의 관계를 구성하는 데이터베이스. 노드에 속셩별로 데이터 저장. 각 노드 간 관계는 선으로 표현 ex) Neo4J, InfiniteGraph</li>
+</ul>
+
+<h5 id="sql-기반-데이터베이스와-nosql-데이터베이스의-차이점">SQL 기반 데이터베이스와 NoSQL 데이터베이스의 차이점</h5>
+
+<ol>
+  <li>데이터 저장
+    <ul>
+      <li>NoSQL은 Key-Value, document, wide-column, graph 방식으로 데이터 저장</li>
+      <li>관계형 데이터베이스는 SQL을 이용해서 테이블에 데이터 저장. 정해진 형식에 맞게 저장해야 함</li>
+    </ul>
+  </li>
+  <li>스키마
+    <ul>
+      <li>SQL을 사용하려면, 고정된 형식의 스키마 필요. 스키마 수정시 데이터베이스 전체를 수정하거나 오프라인으로 전환해야 함.</li>
+      <li>NoSQL은 동적으로 스키마 형태 관리할 수 있다. 행을 추가할 때 즉시 새로운 열을 추가할 수 있고, 모든 열에 데이터를 반드시 입력하지 않아도 된다.</li>
+    </ul>
+  </li>
+  <li>쿼리
+    <ul>
+      <li>관계형 데이터베이스는 테이블의 형식과 테이블 간의 관계에 맞춰 데이터 요청. 구조화된 쿼리 언어 사용</li>
+      <li>비관계형 데이터베이스는 데이터 그룹 자체를 조회.</li>
+    </ul>
+  </li>
+  <li>확장성
+    <ul>
+      <li>관계형 데이터베이스는 수직적으로 확장(높은 메모리, CPU 확장). 하드웨어의 성능을 많이 이용해서 비용이 많이 든다.</li>
+      <li>비관계형 데이터베이스는 수평적으로 확장(값싼 서버 증설, 클라우드 서비스 확장). 수직적 확장보다 상대적으로 적은 비용</li>
+    </ul>
+  </li>
+</ol>
+
+<h5 id="관계형-데이터베이스를-사용하는-케이스">관계형 데이터베이스를 사용하는 케이스</h5>
+
+<ul>
+  <li>데이터베이스의 ACID 성질을 준수해야 하는 경우(전자상거래, 모든 금융 서비스)</li>
+  <li>소프트웨어에 사용되는 데이터가 구조적이고 일관적인 경우</li>
+</ul>
+
+<h5 id="비관계형-데이터베이스를-사용하는-케이스">비관계형 데이터베이스를 사용하는 케이스</h5>
+
+<ul>
+  <li>데이터의 구조가 거의 또는 전혀 없는 데용량의 데이터 저장</li>
+  <li>클라우드 컴퓨팅 및 저장 공간을 최대한 활용하는 경우</li>
+  <li>빠르게 서비스를 구축하는 과정에서 데이터 구조를 자주 업데이트하는 경우</li>
+</ul>
+
+<p><strong>어느 유형이 더 좋다기 보단 다양한 사례를 살펴보고 적절한 데이터베이스를 선택하는 것이 중요</strong></p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#blog" class="page__taxonomy-item p-category" rel="tag">Blog</a><span class="sep">, </span>
+    
+      <a href="/tags/#database" class="page__taxonomy-item p-category" rel="tag">Database</a><span class="sep">, </span>
+    
+      <a href="/tags/#git" class="page__taxonomy-item p-category" rel="tag">Git</a><span class="sep">, </span>
+    
+      <a href="/tags/#github" class="page__taxonomy-item p-category" rel="tag">Github</a><span class="sep">, </span>
+    
+      <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a><span class="sep">, </span>
+    
+      <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">jekyll</a><span class="sep">, </span>
+    
+      <a href="/tags/#nosql" class="page__taxonomy-item p-category" rel="tag">NoSQL</a><span class="sep">, </span>
+    
+      <a href="/tags/#relation" class="page__taxonomy-item p-category" rel="tag">relation</a><span class="sep">, </span>
+    
+      <a href="/tags/#relation-database" class="page__taxonomy-item p-category" rel="tag">relation database</a><span class="sep">, </span>
+    
+      <a href="/tags/#schema" class="page__taxonomy-item p-category" rel="tag">schema</a><span class="sep">, </span>
+    
+      <a href="/tags/#sql" class="page__taxonomy-item p-category" rel="tag">SQL</a><span class="sep">, </span>
+    
+      <a href="/tags/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-12-20">December 20, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EA%B4%80%EA%B3%84%ED%98%95+%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4+vs+%EB%B9%84%EA%B4%80%EA%B3%84%ED%98%95+%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%20http%3A%2F%2Flocalhost%3A4000%2Ftil%2Fdatabase1%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftil%2Fdatabase1%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftil%2Fdatabase1%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/codingtest/baekjoon-1065/" class="pagination--pager" title="백준 1065 자바스크립트(함수)
+">이전</a>
+    
+    
+      <a href="/til/database2/" class="pagination--pager" title="데이터베이스 설계
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2022-02-20-algorithm-boardgame/" rel="permalink">
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/codingtest/LIS/" rel="permalink">Algorithm LIS
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">코딩테스트 준비. 배열의 연속되지 않는 부분 배열 중 모든 요소가 엄격하게 오름차순으로 정렬된 가장 긴 부분 배열. Longest Increasing Subsequence(LIS).
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/ha3/" rel="permalink">코드스테이츠 섹션3 회고
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">코드스테이츠 섹션3 HA3 회고, 느낀점, 나아갈 방향
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/algorithm-greedy/" rel="permalink">[Greedy] 짐 나르기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">알고리즘 문제. [Greedy] 짐 나르기
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+     crossorigin="anonymous"></script>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+     crossorigin="anonymous"></script>
+<!-- end custom footer snippets -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+            crossorigin="anonymous">
+        </script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-5216384132518164"
+            data-ad-slot="1582682122"
+            data-ad-format="auto"
+            data-full-width-responsive="true">
+        </ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/xodud3008" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Taeyoung. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,799 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Git 사용법 - 개발자로 성장하자</title>
+<meta name="description" content="프로젝트 내에서 Git 사용법. 여러가지 명령어">
+
+
+  <meta name="author" content="Taeyoung">
+  
+  <meta property="article:author" content="Taeyoung">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="개발자로 성장하자">
+<meta property="og:title" content="Git 사용법">
+<meta property="og:url" content="http://localhost:4000/til/git/">
+
+
+  <meta property="og:description" content="프로젝트 내에서 Git 사용법. 여러가지 명령어">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-01-04T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2022-01-04T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/til/git/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Taeyoung",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="개발자로 성장하자 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <style> 
+      ::-webkit-scrollbar{width: 10px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 10px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 10px;}
+      ::-webkit-scrollbar-thumb:hover {background: black;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:8px;height:8px;background:transparent;
+      }
+    </style>
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          개발자로 성장하자
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://xodud3008.github.io/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/TIL/">TIL</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Taeyoung</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Keep going and going</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:xodud3008@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/xodud3008" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://discord.gg/kakaogg" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-discord" aria-hidden="true"></i><span class="label">Discord</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Git 사용법">
+    <meta itemprop="description" content="프로젝트 내에서 Git 사용법. 여러가지 명령어">
+    <meta itemprop="datePublished" content="2022-01-04T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-01-04T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/til/git/" class="u-url" itemprop="url">Git 사용법
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#git">Git</a><ul><li><a href="#브랜치">브랜치</a><ul><li><a href="#장점">장점</a></li><li><a href="#종류">종류</a></li><li><a href="#깃-명령어">깃 명령어</a></li><li><a href="#merge--rebase">merge &amp; rebase</a></li><li><a href="#git을-활용하는-프로젝트-전체-workflow">Git을 활용하는 프로젝트 전체 workflow</a></li></ul></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h3 id="git">Git</h3>
+<h4 id="브랜치">브랜치</h4>
+<p>독립적으로 어떤 작업을 진행하기 위한 개념. 브랜치를 통해 코드를 통째로 복사한 후 원래 코드가 변형될 우려 없이 독립적으로 개발할 수 있다. 따라서 여러 작업을 동시에 진행할 수 있다.</p>
+
+<h5 id="장점">장점</h5>
+<ul>
+  <li>한 소스코드에서 동시에 다양한 작업을 할 수 있게 해준다.</li>
+  <li>소스코드의 한 시점과 동일한 상태를 만들고, 브랜치를 넘나들며 작업을 수행할 수 있다.</li>
+  <li>각각의 브랜치에서 생긴 변화가 다른 브랜치에 영향을 주지 않고 독립적으로 코딩을 진행할 수 있다.</li>
+</ul>
+
+<h5 id="종류">종류</h5>
+<ul>
+  <li>통합 브랜치: 배포될 소스가 기록되는 브랜치</li>
+  <li>피처 브랜치: 기능 추가, 버그 수정과 같이 단위 작업을 위한 브랜치</li>
+</ul>
+
+<h5 id="깃-명령어">깃 명령어</h5>
+<ul>
+  <li>새로운 브랜치 생성: <code class="language-plaintext highlighter-rouge">git branch 새로운 브랜치 이름</code></li>
+  <li>새로운 브랜치 생성 후 해당 브랜치로 전환: <code class="language-plaintext highlighter-rouge">git switch -c 브랜치 이름</code> or <code class="language-plaintext highlighter-rouge">git checkout -b 브랜치 이름</code></li>
+  <li>브랜치 목록 확인: <code class="language-plaintext highlighter-rouge">git branch</code></li>
+  <li>브랜치 목록과 각 브랜치의 최근 커밋 확인: <code class="language-plaintext highlighter-rouge">git branch -v</code></li>
+  <li>브랜치 삭제: <code class="language-plaintext highlighter-rouge">git brahcn -d 브랜치 이름</code></li>
+  <li>병합하지 않은 브랜치 강제 삭제: <code class="language-plaintext highlighter-rouge">gir branch -D</code></li>
+  <li>브랜치 전환: <code class="language-plaintext highlighter-rouge">git switch 브랜치 이름</code> or <code class="language-plaintext highlighter-rouge">git checkout 브랜치 이름</code></li>
+  <li>브랜치 병합(main 브랜치로 dev 브랜치 병합): <code class="language-plaintext highlighter-rouge">git checkout master</code> -&gt; <code class="language-plaintext highlighter-rouge">git merge dev</code></li>
+  <li>로그에 보든 브랜치를 그래프로 표현: <code class="language-plaintext highlighter-rouge">git log --branches --graph --decorate</code></li>
+  <li>아직 커밋하지 않은 작업 스택에 임시 저장: <code class="language-plaintext highlighter-rouge">git stash</code></li>
+  <li>병합을 취소하고 이전 커밋으로 되돌리기: <code class="language-plaintext highlighter-rouge">git reset --hard 커밋 넘버</code></li>
+  <li>특정 시점으로 돌아가기:
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reflog
+<span class="gh"># git의 기록을 확인 &gt; 각각 HEAD@{index} 형태로 index 갖고 있다.</span>
+git reset HEAD@{index}
+<span class="gh"># 해당 index로 돌아간다</span>
+</code></pre></div>    </div>
+  </li>
+  <li>커밋에 파일 추가(push 하기 전에만 하기)
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># 바뀐 파일 추가</span>
+git add . 
+<span class="gh"># 마지막 커밋에 바뀐 파일 추가됨</span>
+git commit --amend --no-edit
+</code></pre></div>    </div>
+    <p><strong>공개 브랜치에 push된 커밋은 절대 수정하면 안됨!!</strong></p>
+  </li>
+  <li>커밋 메세지 수정: <code class="language-plaintext highlighter-rouge">git commit --amend</code></li>
+  <li>다른 브랜치에 커밋해야 하는데 실수로 main에 커밋한 경우(push 하기 전에만 하기)
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># 현재 main의 상태로 새로운 브랜치 생성</span>
+git branch 브랜치 이름
+<span class="gh"># main 브랜치의 마지막 커밋 제거</span>
+git reset HEAD~ --hard
+git checkout 브랜치 이름
+<span class="gh"># 새로운 브랜치에는 커밋이 남아있다.</span>
+</code></pre></div>    </div>
+  </li>
+  <li>실수로 다른 브랜치에 커밋한 경우
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># 마지막 커밋 취소하고 변경사항 남기기</span>
+git reset HEAD~ --soft
+git stash
+<span class="gh"># 올바른 브랜치로 이동</span>
+git checkout 브랜치 이름
+git stash pop
+git add .
+git commit -m "커밋 메세지"
+</code></pre></div>    </div>
+    <p>또는</p>
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checouht 브랜치 이름
+<span class="gh"># main의 마지막 커밋 선택</span>
+git cherry-pick main
+<span class="gh"># main에서 해당 커밋 제거</span>
+git checkout main
+git reset HEAD~ --hard
+</code></pre></div>    </div>
+  </li>
+  <li>diff 실행시 아무것도 안보이는 경우: <code class="language-plaintext highlighter-rouge">git diff --staged</code></li>
+  <li>커밋 되돌리기
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># 되돌려야할 커밋의 hash 찾기</span>
+git log
+<span class="gh"># 에디터 창에서 새로 커밋 메세지 입력하거나 그냥 저장하고 종료해도 됨</span>
+git revert [hash]
+</code></pre></div>    </div>
+  </li>
+  <li>수정한 파일 되돌리기
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># 수정되기 전 커밋 hash 찾기</span>
+git log
+git checkout [hash] -- 파일 경로
+</code></pre></div>    </div>
+  </li>
+  <li>원격 레포지토리 버전으로 초기화
+    <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># origin에서 최신 상태 받아오기</span>
+git fetch origin
+git checkout main
+git reset --hadr origin/main
+<span class="gh"># 추적되고 있지 않은 파일/폴더 모두 삭제</span>
+git clean -d --force
+<span class="gh"># 초기화하고 싶은 각 branch에 대해서 ckecout/reset/clean 반복</span>
+</code></pre></div>    </div>
+    <p><strong>되돌릴 수 없는 명령!!</strong></p>
+  </li>
+  <li>커밋 메세지를 합쳐서 머지하는 방법
+    <ul>
+      <li>커밋 히스토리를 깔끔하게 정리하는데 사용</li>
+      <li>여러 커밋 메세지를 하나로 합쳐서 머지
+        <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout main
+<span class="gh"># merge 하는 동시에 squash 사용해서 커밋 합치기</span>
+git merge --squash 브랜치 이름
+git commit -m "커밋 메세지"
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>참조 : <a href="https://dangitgit.com/ko">Dangit, git</a></p>
+
+<h5 id="merge--rebase">merge &amp; rebase</h5>
+<ul>
+  <li>merge: 변경 내용의 이력이 모두 남아 이력이 복잡해진다.</li>
+  <li>rebase: fast-forward 방식. branch base를 이동시킨다. merge처럼 브랜치 통합을 목적으로 하지만 특정 시점으로 브랜치가 가리키는 곳을 변경하는 기능</li>
+</ul>
+
+<h5 id="git을-활용하는-프로젝트-전체-workflow">Git을 활용하는 프로젝트 전체 workflow</h5>
+<center><img src="/assets/images/workflow.png" width="100%" height="70%" title="dbmvc" alt="사진" /></center>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#blog" class="page__taxonomy-item p-category" rel="tag">Blog</a><span class="sep">, </span>
+    
+      <a href="/tags/#chmod" class="page__taxonomy-item p-category" rel="tag">chmod</a><span class="sep">, </span>
+    
+      <a href="/tags/#git" class="page__taxonomy-item p-category" rel="tag">Git</a><span class="sep">, </span>
+    
+      <a href="/tags/#git" class="page__taxonomy-item p-category" rel="tag">Git</a><span class="sep">, </span>
+    
+      <a href="/tags/#git-%EB%AA%85%EB%A0%B9%EC%96%B4" class="page__taxonomy-item p-category" rel="tag">Git 명령어</a><span class="sep">, </span>
+    
+      <a href="/tags/#git-%EC%82%AC%EC%9A%A9%EB%B2%95" class="page__taxonomy-item p-category" rel="tag">Git 사용법</a><span class="sep">, </span>
+    
+      <a href="/tags/#github" class="page__taxonomy-item p-category" rel="tag">Github</a><span class="sep">, </span>
+    
+      <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a><span class="sep">, </span>
+    
+      <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">jekyll</a><span class="sep">, </span>
+    
+      <a href="/tags/#linux" class="page__taxonomy-item p-category" rel="tag">linux</a><span class="sep">, </span>
+    
+      <a href="/tags/#node-js" class="page__taxonomy-item p-category" rel="tag">node.js</a><span class="sep">, </span>
+    
+      <a href="/tags/#permission" class="page__taxonomy-item p-category" rel="tag">permission</a><span class="sep">, </span>
+    
+      <a href="/tags/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%85%B8%EB%93%9Cjs" class="page__taxonomy-item p-category" rel="tag">노드js</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%B0%B1%EC%97%94%EB%93%9C" class="page__taxonomy-item p-category" rel="tag">백엔드</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8" class="page__taxonomy-item p-category" rel="tag">자바스크립트</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-01-04">January 4, 2022</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Git+%EC%82%AC%EC%9A%A9%EB%B2%95%20http%3A%2F%2Flocalhost%3A4000%2Ftil%2Fgit%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftil%2Fgit%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftil%2Fgit%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/til/network/" class="pagination--pager" title="네트워크 심화
+">이전</a>
+    
+    
+      <a href="/til/AWS/" class="pagination--pager" title="AWS
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2022-02-20-algorithm-boardgame/" rel="permalink">
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/codingtest/LIS/" rel="permalink">Algorithm LIS
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">코딩테스트 준비. 배열의 연속되지 않는 부분 배열 중 모든 요소가 엄격하게 오름차순으로 정렬된 가장 긴 부분 배열. Longest Increasing Subsequence(LIS).
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/ha3/" rel="permalink">코드스테이츠 섹션3 회고
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">코드스테이츠 섹션3 HA3 회고, 느낀점, 나아갈 방향
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/algorithm-greedy/" rel="permalink">[Greedy] 짐 나르기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">알고리즘 문제. [Greedy] 짐 나르기
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+     crossorigin="anonymous"></script>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+     crossorigin="anonymous"></script>
+<!-- end custom footer snippets -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5085734975728389"
+            crossorigin="anonymous">
+        </script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-5216384132518164"
+            data-ad-slot="1582682122"
+            data-ad-format="auto"
+            data-full-width-responsive="true">
+        </ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/xodud3008" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Taeyoung. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

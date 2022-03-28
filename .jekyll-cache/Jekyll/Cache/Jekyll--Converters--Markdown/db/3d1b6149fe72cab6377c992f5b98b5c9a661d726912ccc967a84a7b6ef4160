@@ -1,0 +1,38 @@
+I"�<h3 id="1차원-배열8958">1차원 배열(8958)</h3>
+<p>O와 X만 입력했을 때, O가 연속된 갯수만큼 보너스 점수를 받는 문제.</p>
+
+<p>시간이 좀 걸렸지만 O가 연속되는 횟수를 세서 플러스 해주면 된다.</p>
+
+<pre><code class="language-Javascript">const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdin
+});
+
+let input = [];
+
+rl.on('line', function (line){
+    input.push(line);
+
+}).on('close',function (){
+
+    let number = Number(input[0]);
+
+    for (let i = 1; i &lt;= number; i++) {
+        let N = 0;
+        let A = 0;
+
+        for (let j = 0; j &lt; input[i].length; j++) {
+            if (input[i][j] === 'O') {
+                N++;
+            } else {
+                N = 0;
+            }
+            A += N;
+        }
+        console.log(A);
+    }
+    process.exit();
+});
+</code></pre>
+:ET

@@ -1,0 +1,30 @@
+I"�<h4 id="aws-ubuntu-git-클론-중-오류-발생">AWS Ubuntu git 클론 중 오류 발생</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+</code></pre></div></div>
+<p>평소 잘 되던 <code class="language-plaintext highlighter-rouge">git clone</code>이 AWS Ubuntu 환경에서 위의 에러가 뜨면서 계속 실패.</p>
+
+<p>검색해보면 Origin을 삭제하고 다시 설정하는 방법이 많이 나오는데 왠지 이 문제는 아닌 것 같아서 더 찾아봤다.</p>
+
+<p>원인은 SSH 인증이 안되었기 떄문인 것 같다.
+git에 SSH Key를 추가하고 clone도 SSH로 하면 해결</p>
+
+<p><strong>AWS Ubuntu 환경</strong></p>
+<h4 id="터미널에서-아래-명령어를-입력해서-ssh-key-생성">터미널에서 아래 명령어를 입력해서 SSH Key 생성</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd ~/.ssh
+ssh-keygen -t rsa -C git계정 메일
+</code></pre></div></div>
+<p>엔터를 쭉쭉 치면 키 생성 완료</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat id_rsa.pub
+</code></pre></div></div>
+<p>위 명령어를 치면 SSH Key 생성 완료. 끝자리는 본인 메일 주소니 확인하고 넘어가자</p>
+
+<h4 id="생성된-ssh-key를-깃허브에-등록">생성된 SSH Key를 깃허브에 등록</h4>
+<p><strong>Settings -&gt; SSH and GPG Keys -&gt; 맨 위 New SSH Key 클릭</strong>
+<img src="/assets/images/ssh.png" width="100%" height="40%" title="dbmvc" alt="사진" /></p>
+
+<p>타이틀은 알아보기 쉽게 쓰는 것이 좋다. 타이틀 밑에 Key를 복붙해서 등록하면 완료. 흰색 네모에 등록한 Key 정보가 나타난다.</p>
+
+<p>이제 다시 터미널에서 <span style="color:blue">SSH</span>로 git clone하면 평소처럼 잘 된다.</p>
+:ET

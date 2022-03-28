@@ -1,0 +1,186 @@
+I"3<h4 id="개념">개념</h4>
+<p>사용자에게 편의를 제공하기 위한 스타일링에 사용. 독릭적으로 사용되지 않고 반드시 HTML에서 동작한다.</p>
+<ul>
+  <li>시맨틱 태그: <code class="language-plaintext highlighter-rouge">&lt;divb&gt;</code>와 같은 역할이지만 이름에 의미를 붙여서 부르는 태그</li>
+</ul>
+
+<h4 id="사용방법">사용방법</h4>
+<p><code class="language-plaintext highlighter-rouge">body{ color: red, font-size: 30px }</code></p>
+
+<ul>
+  <li>background와 background-color의 차이점
+    <ul>
+      <li>background-color는 단순히 색 옵션만 가능</li>
+      <li>background는 다양한 옵션 추가 가능
+ex) background-color/image/repeat/attachment/position</li>
+    </ul>
+  </li>
+  <li>CSS 파일을 사용하기 위해 HTML 파일과 연결 필요
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;link rel="stylesheet" href="index.css" /&gt;</code></li>
+      <li>rel: 파일의 역할이나 특징</li>
+      <li>href: 파일의 위치</li>
+    </ul>
+  </li>
+  <li>CSS 스타일 적용 방법
+    <ul>
+      <li>인라인 스타일(같은 줄에 바로 스타일 적용)</li>
+      <li>내부 스타일 시트(style 태그에 작성)</li>
+      <li>외부 스타일 시트(CSS 파일 HTML에 연결)</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="셀렉터">셀렉터</h5>
+<p>HTML 문서에는 이름이 같은 태그들이 많다. 이때 id 또는 class를 지정해서 특정한 태그만 css를 적용할 수 있다.</p>
+
+<ul>
+  <li>id
+    <ul>
+      <li>#test-title{color: red;}</li>
+      <li>id는 하나의 태그에만 사용 가능(중복 불가)</li>
+      <li>id는 #으로 지정</li>
+    </ul>
+  </li>
+  <li>class
+    <ul>
+      <li>
+        <div class="menu-item">사과<div>
+</div></div>
+      </li>
+      <li>
+        <div class="menu-item">배<div>
+</div></div>
+      </li>
+      <li>
+        <div class="menu-item">포도<div>
+</div></div>
+      </li>
+      <li>class는 .으로 지정</li>
+      <li>.menu-item{text-decoration: underline}</li>
+      <li>클래스 명이 같은 모든 태그의 스타일이 바뀐다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="텍스트">텍스트</h4>
+<ul>
+  <li>색상
+    <ul>
+      <li>color를 사용해서 변경</li>
+      <li>HEX값 또는 색상의 이름으로 지정</li>
+      <li>.name{color: red} or .name{color: #ff0000}</li>
+      <li>글자색 이외에도 배경색, 테두리 색 등 다양한 색 변경에 사용</li>
+    </ul>
+  </li>
+  <li>글꼴
+    <ul>
+      <li>font-family 사용</li>
+      <li>.name{font-family: “Noto Sans KR”, “Gothic”, “Verdana”}</li>
+      <li>font-family에 여러개 지정하면 fallback 기능</li>
+      <li>글꼴이 없거나 사용할 수 없을 경우 앞에서 부터 차례대로 적용됨.</li>
+    </ul>
+  </li>
+  <li>크기
+    <ul>
+      <li>font-size</li>
+      <li>.name{font-size: 30px;}</li>
+      <li>단위
+        <ul>
+          <li>절대단위: px, pt =&gt; 기기나 브라우저 등 환경에 영향을 받지 않는 경우</li>
+          <li>상대단위: %, em, rem, ch, vw, vh =&gt; rem: 브라우저 기본 글자 크기 1rem 기준으로 조정</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>기타
+    <ul>
+      <li>font-weight: 굵기</li>
+      <li>text-decoration: 밑줄, 가로줄 등</li>
+      <li>letter-spacing: 자간</li>
+      <li>line-height: 행간</li>
+      <li>text-aligh: 정렬 =&gt; left, right, center, justify(양쪽 정렬)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="박스">박스</h4>
+<ul>
+  <li>block
+    <ul>
+      <li>줄바꿈 일어남</li>
+      <li>너비: 100%</li>
+      <li>width, height 사용 가능</li>
+    </ul>
+  </li>
+  <li>inline-block
+    <ul>
+      <li>줄바꿈 일어나지 않음</li>
+      <li>너비: 글자가 차지하는 만큼</li>
+      <li>width, height 사용 가능</li>
+    </ul>
+  </li>
+  <li>inline
+    <ul>
+      <li>줄바꿈 일어나지 않음</li>
+      <li>너비: 글자가 차지하는 만큼</li>
+      <li>width, height 사용 불가</li>
+    </ul>
+  </li>
+  <li>테두리
+    <ul>
+      <li>p{border: 1px soild gray;}</li>
+      <li>두께(border-width), 스타일(border-style), 색상(border-color) 추가 가능</li>
+    </ul>
+  </li>
+  <li>바깥 여백(margin)
+    <ul>
+      <li>p{margin: 10px 20px 30px 40px}
+        <ul>
+          <li>위(top), 오른쪽(right), 아래(botton), 왼쪽(left) 시계방향 순서</li>
+        </ul>
+      </li>
+      <li>개발자 도구에서 margin은 주황색으로 표시됨</li>
+      <li>필요한 위치에만 값 지정 가능
+        <ul>
+          <li>p{margin: 10px 20px} =&gt; 값을 두개만 넣으면 top, bottom 10px / rifht, left 20px</li>
+          <li>p{margin: 10px} =&gt; 모든 방향에 여백 적용</li>
+          <li>p{margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px;} =&gt; 각각의 값 지정 가능</li>
+        </ul>
+      </li>
+      <li>음수값 지정 가능 =&gt; 다른 엘리먼트와 간격이 줄어든다</li>
+    </ul>
+  </li>
+  <li>안쪽 여백(padding)
+    <ul>
+      <li>margin과 같은 규칙 적용</li>
+      <li>p{padding: 10px 20px 30px 40px; border: 1px soild red; background-color-lightyellow;} =&gt; 배경이나 border 적용 가능</li>
+    </ul>
+  </li>
+  <li>박스를 벗어나는 컨텐츠 처리
+    <ul>
+      <li>p{height: 40px; overflow: auto}
+        <ul>
+          <li>overflow를 사용하면 박스보다 큰 콘텐츠에 스크롤 표시</li>
+          <li>overflow: hidden =&gt; 넘치는 콘텐츠 숨기기</li>
+          <li>overflow-x, overflow-y로 x축, y축 값 지정 가능</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>박스 크기
+    <ul>
+      <li>박스의 크기는 크기 + 여백</li>
+      <li>#container{width: 300px; padding: 10px; border: 2px solid red;}</li>
+      <li>박스의 크기 : 콘텐츠 영역(300px) + 여백(10px + 10px + 2px + 2px)</li>
+      <li>{box-sizing: border-box}
+        <ul>
+          <li>모든 박스에서 여백과 테두리를 포함한 크기로 계산됨</li>
+          <li>box-sizing은 HTML 문서 전체에 적용</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+:ET
