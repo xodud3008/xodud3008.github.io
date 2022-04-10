@@ -1,5 +1,5 @@
 ---
-title:  "First Project Database"
+title:  "First Project Database settings"
 excerpt: "첫번째 프로젝트. 백엔드 개발자. 시퀄라이저를 이용한 데이터베이스 구축. 테이블 간 관계설정"
 
 categories:
