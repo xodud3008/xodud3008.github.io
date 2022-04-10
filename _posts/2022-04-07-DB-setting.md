@@ -5,7 +5,7 @@ excerpt: "첫번째 프로젝트. 백엔드 개발자. 시퀄라이저를 이용
 categories:
   - FirstProject
 tags:
-  - [Blog, jekyll, Github, Git, TIL, Javascript, codestates, firstproject, 첫번째 프로젝트, 코드스테이츠, 백엔드, 프론트엔드, git, git workflow, 깃허브, 깃 워크플로우, 깃 명령어, git merge, git pull, git remote]
+  - [Blog, jekyll, Github, Git, TIL, Javascript, codestates, firstproject, 첫번째 프로젝트, 코드스테이츠, 백엔드, 프론트엔드, Database, sequelize, sequelize-cli, seed, migration, 시퀄라이즈, 마이그레이션, 시드, mysql, 시퀄라이즈 관계설정,모델 생성, 시퀄라이즈 사용 방법]
 
 toc: true
 toc_sticky: true
