@@ -43,7 +43,7 @@ last_modified_at: 2022-04-08
   모두) Dev branch에서 하위 branch를 만든다(작업용 branch). 기능마다 새로운 branch를 만들어 작업한다.
 
 9. `$ git push origin feature`  
-  모두) 작업이 끝나면 feature branch에서 local 코드를 push한다. 그럼 origin의 feature branch로 코드가 업데이트된다. github로 가서 upstream에 pull request를 보낸다. 
+  모두) 작업이 끝나면 feature branch에서 local 코드를 push한다. 그럼 origin의 feature branch로 코드가 업데이트된다. github로 가서 upstream에 pull request를 보낸다.  
 **깃허브 페이지에서 할 경우 `feature -> Dev(UpStream)`로 pull request를 보내야 한다. `feature -> main` pull request 금지**
 
 10. `$ git pull UpStream Dev`  
