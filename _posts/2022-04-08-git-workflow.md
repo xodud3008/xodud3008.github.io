@@ -16,6 +16,8 @@ last_modified_at: 2022-04-08
 
 #### 깃허브 워크플로우
 
+<img src="/assets/images/workflow.png" width="100%" height="50%" title="store" alt="사진"/>
+
 ##### 팀 프로젝트를 위한 깃허브 워크플로우
 
 1. `$ git clone 'UpStream의 저장소 주소(깃 클론할때 주소)'`  
@@ -44,7 +46,7 @@ last_modified_at: 2022-04-08
 
 9. `$ git push origin feature`  
   모두) 작업이 끝나면 feature branch에서 local 코드를 push한다. 그럼 origin의 feature branch로 코드가 업데이트된다. github로 가서 upstream에 pull request를 보낸다.  
-**깃허브 페이지에서 할 경우 `feature -> Dev(UpStream)`로 pull request를 보내야 한다. `feature -> main` pull request 금지**
+**:exclamation:깃허브 페이지에서 할 경우 `feature -> Dev(UpStream)`로 pull request를 보내야 한다. `feature -> main` pull request 금지**
 
 10. `$ git pull UpStream Dev`  
   모두) pull request가 생기면 팀원들이 모여 리뷰를 진행. 
