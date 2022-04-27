@@ -157,4 +157,4 @@ module.exports = {
 * seed 한개 실행
 `$ npx sequelize db:seed --seed 파일명(숫자까지 포함한 full 파일명)`
 
-**:exclamation:migration을 한 뒤 seed를 실행해야 한다.**
+**:exclamation: migration을 한 뒤 seed를 실행해야 한다.**
