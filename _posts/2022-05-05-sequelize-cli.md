@@ -13,3 +13,15 @@ toc_sticky: true
 date: 2022-05-05
 last_modified_at: 2022-05-05
 ---
+
+## sequelize 사용법
+
+### CRUD
+
+#### 조회
+
+#### 수정
+
+#### 삭제
+
+#### 삽입
