@@ -24,7 +24,7 @@ const updateUser = await user.update(
 sequelize로 유저 정보를 수정하면 500에러가 뜨지만 데이터베이스 상에서는 수정이 됨.
 
 #### 해결방법
-return 에서 res.status를 res.stauts로 오타를 쳤더니 수정만 되고 500 에러로 넘어가버렸다.
+return에서 `res.status`를 `res.stauts`로 오타를 냈더니 데이터베이스 상에서 수정만 되고 500 에러로 넘어가버렸다.
  :exclamation: 수정은 되지만 에러가 생길때 오타 확인
 
 **오타 수정하니 문제 해결**
