@@ -3,7 +3,7 @@ title:  "Sequelize CRUD"
 excerpt: "sequelize crud. 시퀄라이즈 CRUD 방법"
 
 categories:
-  - FirstProject
+  - Project
 tags:
   - [DB, sequelize, CRUD sequelize-cli, sequelize crud, javascript,sequelize 사용법, sequelize 삽입, sequelize 수정, sequelize 삭제, sequelize 수정]
 
