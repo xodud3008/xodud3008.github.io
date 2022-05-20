@@ -1,5 +1,5 @@
 ---
-title: "github 블로그 이모지 적용 안됨"
+title: "github 블로그 이모지 적용 안되는 현상"
 excerpt: "마크다운 문서로 보면 적용 되지만 업로드 했을 때 화면에서는 텍스트로 출력되는 현상"
 
 categories:
