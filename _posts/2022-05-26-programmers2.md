@@ -1,6 +1,6 @@
 ---
-title: "프로그래머스 약수의 합"
-excerpt: "코딩테스트 프로그래머스 연습문제 약수의 합"
+title: "프로그래머스 Lv.1 약수의 합"
+excerpt: "코딩테스트 프로그래머스 Lv.1 연습문제 약수의 합"
 
 categories:
   - CodingTest

@@ -1,6 +1,6 @@
 ---
-title: "프로그래머스 평균 구기"
-excerpt: "코딩테스트 프로그래머스 연습문제 평균 구하기"
+title: "프로그래머스 Lv.1 평균 구하기"
+excerpt: "코딩테스트 프로그래머스 Lv.1 연습문제 평균 구하기"
 
 categories:
   - CodingTest
