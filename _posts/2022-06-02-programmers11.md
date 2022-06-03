@@ -25,6 +25,7 @@ last_modified_at: 2022-06-02
 :pushpin: slice() 사용법
 * 어떤 배열의 begin부터 end까지(end 미포함)에 대한 얕은 복사본을 새로운 배열 객체로 반환
 * 원본 배열은 바뀌지 않는다.
+
 ```javascript
 arr = [1, 2, 3, 4, 5]
 // 3과 4를 뽑는 방법
