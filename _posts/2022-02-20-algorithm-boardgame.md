@@ -1,11 +1,11 @@
 ---
-title:  "[구현] 보드 게임"
-excerpt: "알고리즘 문제. [구현] 보드 게임"
+title:  "보드 게임"
+excerpt: "알고리즘 문제. 보드 게임"
 
 categories:
   - TIL
 tags:
-  - [Blog, jekyll, Github, Git, TIL, Javascript, 알고리즘, Greedy Algorithm, 자바스크립트, 백엔드, CS, Computer Science, 코딩테스트, 보드게임, 보드 게임, [구현] 보드 게임, 알고리즘 문제]
+  - [Blog, jekyll, Github, Git, TIL, Javascript, 알고리즘, Greedy Algorithm, 자바스크립트, 백엔드, CS, Computer Science, 코딩테스트, 보드게임, 보드 게임, 보드 게임, 알고리즘 문제]
 
 toc: true
 toc_sticky: true
