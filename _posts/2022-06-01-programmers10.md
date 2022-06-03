@@ -5,7 +5,7 @@ excerpt: "코딩테스트 프로그래머스 Lv.1 연습문제 수박수박수�
 categories:
   - CodingTest
 tags:
-  - [코딩테스트, 프로그래머스, 연습문제, 수박수박수박수박수박수?, programmers, codingtest, 코딩테스트 연습]
+  - [코딩테스트, 프로그래머스, 연습문제, 수박수박수박수박수박수, programmers, codingtest, 코딩테스트 연습]
 
 toc: true
 toc_sticky: true
