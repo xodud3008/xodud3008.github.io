@@ -22,7 +22,14 @@ last_modified_at: 2022-06-11
 2. str을 첫번째 for문에서 선언하여 줄이 바뀔때마다 초기화
 3. 가로로 출력하기 위해 str에 `*`을 갯수만큼 더해서 두번째 for문 밖, 첫번째 for문 안에서 출력
 
-
+:pushpin: repeat()
+자바스크립트 내장 함수랑 친해지면 짧게 쓸 수 있다...
+```javascript
+const row = '*'.repeat(a)
+for(let i = 0; i<b; i++){
+  console.log(row)
+}
+```
 
 ```javascript
 process.stdin.setEncoding('utf8');
