@@ -23,7 +23,7 @@ last_modified_at: 2022-06-14
 3. 빈 공간으로 분리해서 출력
 
 :pushpin: 
-* 자바스크립트에서는 문자도 max, min 가능
+  * 자바스크립트에서는 문자도 max, min 가능
 
 ```javascript
 function solution(s) {
