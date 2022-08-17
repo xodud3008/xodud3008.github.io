@@ -72,9 +72,10 @@ last_modified_at: 2022-08-15
 - 식별자는 정해진 규칙을 지켜 작성
     - 첫 글자는 영문자, 밑줄(_), 달러 기호($)
 - 예약어는 식별자로 사용할 수 없음
-    | arguments | breake | case | continue | default |
-    | --- | --- | --- | --- | --- |
-    | do | else | false | for | function |
-    | if | null | return | super | switch |
-    | this | true | try | typeof | var |
-    | void | while | with | - | - |
+
+    |arguments|breake|case|continue|default|
+    |---|---|---|---|---|
+    |do|else|false|for|function|
+    |if|null|return|super|switch|
+    |this|true|try|typeof|var|
+    |void|while|with|-|-|
