@@ -3,7 +3,7 @@ title: "Javascript 1일차"
 excerpt: "자바스크립트 기본 개념"
 
 categories:
-  - HTML&CSS
+  - Javascript
 tags:
   - [Javascript, Javascript 개념, Javascript 구조, 웹 프로그래밍]
 
