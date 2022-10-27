@@ -1,6 +1,6 @@
 ---
 title: "Javascript 3일차"
-excerpt: "자바스크립트 변수, 연산자, 자로형"
+excerpt: "자바스크립트 제어문"
 
 categories:
   - Javascript
@@ -27,7 +27,7 @@ last_modified_at: 2022-10-27
     - 조건이 하나 이고 true, false 일 때 실행할 명령어도 하나일 때 사용
     - 조건 ? true일 때 명령 : false일 때 명령
 - truthy / falsy
-    - falsy 값 : `**0` `“”` `NaN` `undefiend` `Null` `false`**
+    - falsy 값 : **`0` `“”` `NaN` `undefiend` `Null` `false`**
 - switch 문
     - 한번에 여러 개의 조건을 확인할 수 있음
         
