@@ -99,8 +99,8 @@ last_modified_at: 2022-10-30
     | 속성 | 설명 |
     | --- | --- |
     | blur | 폼 요소에 포커스를 잃었을 때 |
-    | change | 목록이나 체크 상태 등이 변경되었을 때. <input>, <select>, <textarea> |
-    | focus | 폼 요소에 포커스가 놓였을 때. <label>, <select>, <textarea>, <button> |
+    | change | 목록이나 체크 상태 등이 변경되었을 때. `<input>`, `<select>`, `<textarea>` |
+    | focus | 폼 요소에 포커스가 놓였을 때. `<label>`, `<select>`, `<textarea>`, `<button>` |
     | reset | 폼이 다시 시작되었을 때 |
     | submit | submit 버튼을 눌렀을 때 |
 
