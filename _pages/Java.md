@@ -1,9 +1,9 @@
 ---
-title: "Javascript"
-permalink: /categories/Javascript/
+title: "Java"
+permalink: /categories/Java/
 layout: category
 author_profile: true
-taxonomy: Javascript
+taxonomy: Java
 ---
 
-Improve my Javascript skills
+Improve my Java skills
