@@ -1,11 +1,11 @@
 ---
-title: "프로그래머스 Lv.0 아이스 아메리카노"
-excerpt: "코딩테스트 프로그래머스 Lv.0 코딩테스트 입문 아이스 아메리카노"
+title: "프로그래머스 Lv.0 최댓값 만들기(1)"
+excerpt: "코딩테스트 프로그래머스 Lv.0 코딩테스트 입문 최댓값 만들기(1)"
 
 categories:
   - CodingTest
 tags:
-  - [코딩테스트, 프로그래머스, 코딩테스트 입문, 아이스 아메리카노, programmers, codingtest, 코딩테스트 연습]
+  - [코딩테스트, 프로그래머스, 코딩테스트 입문, 최댓값 만들기(1), programmers, codingtest, 코딩테스트 연습]
 
 toc: true
 toc_sticky: true
