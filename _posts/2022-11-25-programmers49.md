@@ -5,7 +5,7 @@ excerpt: "코딩테스트 프로그래머스 Lv.0 코딩테스트 입문 최댓�
 categories:
   - CodingTest
 tags:
-  - [코딩테스트, 프로그래머스, 코딩테스트 입문, 최댓값 만들기(1), programmers, codingtest, 코딩테스트 연습]
+  - [코딩테스트, 프로그래머스, 코딩테스트 입문, 프로그래머스 최댓값 만들기, 프로그래머스 최댓값 만들기 자바, 프로그래머스 최댓값 만들기(1), 프로그래머스 최댓값 만들기(1) 자바, codingtest, 코딩테스트 연습]
 
 toc: true
 toc_sticky: true
