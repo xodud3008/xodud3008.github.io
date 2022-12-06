@@ -5,7 +5,7 @@ excerpt: "코딩테스트 프로그래머스 Lv.0 코딩테스트 입문 아이�
 categories:
   - CodingTest
 tags:
-  - [코딩테스트, 프로그래머스, 코딩테스트 입문, 아이스 아메리카노, programmers, codingtest, 코딩테스트 연습]
+  - [코딩테스트, 프로그래머스, 코딩테스트 입문, 아이스 아메리카노, 프로그래머스 아이스 아메리카노, 프로그래머스 아이스 아메리카노 자바]
 
 toc: true
 toc_sticky: true
