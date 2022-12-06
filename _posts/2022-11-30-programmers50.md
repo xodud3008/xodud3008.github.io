@@ -5,7 +5,7 @@ excerpt: "코딩테스트 프로그래머스 Lv.0 코딩테스트 입문 삼각�
 categories:
   - CodingTest
 tags:
-  - [코딩테스트, 프로그래머스, 코딩테스트 입문, 삼각형의 완성조건(1), 자바 배열 정렬, programmers, codingtest, 코딩테스트 연습]
+  - [코딩테스트, 프로그래머스, 코딩테스트 입문, 삼각형의 완성조건(1), 프로그래머스 삼각형의 완성조건(1), 프로그래머스 삼각형의 완성조건, 자바 배열 정렬, programmers, codingtest, 코딩테스트 연습, 프로그래머스 삼각형의 완성조건 자바, 프로그래머스 삼각형의 완성조건 자바(1)]
 
 toc: true
 toc_sticky: true
