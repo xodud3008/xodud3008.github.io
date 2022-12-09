@@ -5,7 +5,7 @@ excerpt: "코딩테스트 프로그래머스 Lv.1 연습문제 평균 구하기"
 categories:
   - CodingTest
 tags:
-  - [코딩테스트, 프로그래머스, 평균 구하기, programmers, codingtest, 코딩테스트 연습]
+  - [코딩테스트, 프로그래머스, 평균 구하기, programmers, codingtest, 코딩테스트 연습, 프로그래머스 평균 구하기, 프로그래머스 평균 구하기 자바스크립트]
 
 toc: true
 toc_sticky: true
