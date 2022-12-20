@@ -18,18 +18,18 @@ last_modified_at: 2022-12-20
 ![51](/assets/images/52.png)
 
 #### 해결과정
-1. 기초적인 사칙연산 문제
+1. 나머지와 몫을 구하는 문제
 
 ```java
 class Solution {
-    public int solution(int n) {
-      int answer = 0;
-      if(n % 7 == 0) {
-        answer = n / 7;    
-      } else {
-        answer = n / 7 + 1;    
-      }
-      return answer;
+  public int solution(int n) {
+    int answer = 0;
+    if(n % 7 == 0) {
+      answer = n / 7;    
+    } else {
+      answer = n / 7 + 1;    
     }
+    return answer;
+  }
 }
 ```
