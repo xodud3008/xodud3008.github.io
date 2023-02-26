@@ -15,7 +15,7 @@ last_modified_at: 2023-02-26
 ---
 
 #### 문제
-![53](/assets/images/p53.png)
+![53](/assets/images/53.png)
 
 #### 해결과정
 
@@ -23,10 +23,6 @@ last_modified_at: 2023-02-26
 * 문자열이 다른 문자열을 포함하는지 확인하는 메소드
   * str1.contains(str2)
   * 사용하기 전에 import 해주기
-
-##### 자바스크립트 includes 메소드
-* 문자열이 다른 문자열을 포함하는지 확인하는 메소드
-  * str1.includes(str2)
 
 ```java
 // 자바 source
@@ -44,6 +40,10 @@ class Solution {
     }
 }
 ```
+
+##### 자바스크립트 includes 메소드
+* 문자열이 다른 문자열을 포함하는지 확인하는 메소드
+  * str1.includes(str2)
 
 ```javascript
 // 자바스크립트
