@@ -20,11 +20,22 @@ last_modified_at: 2023-03-07
 #### 해결과정
 
 ##### 자바 
-* 풀이 예정
+* 자바스크립트와 비슷한 로직
+  * 자바 문자열 인덱스에 접근하는 방법 : str.charAt(i)
 
 ```java
 // 자바 source
-//comming soon...
+class Solution {
+    public String solution(String cipher, int code) {
+        String answer = "";
+        for(int i = 1; i<=cipher.length(); i++) {
+            if(i % code == 0) {
+                answer += cipher.charAt(i - 1);
+            }
+        }
+        return answer;
+    }
+}
 ```
 
 ##### 자바스크립트 
