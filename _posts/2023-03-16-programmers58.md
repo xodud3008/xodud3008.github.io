@@ -21,6 +21,7 @@ last_modified_at: 2023-03-16
 
 ##### 자바 
 * split() 메소드를 사용하기 위해 order를 문자형으로 변환
+* 문자열 비교하기 위해 equals() 함수 사용
 
 ```java
 // 자바 source
