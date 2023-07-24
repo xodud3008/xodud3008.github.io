@@ -20,7 +20,7 @@ title                    : "개발자로 성장하자"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Taeyoung"
-description              : "Javascript와 Node.js를 공부하는 블로그"
+description              : "내 메모장"
 url                      : "https://xodud3008.github.io" # the base hostname & protocal for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "xodud3008/blog-comment" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
