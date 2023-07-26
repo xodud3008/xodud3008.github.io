@@ -3,9 +3,9 @@ title: "Authentication - Cookie, Session"
 excerpt: "인증 & 보안. 쿠키, 세션 인증. 쿠키, 세션 사용법"
 
 categories:
-  - TIL
+  - Study
 tags:
-  - [Blog, jekyll, Github, Git, TIL, Javascript, authentication, cookie, session, Node.js, 인증서, 보안, 쿠키, 세션]
+  - [Blog, jekyll, Github, Git, Javascript, authentication, cookie, session, Node.js, 인증서, 보안, 쿠키, 세션]
 
 toc: true
 toc_sticky: true

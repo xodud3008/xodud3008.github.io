@@ -3,9 +3,9 @@ title:  "데이터베이스 MVC & ORM"
 excerpt: "데이터베이스 MVC, ORM"
 
 categories:
-  - TIL
+  - Database
 tags:
-  - [Blog, jekyll, Github, Git, TIL, Javascript, Database, schema, relation, relation database, SQL, NoSQL, MVC, ORM]
+  - [Blog, jekyll, Github, Git, Database, schema, relation, relation database, SQL, NoSQL, MVC, ORM]
 
 toc: true
 toc_sticky: true

@@ -3,9 +3,9 @@ title: "Auto Deploy"
 excerpt: "AWS를 이용한 배포 자동화 구성"
 
 categories:
-  - TIL
+  - Study
 tags:
-  - [Blog, jekyll, Github, Git, TIL, Javascript, node.js, 노드js, 자바스크립트, aws, 배포 자동화, auto deploy, 배포]
+  - [Blog, jekyll, Github, Git, aws, 배포 자동화, auto deploy, 배포]
 
 toc: true
 toc_sticky: true

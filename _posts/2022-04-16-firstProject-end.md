@@ -5,7 +5,7 @@ excerpt: "첫번째 프로젝트. 백엔드 개발자. 첫번째 프로젝트 �
 categories:
   - Project
 tags:
-  - [Blog, jekyll, Github, Git, TIL, Javascript, codestates, firstproject, 첫번째 프로젝트, 코드스테이츠, 백엔드, 프론트엔드, first project 회고, 첫 프로젝트 회고, 프로젝트 마무리]
+  - [Blog, jekyll, Github, Git, Javascript, codestates, firstproject, 첫번째 프로젝트, 코드스테이츠, 백엔드, 프론트엔드, first project 회고, 첫 프로젝트 회고, 프로젝트 마무리]
 
 toc: true
 toc_sticky: true

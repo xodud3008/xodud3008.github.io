@@ -3,9 +3,9 @@ title: "데이터베이스 정규화"
 excerpt: "데이터베이스 정규화, sql 종류"
 
 categories:
-  - TIL
+  - Database
 tags:
-  - [Blog, jekyll, Github, Git, TIL, Javascript, node.js, 노드js, 자바스크립트, 데이터베이스, 정규화, 데이터베이스 정규화, sql 종류, 데이터베이스 설계]
+  - [Blog, jekyll, Github, Git, 데이터베이스, 정규화, 데이터베이스 정규화, sql 종류, 데이터베이스 설계]
 
 toc: true
 toc_sticky: true

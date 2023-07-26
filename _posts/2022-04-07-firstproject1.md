@@ -5,7 +5,7 @@ excerpt: "첫번째 프로젝트. 백엔드 개발자. 소셜 로그인 구현�
 categories:
   - Project
 tags:
-  - [Blog, jekyll, Github, Git, TIL, Javascript, codestates, firstproject, 첫번째 프로젝트, 코드스테이츠, 백엔드, 프론트엔드]
+  - [Blog, jekyll, Github, Git, Javascript, codestates, firstproject, 첫번째 프로젝트, 코드스테이츠, 백엔드, 프론트엔드]
 
 toc: true
 toc_sticky: true

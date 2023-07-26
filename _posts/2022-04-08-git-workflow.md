@@ -5,7 +5,7 @@ excerpt: "첫번째 프로젝트. 백엔드 개발자. 깃 워크플로우. 프�
 categories:
   - Project
 tags:
-  - [Blog, jekyll, Github, Git, TIL, Javascript, codestates, firstproject, 첫번째 프로젝트, 코드스테이츠, 백엔드, 프론트엔드, git, git workflow, 깃허브, 깃 워크플로우, 깃 명령어, git merge, git pull, git remote]
+  - [Blog, jekyll, Github, Git, Javascript, codestates, firstproject, 첫번째 프로젝트, 코드스테이츠, 백엔드, 프론트엔드, git, git workflow, 깃허브, 깃 워크플로우, 깃 명령어, git merge, git pull, git remote]
 
 toc: true
 toc_sticky: true

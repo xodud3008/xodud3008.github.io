@@ -1,9 +1,9 @@
 ---
-title: "TIL"
-permalink: /categories/TIL/
+title: "Study"
+permalink: /categories/Study/
 layout: category
 author_profile: true
-taxonomy: TIL
+taxonomy: Study
 ---
 
 Today I Learned

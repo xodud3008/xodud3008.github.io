@@ -3,9 +3,9 @@ title: "Authentication - oauth"
 excerpt: "인증 & 보안. oauth 인증. oauth인증 사용법"
 
 categories:
-  - TIL
+  - Study
 tags:
-  - [Blog, jekyll, Github, Git, TIL, Javascript, authentication, cookie, session, Node.js, 인증서, 보안, 쿠키, 세션, token, 토큰, oauth]
+  - [Blog, jekyll, Github, Git, Javascript, authentication, cookie, session, Node.js, 인증서, 보안, 쿠키, 세션, token, 토큰, oauth]
 
 toc: true
 toc_sticky: true
