@@ -5,7 +5,7 @@ excerpt: "알고리즘 문제. 보드 게임"
 categories:
   - CodingTest
 tags:
-  - [Blog, jekyll, Github, Git, Javascript, 알고리즘, Greedy Algorithm, 자바스크립트, 백엔드, CS, Computer Science, 코딩테스트, 보드게임, 보드 게임, 보드 게임, 알고리즘 문제]
+  - [Blog, jekyll, Github, Git, Javascript, 알고리즘, Greedy Algorithm, 자바스크립트, CS, Computer Science, 코딩테스트, 보드게임, 보드 게임, 보드 게임, 알고리즘 문제]
 
 toc: true
 toc_sticky: true
