@@ -1,5 +1,5 @@
 ---
-title: "이 블로그 설명서"
+title: "블로그 설명서"
 permalink: /about/
 layout: single
 ---
@@ -10,10 +10,8 @@ layout: single
 
 #### 저자 : Taeyoung
 
-#### 기술스택 : Javascript, React, Node.js... 를 위해 공부중...
-#### 풀스택 개발자가 되고 싶은 걸음마를 시작한 개발자
+#### 기술스택 : 자바, 자바스크립트, Node.js
 
 #### 목표
- * 매일 TIL 작성
- * 매일 코딩테스트 1문제 풀기
+ * 1일 1커밋
  * 깃허브 블로그 꾸미기
