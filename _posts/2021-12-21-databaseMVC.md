@@ -3,7 +3,7 @@ title:  "데이터베이스 MVC & ORM"
 excerpt: "데이터베이스 MVC, ORM"
 
 categories:
-  - Database
+  - DB
 tags:
   - [Blog, jekyll, Github, Git, Database, schema, relation, relation database, SQL, NoSQL, MVC, ORM]
 

@@ -3,7 +3,7 @@ title: "데이터베이스 정규화"
 excerpt: "데이터베이스 정규화, sql 종류"
 
 categories:
-  - Database
+  - DB
 tags:
   - [Blog, jekyll, Github, Git, 데이터베이스, 정규화, 데이터베이스 정규화, sql 종류, 데이터베이스 설계]
 
