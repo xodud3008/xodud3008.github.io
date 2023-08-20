@@ -1,6 +1,6 @@
 ---
 title: "HTML/CSS"
-permalink: /categories/HTML&CSS/
+permalink: /categories/CSS/
 layout: category
 author_profile: true
 taxonomy: HTML/CSS
