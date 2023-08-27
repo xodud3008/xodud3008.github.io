@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>코드스테이츠 섹션2 회고 - 개발자로 성장하자</title>
-<meta name="description" content="코드스테이츠 섹션2 HA2 회고, 느낀점, 나아갈 방향">
+<!-- begin _includes/seo.html --><title>[Greedy] 짐 나르기 - 개발자로 성장하자</title>
+<meta name="description" content="알고리즘 문제. [Greedy] 짐 나르기">
 
 
   <meta name="author" content="Taeyoung">
@@ -22,32 +22,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="개발자로 성장하자">
-<meta property="og:title" content="코드스테이츠 섹션2 회고">
-<meta property="og:url" content="http://localhost:4000/til/HA2/">
+<meta property="og:title" content="[Greedy] 짐 나르기">
+<meta property="og:url" content="http://localhost:4000/study/algorithm-greedy/">
 
 
-  <meta property="og:description" content="코드스테이츠 섹션2 HA2 회고, 느낀점, 나아갈 방향">
-
-
-
+  <meta property="og:description" content="알고리즘 문제. [Greedy] 짐 나르기">
 
 
 
 
-  <meta property="article:published_time" content="2021-12-09T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2021-12-09T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-02-20T00:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2021-02-20T00:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/til/HA2/">
+
+<link rel="canonical" href="http://localhost:4000/study/algorithm-greedy/">
 
 
 
@@ -277,16 +277,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="코드스테이츠 섹션2 회고">
-    <meta itemprop="description" content="코드스테이츠 섹션2 HA2 회고, 느낀점, 나아갈 방향">
-    <meta itemprop="datePublished" content="2021-12-09T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2021-12-09T00:00:00+09:00">
+    <meta itemprop="headline" content="[Greedy] 짐 나르기">
+    <meta itemprop="description" content="알고리즘 문제. [Greedy] 짐 나르기">
+    <meta itemprop="datePublished" content="2022-02-20T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2021-02-20T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/til/HA2/" class="u-url" itemprop="url">코드스테이츠 섹션2 회고
+            <a href="http://localhost:4000/til/algorithm-greedy/" class="u-url" itemprop="url">[Greedy] 짐 나르기
 </a>
           </h1>
           
@@ -303,7 +303,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          최대 1 분 소요
+          1 분 소요
         
       </span>
     
@@ -318,33 +318,68 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-              <ul class="toc__menu"><li><a href="#섹션2-회고">섹션2 회고</a><ul><li><a href="#배운-것">배운 것</a></li><li><a href="#앞으로">앞으로</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#문제">문제</a></li><li><a href="#입력">입력</a></li><li><a href="#출력">출력</a></li><li><a href="#주의사항">주의사항</a></li><li><a href="#입출력-예시">입출력 예시</a></li><li><a href="#해결과정">해결과정</a></li></ul>
 
             </nav>
           </aside>
         
-        <h3 id="섹션2-회고">섹션2 회고</h3>
+        <h4 id="문제">문제</h4>
+<p>김코딩과 박해커는 사무실 이사를 위해 짐을 미리 싸 둔 뒤, 짐을 넣을 박스를 사왔다. 박스를 사오고 보니 각 이사짐의 무게는 들쭉날쭉한 반면, 박스는 너무 작아서 한번에 최대 2개의 짐 밖에 넣을 수 없었고 무게 제한도 있었다.
+예를 들어, 짐의 무게가 [70kg, 50kg, 80kg, 50kg]이고 박스의 무게 제한이 100kg이라면 2번째 짐과 4번째 짐은 같이 넣을 수 있지만 1번째 짐과 3번째 짐의 무게의 합은 150kg이므로 박스의 무게 제한을 초과하여 같이 넣을 수 없다.
+박스를 최대한 적게 사용하여 모든 짐을 옮기려고 합니다.
+짐의 무게를 담은 배열 stuff와 박스의 무게 제한 limit가 매개변수로 주어질 때, 모든 짐을 옮기기 위해 필요한 박스 개수의 최소값을 return 하도록 movingStuff 함수를 작성하세요.</p>
 
-<p>어찌저찌 꾸역꾸역 HA2를 통과했다. 아직도 어떻게 통과했는지 모르겠지만… 어쨌든 섹션3로 이동 성공</p>
-
-<h4 id="배운-것">배운 것</h4>
+<h4 id="입력">입력</h4>
 <ul>
-  <li>[JS/Node] 객체 지향 JavaScript, 비동기</li>
-  <li>[자료구조/알고리즘] 재귀, Stack, Queue, Graph, Tree</li>
-  <li>[HTTP/네트워크] 클라이언트-서버 통신, API, CORS</li>
-  <li>[React] 비동기, 컴포넌트 디자인, 상태관리 Redux</li>
-  <li>[Web Server] HTTP 트랜젝션, Node.js Express</li>
+  <li>인자 1: stuff
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">number</code> 타입의 40 이상 240 이하의 자연수를 담은 배열</li>
+    </ul>
+  </li>
+  <li>인자 2: limited
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">number</code> 타입의 40 이상 240 이하의 자연수</li>
+    </ul>
+  </li>
 </ul>
 
-<p>자료구조에서 상당히 애를 먹었다. 아직도 잘 이해가 안가지만… 이건 알고리즘 푸는 데 사용되니 앞으로도 계속 공부해야 겠다.
-React에서의 비동기, props 등은 계속 봐야할 부문(그냥 React를 계속 공부해야겠다.) 섹션3로 넘어가도 frontend 부분을 계속 보면서 까먹지 않게 공부하기</p>
+<h4 id="출력">출력</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">number</code> 타입을 리턴</li>
+  <li>모든 짐을 옮기기 위해 필요한 박스 개수의 최솟값을 숫자로 반환</li>
+</ul>
 
-<h4 id="앞으로">앞으로</h4>
-<p>Toy 문제를 푸는데 많은 어려움과 좌절감을 느꼈다. 취업을 위한 코딩 테스트 준비를 위해서도 통과 못한 문제를 계속 풀면서 실력을 키워야겠다. 특히 자료구조는 두번보고 세번보고 계속보고… 이외에도 잠시 멈춰두었던 코딩테스트 문제 하루에 한문제 정도는 풀어보기</p>
+<h4 id="주의사항">주의사항</h4>
+<ul>
+  <li>옮겨야 할 짐의 개수는 1개 이상 50,000개 이하</li>
+  <li>박스의 무게 제한은 항상 짐의 무게 중 최대값보다 크게 주어지므로 짐을 나르지 못하는 경우는 없다.</li>
+</ul>
 
-<p>섹션2를 통과했지만 React를 완벽히 이해한 것은 아니다. 테스트 통과를 위한 코딩을 해서 어찌 통과는 된 것 같다. 섹션3로 넘어가도 React를 놓지 않고 계속 봐서 까먹지 않도록 유지하기</p>
+<h4 id="입출력-예시">입출력 예시</h4>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">movingStuff</span><span class="p">([</span><span class="mi">70</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// 3</span>
 
-<p>섹션1을 시작한지 얼마 되지 않은 것 같은데 벌써 섹션3가 시작된다. 어영부영 하다보면 금방 끝나고 수료해서 취업을 해야한다. 수료후 후회하지 않도록 조금만 더 힘내서 공부하자. 수료 후 바로 취업할 수 있도록 만반의 준비를 지금부터 하기</p>
+<span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">movingStuff</span><span class="p">([</span><span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">130</span><span class="p">],</span> <span class="mi">140</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// 4</span>
+</code></pre></div></div>
+
+<h4 id="해결과정">해결과정</h4>
+<p>가장 가벼운 것을 기준으로 제일 무거운 것부터 limited보다 작거나 작게 합쳐서 빼는 방식으로 하려고 했으나 실패.
+가장 무거운 것을 기준으로 limited보다 작거나 같게 합쳐서 빼는 방식으로 해결.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">movingStuff</span><span class="p">(</span><span class="nx">stuff</span><span class="p">,</span> <span class="nx">limit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">newStuff</span> <span class="o">=</span> <span class="nx">stuff</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">)</span>
+  <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">while</span><span class="p">(</span><span class="nx">newStuff</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">newStuff</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">newStuff</span><span class="p">[</span><span class="nx">newStuff</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="nx">limit</span><span class="p">){</span>
+      <span class="nx">newStuff</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="nx">newStuff</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
+    <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">count</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
         
       </section>
@@ -363,29 +398,35 @@ React에서의 비동기, props 등은 계속 봐야할 부문(그냥 React를 �
     
       <a href="/tags/#blog" class="page__taxonomy-item p-category" rel="tag">Blog</a><span class="sep">, </span>
     
-      <a href="/tags/#codestates" class="page__taxonomy-item p-category" rel="tag">codestates</a><span class="sep">, </span>
+      <a href="/tags/#computer-science" class="page__taxonomy-item p-category" rel="tag">Computer Science</a><span class="sep">, </span>
+    
+      <a href="/tags/#cs" class="page__taxonomy-item p-category" rel="tag">CS</a><span class="sep">, </span>
     
       <a href="/tags/#git" class="page__taxonomy-item p-category" rel="tag">Git</a><span class="sep">, </span>
     
       <a href="/tags/#github" class="page__taxonomy-item p-category" rel="tag">Github</a><span class="sep">, </span>
     
-      <a href="/tags/#ha" class="page__taxonomy-item p-category" rel="tag">HA</a><span class="sep">, </span>
+      <a href="/tags/#greedy-algorithm" class="page__taxonomy-item p-category" rel="tag">Greedy Algorithm</a><span class="sep">, </span>
     
-      <a href="/tags/#ha2" class="page__taxonomy-item p-category" rel="tag">HA2</a><span class="sep">, </span>
+      <a href="/tags/#greedy-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" class="page__taxonomy-item p-category" rel="tag">greedy 알고리즘</a><span class="sep">, </span>
     
       <a href="/tags/#javascript" class="page__taxonomy-item p-category" rel="tag">Javascript</a><span class="sep">, </span>
     
       <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">jekyll</a><span class="sep">, </span>
     
-      <a href="/tags/#react" class="page__taxonomy-item p-category" rel="tag">React</a><span class="sep">, </span>
+      <a href="/tags/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a><span class="sep">, </span>
     
-      <a href="/tags/#reducer" class="page__taxonomy-item p-category" rel="tag">reducer</a><span class="sep">, </span>
+      <a href="/tags/#%EA%B7%B8%EB%A6%AC%EB%94%94-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" class="page__taxonomy-item p-category" rel="tag">그리디 알고리즘</a><span class="sep">, </span>
     
-      <a href="/tags/#redux" class="page__taxonomy-item p-category" rel="tag">Redux</a><span class="sep">, </span>
+      <a href="/tags/#%EB%B0%B1%EC%97%94%EB%93%9C" class="page__taxonomy-item p-category" rel="tag">백엔드</a><span class="sep">, </span>
     
-      <a href="/tags/#store" class="page__taxonomy-item p-category" rel="tag">store</a><span class="sep">, </span>
+      <a href="/tags/#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" class="page__taxonomy-item p-category" rel="tag">알고리즘</a><span class="sep">, </span>
     
-      <a href="/tags/#til" class="page__taxonomy-item p-category" rel="tag">TIL</a>
+      <a href="/tags/#%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8" class="page__taxonomy-item p-category" rel="tag">자바스크립트</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%A7%90-%EB%82%98%EB%A5%B4%EA%B8%B0" class="page__taxonomy-item p-category" rel="tag">짐 나르기</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8" class="page__taxonomy-item p-category" rel="tag">코딩테스트</a>
     
     </span>
   </p>
@@ -410,7 +451,7 @@ React에서의 비동기, props 등은 계속 봐야할 부문(그냥 React를 �
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-12-09">December 9, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2021-02-20">February 20, 2021</time></p>
 
       </footer>
 
@@ -419,22 +460,22 @@ React에서의 비동기, props 등은 계속 봐야할 부문(그냥 React를 �
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%EC%BD%94%EB%93%9C%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%B8%A0+%EC%84%B9%EC%85%982+%ED%9A%8C%EA%B3%A0%20http%3A%2F%2Flocalhost%3A4000%2Ftil%2FHA2%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BGreedy%5D+%EC%A7%90+%EB%82%98%EB%A5%B4%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Ftil%2Falgorithm-greedy%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FHA2%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftil%2Falgorithm-greedy%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FHA2%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftil%2Falgorithm-greedy%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/til/TIL-Redux/" class="pagination--pager" title="Redux
+      <a href="/error%20handling/aws-error-2/" class="pagination--pager" title="AWS Ubuntu 오류. Error: Missing required argument #1
 ">이전</a>
     
     
-      <a href="/codingtest/baekjoon-1546/" class="pagination--pager" title="백준 1546 자바스크립트(1차원 배열)
+      <a href="/til/ha3/" class="pagination--pager" title="코드스테이츠 섹션3 회고
 ">다음</a>
     
   </nav>
@@ -579,7 +620,7 @@ React에서의 비동기, props 등은 계속 봐야할 부문(그냥 React를 �
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/til/algorithm-greedy/" rel="permalink">[Greedy] 짐 나르기
+        <a href="/error%20handling/aws-error-2/" rel="permalink">AWS Ubuntu 오류. Error: Missing required argument #1
 </a>
       
     </h2>
@@ -597,14 +638,14 @@ React에서의 비동기, props 등은 계속 봐야할 부문(그냥 React를 �
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          최대 1 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">알고리즘 문제. [Greedy] 짐 나르기
+    <p class="archive__item-excerpt" itemprop="description">Error: Missing required argument #1
 </p>
   </article>
 </div>
