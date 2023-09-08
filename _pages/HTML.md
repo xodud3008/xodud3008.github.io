@@ -1,9 +1,9 @@
 ---
-title: "HTML/CSS"
+title: "HTML"
 permalink: /categories/HTML/
 layout: category
 author_profile: true
-taxonomy: HTML/CSS
+taxonomy: HTML
 ---
 
 Improve my HTML&CSS skills
