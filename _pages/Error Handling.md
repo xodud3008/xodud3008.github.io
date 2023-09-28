@@ -1,9 +1,9 @@
 ---
-title: "Error Handling"
-permalink: /categories/Error Handling/
+title: "ErrorHandling"
+permalink: /categories/ErrorHandling/
 layout: category
 author_profile: true
-taxonomy: Error Handling
+taxonomy: ErrorHandling
 ---
 
 Let's fix the Error!!
