@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-
+Disallow:
 Sitemap: https://xodud3008.github.io/sitemap.xml
