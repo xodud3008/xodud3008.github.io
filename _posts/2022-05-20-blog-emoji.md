@@ -5,7 +5,7 @@ excerpt: "마크다운 문서로 보면 적용 되지만 업로드 했을 때 �
 categories:
   - ErrorHandling
 tags:
-  - [Blog, jekyll, Github, Git, git blog, 깃허브 블로그, 깃허브 블로그 이모지, 깃허브 블로그 이모지 적용 안됨]
+  - [Blog, jekyll, git blog, 깃허브 블로그, 깃허브 블로그 이모지, ErrorHandling]
 
 toc: true
 toc_sticky: true
