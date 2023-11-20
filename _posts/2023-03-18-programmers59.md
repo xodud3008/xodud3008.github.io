@@ -5,7 +5,7 @@ excerpt: "코딩테스트 프로그래머스 Lv.0 코딩테스트 입문 주사�
 categories:
   - CodingTest
 tags:
-  - [코딩테스트, 프로그래머스, 코딩테스트 입문, "주사위의 개수", 프로그래머스 주사위의 개수, programmers, codingtest, 코딩테스트 연습, 프로그래머스 주사위의 개수 자바, 자바 코딩 테스트, 자바 주사위의 개수, 자바스크립트 주사위의 개수, 주사위의 개수 자바스크립트]
+  - [코딩테스트, 프로그래머스, Java, Javascript]
 
 toc: true
 toc_sticky: true
