@@ -18,7 +18,8 @@ last_modified_at: 2023-11-20
 ![p60](/assets/images/p60.png)
 
 #### 해결과정
-문자열을 변경하는 함수 replace 활용
+- 문자열을 변경하는 함수 replace 활용
+- 대문자로 변경하는 toUpperCase() 사용
 
 ```java
 // 자바 source
