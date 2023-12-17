@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.0 특정한 문자를 대문자로 바꾸기"
 excerpt: "프로그래머스 Lv.0 java 특정한 문자를 대문자로 바꾸기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, Java]
 

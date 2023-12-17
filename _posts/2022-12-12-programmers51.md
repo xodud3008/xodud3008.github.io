@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.0 양꼬치"
 excerpt: "코딩테스트 프로그래머스 Lv.0 코딩테스트 입문 양꼬치"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 코딩테스트 입문, 양꼬치, 프로그래머스 양꼬치, 프로그래머스 양꼬치, programmers, codingtest, 코딩테스트 연습, 프로그래머스 양꼬치 자바]
 

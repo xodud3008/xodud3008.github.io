@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.0 피자 나눠 먹기 (1)"
 excerpt: "코딩테스트 프로그래머스 Lv.0 코딩테스트 입문 피자 나눠 먹기 (1)"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 코딩테스트 입문, 피자 나눠 먹기 (1), 프로그래머스 피자 나눠 먹기 (1), programmers, codingtest, 코딩테스트 연습, 프로그래머스 피자 나눠 먹기 (1) 자바]
 

@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 가운데 글자 가져오기"
 excerpt: "코딩테스트 프로그래머스 연습문제 가운데 글자 가져오기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 연습문제, 가운데 글자 가져오기, programmers, codingtest, 코딩테스트 연습]
 

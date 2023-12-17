@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 제일 작은 수 제거하기"
 excerpt: "코딩테스트 프로그래머스 Lv.1 연습문제 제일 작은 수 제거하기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 연습문제, 제일 작은 수 제거하기, programmers, codingtest, 코딩테스트 연습]
 

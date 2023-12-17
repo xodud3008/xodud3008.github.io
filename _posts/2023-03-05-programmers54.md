@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.0 n의 배수 고르기"
 excerpt: "코딩테스트 프로그래머스 Lv.0 코딩테스트 입문 n의 배수 고르기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 코딩테스트 입문, n의 배수 고르기, 프로그래머스 n의 배수 고르기, programmers, codingtest, 코딩테스트 연습, 프로그래머스 n의 배수 고르기 자바, 자바 코딩 테스트, 자바 n의 배수 고르기, 자바스크립트 n의 배수 고르기, n의 배수 고르기 자바스크립트]
 

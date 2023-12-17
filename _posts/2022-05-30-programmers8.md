@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 내적"
 excerpt: "코딩테스트 프로그래머스 Lv.1 월간 코드 챌린지 시즌1 내적"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 내적, 월간 코드 챌린지 시즌1, programmers, codingtest, 코딩테스트 연습, 프로그래머스 내적, 프로그래머스 내적 자바스크립트]
 

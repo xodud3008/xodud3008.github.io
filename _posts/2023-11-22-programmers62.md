@@ -3,7 +3,7 @@ title: "소문자로 바꾸기"
 excerpt: "프로그래머스 Lv.1 소문자로 바꾸기 자바"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, java, 자바]
 

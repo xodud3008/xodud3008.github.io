@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 K번째수"
 excerpt: "코딩테스트 프로그래머스 Lv.1 정렬 K번째수"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 정렬, K번째수, programmers, codingtest, 코딩테스트 연습]
 

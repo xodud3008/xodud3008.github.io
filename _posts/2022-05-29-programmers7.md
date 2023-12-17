@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 정수 제곱근 판별"
 excerpt: "코딩테스트 프로그래머스 Lv.1 연습문제 음양 더하기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 정수 제곱근 판별, programmers, codingtest, 코딩테스트 연습, 프로그래머스 정수 제곱근 판별, 프로그래머스 정수 제곱근 판별 자바스크립트]
 

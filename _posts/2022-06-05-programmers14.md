@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 완주하지 못한 선수"
 excerpt: "코딩테스트 프로그래머스 해시 완주하지 못한 선수"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 해시, 완주하지 못한 선수, programmers, codingtest, 코딩테스트 연습]
 

@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.0 암호 해독"
 excerpt: "코딩테스트 프로그래머스 Lv.0 코딩테스트 입문 암호 해독"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 코딩테스트 입문, 암호 해독, 프로그래머스 암호 해독, programmers, codingtest, 코딩테스트 연습, 프로그래머스 암호 해독 자바, 자바 코딩 테스트, 자바 암호 해독, 자바스크립트 암호 해독, 암호 해독 자바스크립트]
 

@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 행렬의 덧셈"
 excerpt: "코딩테스트 프로그래머스 연습문제 행렬의 덧셈"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 연습문제, 행렬의 덧셈, programmers, codingtest, 코딩테스트 연습]
 

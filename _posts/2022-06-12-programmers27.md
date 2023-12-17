@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 두 정수 사이의 합"
 excerpt: "코딩테스트 프로그래머스 연습문제 두 정수 사이의 합"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 연습문제, 두 정수 사이의 합, programmers, codingtest, 코딩테스트 연습]
 

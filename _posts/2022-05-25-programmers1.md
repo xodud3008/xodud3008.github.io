@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 약수의 개수와 덧셈"
 excerpt: "코딩테스트 프로그래머스 Lv.1 월간 코드챌린지 시즌2 약수의 개수와 덧셈"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 프로그래머스 약수의 개수와 덧셈, 약수의 개수와 덧셈 자바스크립트, 약수의 개수와 덧셈, programmers, codingtest, 코딩테스트 연습, 프로그래머스 약수의 개수와 덧셈 자바스크립트]
 

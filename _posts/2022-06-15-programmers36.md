@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 없는 같은 숫자는 싫어"
 excerpt: "코딩테스트 프로그래머스 연습문제 없는 같은 숫자는 싫어"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 연습문제, 없는 같은 숫자는 싫어, programmers, codingtest, 코딩테스트 연습]
 

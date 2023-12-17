@@ -3,7 +3,7 @@ title: "어린 동물 찾기"
 excerpt: "프로그래머스 오라클 Lv.1 어린 동물 찾기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, oracle]
 

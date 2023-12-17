@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 나머지가 1이 되는 수 찾기"
 excerpt: "코딩테스트 프로그래머스 월간 코드 챌린지 시즌3 나머지가 1이 되는 수 찾기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 월간 코드 챌린지 시즌3, 나머지가 1이 되는 수 찾기, programmers, codingtest, 코딩테스트 연습]
 

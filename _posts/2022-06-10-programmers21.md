@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 서울에서 김서방 찾기"
 excerpt: "코딩테스트 프로그래머스 연습문제 서울에서 김서방 찾기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 연습문제, 서울에서 김서방 찾기, programmers, codingtest, 코딩테스트 연습]
 

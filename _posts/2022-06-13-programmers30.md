@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 문자열 내 p와 y의 개수"
 excerpt: "코딩테스트 프로그래머스 연습문제 문자열 내 p와 y의 개수"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 연습문제, 문자열 내 p와 y의 개수, programmers, codingtest, 코딩테스트 연습]
 

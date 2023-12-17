@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 없는 숫자 더하기"
 excerpt: "코딩테스트 프로그래머스 월간 코드 챌린지 시즌3 없는 숫자 더하기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 월간 코드 챌린지 시즌3, 없는 숫자 더하기, programmers, codingtest, 코딩테스트 연습]
 

@@ -3,7 +3,7 @@ title:  "[Greedy] 짐 나르기"
 excerpt: "알고리즘 문제. [Greedy] 짐 나르기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [Blog, jekyll, Github, Git, Javascript, 알고리즘, Greedy Algorithm, 자바스크립트, 백엔드, CS, Computer Science, 코딩테스트, greedy 알고리즘, 그리디 알고리즘, 짐 나르기]
 

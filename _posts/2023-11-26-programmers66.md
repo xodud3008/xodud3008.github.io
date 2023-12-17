@@ -3,7 +3,7 @@ title: "동물의 아이디와 이름"
 excerpt: "프로그래머스 오라클 Lv.1 동물의 아이디와 이름, 프로그래머스 SQL 문제, 프로그래머스 오라클, 동물의 아이디와 이름, 오라클 정렬, 오라클 코딩테스트"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, oracle]
 

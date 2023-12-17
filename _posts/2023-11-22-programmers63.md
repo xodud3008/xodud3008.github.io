@@ -3,7 +3,7 @@ title: "여러 기준으로 정렬하기"
 excerpt: "프로그래머스 오라클 Lv.1 여러 기준으로 정렬하기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, oracle]
 

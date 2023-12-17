@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.2 최댓값과 최솟값"
 excerpt: "코딩테스트 프로그래머스 연습문제 최댓값과 최솟값"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 연습문제, 최댓값과 최솟값, programmers, codingtest, 코딩테스트 연습]
 

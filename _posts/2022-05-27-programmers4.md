@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 최대공약수와 최소공배수"
 excerpt: "코딩테스트 프로그래머스 Lv.1 연습문제 최대공약수와 최소공배수"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 최대공약수, 최소공배수, 유클리드 호제법, programmers, codingtest, 코딩테스트 연습, 프로그래머스 최대공약수와 최소공배수, 프로그래머스 최대공약수와 최소공배수 자바스크립트]
 

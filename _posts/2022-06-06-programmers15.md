@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 자릿수 더하기"
 excerpt: "코딩테스트 프로그래머스 연습문제 자릿수 더하기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 연습문제, 완주하지 못한 선수, programmers, codingtest, 코딩테스트 연습]
 

@@ -3,7 +3,7 @@ title: "나이 정보가 없는 회원 수 구하기"
 excerpt: "프로그래머스 오라클 Lv.1 나이 정보가 없는 회원 수 구하기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, oracle]
 
