@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.2 N개의 최소공배수"
 excerpt: "코딩테스트 프로그래머스 연습문제 N개의 최소공배수"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 연습문제, N개의 최소공배수, programmers, codingtest, 코딩테스트 연습]
 

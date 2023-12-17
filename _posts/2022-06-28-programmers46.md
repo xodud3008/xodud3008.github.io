@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 폰켓몬"
 excerpt: "코딩테스트 프로그래머스 찾아라 프로그래밍 마에스터 폰켓몬"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 찾아라 프로그래밍 마에스터, 폰켓몬, programmers, codingtest, 코딩테스트 연습]
 

@@ -23,7 +23,7 @@ name                     : "Taeyoung"
 description              : "내 메모장"
 url                      : "https://xodud3008.github.io" # the base hostname & protocal for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "xodud3008/blog-comment" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
@@ -71,7 +71,7 @@ google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
   instant_search         : # false (default), true
 # SEO Related
-google_site_verification :
+google_site_verification : f80PttwzA0DFSgWg6L0efPkG8DrW0jecpZ76RuQs7PE
 bing_site_verification   :
 naver_site_verification  :
 yandex_site_verification :

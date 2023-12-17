@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 최소직사각형"
 excerpt: "코딩테스트 프로그래머스 위클리 챌린지 최소직사각형"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 위클리 챌린지, 최소직사각형, programmers, codingtest, 코딩테스트 연습]
 

@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 문자열 내 마음대로 정렬하기"
 excerpt: "코딩테스트 프로그래머스 연습문제 문자열 내 마음대로 정렬하기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 연습문제, 문자열 내 마음대로 정렬하기, programmers, codingtest, 코딩테스트 연습]
 

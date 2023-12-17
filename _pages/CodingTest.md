@@ -1,9 +1,9 @@
 ---
-title: "CodingTest"
-permalink: /categories/CodingTest/
+title: "codingtest"
+permalink: /categories/codingtest/
 layout: category
 author_profile: true
-taxonomy: CodingTest
+taxonomy: codingtest
 ---
 
-Let's prepare CodingTest!!
+Let's prepare codingtest!!

@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 소수 만들기"
 excerpt: "코딩테스트 프로그래머스 Summer/Winter Coding(~2018) 소수 만들기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, Summer/Winter Coding(~2018), 소수 만들기, programmers, codingtest, 코딩테스트 연습]
 

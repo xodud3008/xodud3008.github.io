@@ -3,7 +3,7 @@ title: "프로그래머스 Lv.1 3진법 뒤집기"
 excerpt: "코딩테스트 프로그래머스 월간 코드 챌린지 시즌1 3진법 뒤집기"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
   - [코딩테스트, 프로그래머스, 월간 코드 챌린지 시즌1, 3진법 뒤집기, programmers, codingtest, 코딩테스트 연습]
 
