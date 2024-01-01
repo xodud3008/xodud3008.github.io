@@ -1,5 +1,5 @@
 ---
-title: "강원도에 위치한 생산공장 목록 출력하기"
+title: "프로그래머스 오라클 Lv.1 강원도에 위치한 생산공장 목록 출력하기"
 excerpt: "다음은 식품공장의 정보를 담은 FOOD_FACTORY 테이블입니다. FOOD_FACTORY 테이블은 다음과 같으며 FACTORY_ID, FACTORY_NAME, ADDRESS, TLNO는 각각 공장 ID, 공장 이름, 주소, 전화번호를 의미합니다."
 
 categories:

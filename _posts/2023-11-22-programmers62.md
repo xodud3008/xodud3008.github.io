@@ -1,5 +1,5 @@
 ---
-title: "소문자로 바꾸기"
+title: "프로그래머스 Lv.1 소문자로 바꾸기 자바"
 excerpt: "프로그래머스 Lv.1 소문자로 바꾸기 자바"
 
 categories:

@@ -1,5 +1,5 @@
 ---
-title: "rny_string"
+title: "프로그래머스 자바 Lv.0 rny_string"
 excerpt: "m과 rn이 모양이 비슷하게 생긴 점을 활용해 문자열에 장난을 하려고 합니다. 문자열 rny_string이 주어질 때, rny_string의 모든 m을 rn으로 바꾼 문자열을 return 하는 solution 함수를 작성해 주세요."
 
 categories:

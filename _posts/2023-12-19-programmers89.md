@@ -1,5 +1,5 @@
 ---
-title: "조건에 맞는 회원수 구하기"
+title: "프로그래머스 오라클 Lv.1 조건에 맞는 회원수 구하기"
 excerpt: "다음은 어느 의류 쇼핑몰에 가입한 회원 정보를 담은 USER_INFO 테이블입니다. USER_INFO 테이블은 아래와 같은 구조로 되어있으며 USER_ID, GENDER, AGE, JOINED는 각각 회원 ID, 성별, 나이, 가입일을 나타냅니다."
 
 categories:

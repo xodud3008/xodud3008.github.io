@@ -1,5 +1,5 @@
 ---
-title: "대문자로 바꾸기"
+title: "프로그래머스 자바 Lv.0 대문자로 바꾸기"
 excerpt: "프로그래머스 자바 Lv.0 대문자로 바꾸기"
 
 categories:
