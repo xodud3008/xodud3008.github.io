@@ -3,9 +3,9 @@ title:  "시간 복잡도 & Greedy Algorithm"
 excerpt: "알고리즘 구현 시 시간 복잡도를 고려해서 효율적으로 코드를 작성해야 한다"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
-  - [Blog, jekyll, Github, Git, Javascript, 알고리즘, Greedy Algorithm, 자바스크립트, 백엔드, CS, Computer Science, 코딩테스트]
+  - [Blog, jekyll, Github, Git, Javascript, 알고리즘, Greedy Algorithm, 자바스크립트, 백엔드, CS, Computer Science, 코딩테스트, codingtest]
 
 toc: true
 toc_sticky: true

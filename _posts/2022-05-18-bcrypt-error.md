@@ -5,7 +5,7 @@ excerpt: "sequelize update시 수정은 되지만 500에러가 뜨는 현상"
 categories:
   - ErrorHandling
 tags:
-  - [Blog, jekyll, Github, Git, Javascript, bcrypt, bcrypt 오류, bcrypt 모듈 에러]
+  - [Blog, jekyll, Github, Git, Javascript, bcrypt, bcrypt 오류, bcrypt 모듈 에러, ErrorHandling]
 
 toc: true
 toc_sticky: true

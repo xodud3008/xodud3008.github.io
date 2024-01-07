@@ -3,9 +3,9 @@ title:  "알고리즘 with 수학"
 excerpt: "수학 공식을 이용한 알고리즘 공식 구현"
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
-  - [Blog, jekyll, Github, Git, Javascript, 알고리즘, Greedy Algorithm, 자바스크립트, 백엔드, CS, Computer Science, 코딩테스트, 순열, 중복순열, 조합, 멱집합, 최대공약수, 최소공배수]
+  - [Blog, jekyll, Github, Git, Javascript, 알고리즘, Greedy Algorithm, 자바스크립트, 백엔드, CS, Computer Science, 코딩테스트, 순열, 중복순열, 조합, 멱집합, 최대공약수, 최소공배수, codingtest]
 
 toc: true
 toc_sticky: true

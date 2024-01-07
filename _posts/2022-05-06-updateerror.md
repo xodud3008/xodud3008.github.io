@@ -5,7 +5,7 @@ excerpt: "sequelize update시 수정은 되지만 500에러가 뜨는 현상"
 categories:
   - ErrorHandling
 tags:
-  - [Blog, jekyll, Github, Git, Javascript, sequelize, sequelize update, sequelize 실행 오류]
+  - [Blog, jekyll, Github, Git, Javascript, sequelize, sequelize update, sequelize 실행 오류, ErrorHandling]
 
 toc: true
 toc_sticky: true
