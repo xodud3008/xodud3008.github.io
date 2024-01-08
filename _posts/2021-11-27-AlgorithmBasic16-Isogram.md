@@ -3,9 +3,9 @@ title:  "Algorithm Isogram"
 excerpt: "문자열을 입력받아 아이소그램인지 여부를 리턴해야 합니다. 아이소그램은 각 알파벳을 한번씩만 이용해서 만든 단어나 문구를 말합니다."
 
 categories:
-  - CodingTest
+  - codingtest
 tags:
-  - [Blog, jekyll, Github, Git, CodingTest, Algorithm, isIsogram]
+  - [Blog, jekyll, Github, Git, codingtest, Algorithm, isIsogram]
 
 toc: true
 toc_sticky: true
